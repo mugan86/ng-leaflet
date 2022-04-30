@@ -2,6 +2,12 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
+    "paths": {
+      "@mugan86/ng-leaflet": [
+        "dist/mugan86/ng-leaflet/mugan86-ng-leaflet",
+        "dist/mugan86/ng-leaflet"
+      ]
+    },
     "baseUrl": "./",
     "outDir": "./dist/out-tsc",
     "forceConsistentCasingInFileNames": true,
