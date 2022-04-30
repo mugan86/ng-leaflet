@@ -23,7 +23,6 @@ export const tileLayers = {
             map: 'https://{s}.tile.osm.org/{z}/{x}/{y}.png',
             atribution: ATRIBUTIONS_LIST.OSM,
         },
-        blackWhite: 'http://{s}.tiles.wmflabs.org/bw-mapnik/{z}/{x}/{y}.png',
         osmManik: {
             map: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
             atribution: ATRIBUTIONS_LIST.OSM,
@@ -85,11 +84,7 @@ export const tileLayers = {
                     'https://basemap.nationalmap.gov/arcgis/rest/services/USGSImageryOnly/MapServer/tile/{z}/{y}/{x}',
             },
             atribution: ATRIBUTIONS_LIST.USGS,
-        },
-        hikeBike: {
-            map: 'https://tiles.wmflabs.org/hikebike/{z}/{x}/{y}.png',
-            atribution: ATRIBUTIONS_LIST.OSM,
-        },
+        }
     },
     overlayers: {
         openSeaMap: 'https://tiles.openseamap.org/seamark/{z}/{x}/{y}.png',

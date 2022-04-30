@@ -1,6 +1,6 @@
 import { tileLayer } from 'leaflet';
 import { tileLayers, tileLayersWMS } from './ui';
-import { ITilerLayerOptions } from './options.interface';
+import { ITilerLayerOptions } from './../../models/tile-layer-options';
 
 export const tileLayerSelect = (
     layer: string = tileLayers.baseLayers.cartoDb.map.positron,
