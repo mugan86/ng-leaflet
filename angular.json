@@ -30,7 +30,8 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "dist/mugan86/ng-leaflet/assets/styles/common.css"
             ],
             "scripts": []
           },

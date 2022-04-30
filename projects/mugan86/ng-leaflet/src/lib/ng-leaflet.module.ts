@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { MapBasicModule } from './map-basic/map-basic.module';
+import { MapBasicModule } from './components/map-basic/map-basic.module';
 import { NgLeafletComponent } from './ng-leaflet.component';
 
 @NgModule({

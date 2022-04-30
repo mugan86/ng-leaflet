@@ -8,7 +8,8 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "lib.build": "ng build @mugan86/ng-leaflet && cp -R ./projects/mugan86/ng-leaflet/src/lib/assets ./dist/mugan86/ng-leaflet/lib",
-    "test.lib": "npm test mugan86/ng-leaflet"
+    "test.lib": "npm test @mugan86/ng-leaflet",
+    "watch:lib": "ng build @mugan86/ng-leaflet --watch && cp -R ./projects/mugan86/ng-leaflet/src/lib/assets ./dist/mugan86/ng-leaflet/lib"
   },
   "private": true,
   "dependencies": {

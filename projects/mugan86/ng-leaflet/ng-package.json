@@ -3,5 +3,6 @@
   "dest": "../../../dist/mugan86/ng-leaflet",
   "lib": {
     "entryFile": "src/public-api.ts"
-  }
+  },
+  "assets": ["assets"]
 }
