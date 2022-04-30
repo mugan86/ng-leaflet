@@ -109,7 +109,7 @@
       "projectType": "library",
       "root": "projects/mugan86/ng-leaflet",
       "sourceRoot": "projects/mugan86/ng-leaflet/src",
-      "prefix": "mlm",
+      "prefix": "alm",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:ng-packagr",
