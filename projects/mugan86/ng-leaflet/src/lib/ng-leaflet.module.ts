@@ -1,16 +1,12 @@
 import { NgModule } from '@angular/core';
-import { MapBasicModule } from './components/map-basic/map-basic.module';
-import { NgLeafletComponent } from './ng-leaflet.component';
+import { MapBasicModule } from './components/map/map.module';
 
 @NgModule({
-  declarations: [
-    NgLeafletComponent
-  ],
+  declarations: [],
   imports: [
     MapBasicModule
   ],
   exports: [
-    NgLeafletComponent,
     MapBasicModule
   ]
 })
