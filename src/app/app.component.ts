@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import { Map, marker, tileLayer } from 'leaflet';
-
+import { IConfigMap, tileLayers } from '@mugan86/ng-leaflet';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -9,5 +8,14 @@ import { Map, marker, tileLayer } from 'leaflet';
 export class AppComponent {
   title = 'angular-leaflet';
 
-  
+  configMap: IConfigMap = {
+    baseLayer: {
+      map: tileLayers.baseLayers.osmHot.map,
+      atribution: tileLayers.baseLayers.osmHot.atribution
+    },
+    overLayer: {
+      map: tileLayers.overlayers.wayMarkedTrails.hiking,
+      atribution: tileLayers.baseLayers.default.atribution
+    }
+  }  
 }

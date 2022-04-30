@@ -1,5 +1,6 @@
-import { AfterViewInit, Component, Input, OnInit } from '@angular/core';
-import { tileLayer, Map, marker } from 'leaflet';
+import { AfterViewInit, Component, Input } from '@angular/core';
+import { IConfigMap } from '../../models/config-map';
+import { NgLeafletMap } from '../../services/ng-leaflet-map.service';
 
 @Component({
   selector: 'alm-map-basic',
@@ -8,10 +9,10 @@ import { tileLayer, Map, marker } from 'leaflet';
   ]
 })
 export class MapComponent implements AfterViewInit {
-  @Input() center: {lng: number, lat: number} = {
+  @Input() center: {lng: number, lat: number}  = {
     lat: 51.5, lng: -0.09
   }
-  @Input() markers: Array<{lng: number, lat: number}> = [
+  @Input() markers: Array<{lng: number, lat: number} > = [
     {
       lat: 51.5, lng: -0.09
     },
@@ -20,22 +21,11 @@ export class MapComponent implements AfterViewInit {
     }
   ];
   @Input() size: {width: string, height: string }= { width: '600px', height: '600px'}
+  @Input() config?: IConfigMap;
 
   ngAfterViewInit(): void {
-    //Called after ngAfterContentInit when the component's view has been initialized. Applies to components only.
-    //Add 'implements AfterViewInit' to the class.
-    const map = new Map('map').setView([35.6414,139.7803], 13);
-    tileLayer('https://{s}.tile-cyclosm.openstreetmap.fr/cyclosm/{z}/{x}/{y}.png', {
-      maxZoom: 20,
-      attribution: '<a href="https://github.com/cyclosm/cyclosm-cartocss-style/releases" title="CyclOSM - Open Bicycle render">CyclOSM</a> | Map data: &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-    }).addTo(map);
-
-    this.markers.map((markerItem) => marker([markerItem.lat, markerItem.lng]).addTo(map).bindPopup("Londres marcador"));
-
-    map.fitBounds([
-      ...this.markers.map((point) => [point.lat, point.lng] as [number, number]),
-    ]);
- 
+    const leafletMap = new NgLeafletMap(this.config);
+    leafletMap.addMarkers(this.markers); 
   }
 
 }
