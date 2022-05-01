@@ -8,17 +8,40 @@ import { IConfigMap, tileLayers } from '@mugan86/ng-leaflet';
 export class AppComponent {
   title = 'angular-leaflet';
 
+
+
   configMap: IConfigMap = {
     layers: {
-      baseLayers: [{
-        map: tileLayers.baseLayers.osmHot.map,
-        atribution: tileLayers.baseLayers.osmHot.atribution
-      }],
+      baseLayers: [
+        {
+          label: 'Default',
+          map: tileLayers.baseLayers.default.map,
+          atribution: tileLayers.baseLayers.default.atribution
+        },
+        {
+          label: 'CycloOSM',
+          map: tileLayers.baseLayers.cycloOsm.map,
+          atribution: tileLayers.baseLayers.cycloOsm.atribution
+        },
+        {
+          label: 'OSMHot',
+          map: tileLayers.baseLayers.osmHot.map,
+          atribution: tileLayers.baseLayers.osmHot.atribution
+        },
+        {
+          label: 'OSMManik',
+          map: tileLayers.baseLayers.osmManik.map,
+          atribution: tileLayers.baseLayers.osmManik.atribution
+        }],
       overLayers: [{
-        map: tileLayers.overlayers.wayMarkedTrails.hiking,
-        atribution: tileLayers.baseLayers.default.atribution
+        label: 'Trail / Hiking',
+        map: tileLayers.overlayers.wayMarkedTrails.hiking
+      },
+      {
+        label: 'Open Railway',
+        map: tileLayers.overlayers.openRailway
       }]
     }
-    
-  }  
+
+  }
 }
