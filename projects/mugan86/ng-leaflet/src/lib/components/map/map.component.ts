@@ -5,7 +5,7 @@ import { Markers } from '../../services/markers.service';
 import { LeafletMap as Map } from '../../services/ng-leaflet-map.service';
 
 @Component({
-  selector: 'alm-map-basic',
+  selector: 'alm-map',
   templateUrl: './map.component.html',
   styles: [
   ]
@@ -27,12 +27,12 @@ export class MapComponent implements AfterViewInit {
     this.map = new Map(this.config || undefined);
     Markers.add(this.markers, this.map.get())
     this.map.fitBounds(this.markers);
-    this.config!!.scale && this.setControls();
+    this.config!! && this.setControls();
   }
 
   setControls() {
-    Controls.addScale(this.map.get());
-    Controls.addBaseOverLayers(this.map.get())
+    this.config!!.scale && Controls.addScale(this.map.get());
+    this.config!!.layers && Controls.addBaseOverLayers(this.map.get(), this.config!!.layers);
   }
 
 }
