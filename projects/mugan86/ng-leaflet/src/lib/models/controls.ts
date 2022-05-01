@@ -7,13 +7,12 @@ export interface IScaleOptions {
 
 export interface ILayers {
     baseLayers: Array<{
-        label?: string,
+        label: string,
         map: string,
         atribution: string
     }>,
     overLayers: Array<{
-        label?: string,
-        map: string,
-        atribution: string
+        label: string,
+        map: string
     }>
 }
