@@ -11,7 +11,7 @@ import { LeafletMap as Map } from '../../services/ng-leaflet-map.service';
   ]
 })
 export class MapComponent implements AfterViewInit {
-  @Input() markers: Array<{lng: number, lat: number} > = [
+  @Input() markers: Array<{ lng: number, lat: number }> = [
     {
       lat: 51.5, lng: -0.09
     },
@@ -19,7 +19,7 @@ export class MapComponent implements AfterViewInit {
       lat: 52.5, lng: -0.19
     }
   ];
-  @Input() size: {width: string, height: string }= { width: '600px', height: '600px'}
+  @Input() size: { width: string, height: string } = { width: '600px', height: '600px' }
   @Input() config?: IConfigMap;
   private map!: Map;
 
