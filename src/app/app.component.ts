@@ -9,13 +9,16 @@ export class AppComponent {
   title = 'angular-leaflet';
 
   configMap: IConfigMap = {
-    baseLayer: {
-      map: tileLayers.baseLayers.osmHot.map,
-      atribution: tileLayers.baseLayers.osmHot.atribution
-    },
-    overLayer: {
-      map: tileLayers.overlayers.wayMarkedTrails.hiking,
-      atribution: tileLayers.baseLayers.default.atribution
+    layers: {
+      baseLayers: [{
+        map: tileLayers.baseLayers.osmHot.map,
+        atribution: tileLayers.baseLayers.osmHot.atribution
+      }],
+      overLayers: [{
+        map: tileLayers.overlayers.wayMarkedTrails.hiking,
+        atribution: tileLayers.baseLayers.default.atribution
+      }]
     }
+    
   }  
 }

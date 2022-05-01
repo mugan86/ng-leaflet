@@ -1,6 +1,8 @@
 import { AfterViewInit, Component, Input } from '@angular/core';
 import { IConfigMap } from '../../models/config-map';
-import { NgLeafletMap } from '../../services/ng-leaflet-map.service';
+import { Controls } from '../../services/controls.service';
+import { Markers } from '../../services/markers.service';
+import { LeafletMap as Map } from '../../services/ng-leaflet-map.service';
 
 @Component({
   selector: 'alm-map-basic',
@@ -9,9 +11,6 @@ import { NgLeafletMap } from '../../services/ng-leaflet-map.service';
   ]
 })
 export class MapComponent implements AfterViewInit {
-  @Input() center: {lng: number, lat: number}  = {
-    lat: 51.5, lng: -0.09
-  }
   @Input() markers: Array<{lng: number, lat: number} > = [
     {
       lat: 51.5, lng: -0.09
@@ -22,10 +21,18 @@ export class MapComponent implements AfterViewInit {
   ];
   @Input() size: {width: string, height: string }= { width: '600px', height: '600px'}
   @Input() config?: IConfigMap;
+  private map!: Map;
 
   ngAfterViewInit(): void {
-    const leafletMap = new NgLeafletMap(this.config);
-    leafletMap.addMarkers(this.markers); 
+    this.map = new Map(this.config || undefined);
+    Markers.add(this.markers, this.map.get())
+    this.map.fitBounds(this.markers);
+    this.config!!.scale && this.setControls();
+  }
+
+  setControls() {
+    Controls.addScale(this.map.get());
+    Controls.addBaseOverLayers(this.map.get())
   }
 
 }

@@ -29,3 +29,8 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 ## Example
 
 ![Image](screens/1-map-basic-base-over-layer.png)
+
+# Use references
+
+* **Ruslan Gonzalez** : [Leaflet Angular](https://github.com/ruslanguns/angular-leaflet-playground)
+* **Official Documentation**: [Leaflet](https://leafletjs.com/reference.html)
