@@ -1,7 +1,16 @@
 import { control, ControlPosition, Map } from 'leaflet';
 import { tileLayerSelect } from '../config/tile-layers/helpers';
-import { IBaseLayer, IOverLayer, ILayers, IScaleOptions } from './../models/controls'
+import { IBaseLayer, IOverLayer, ILayers, IScaleOptions, IZoomOptions } from '../models/controls'
+import { fullScreenMap } from '../plugins/controls/full-screen-map';
 class Controls {
+
+    static changeZoomConfig(map: Map, config?: IZoomOptions) {
+        control.zoom({
+            zoomInTitle: config!!.zoomInTitle || 'Zoom in',
+            zoomOutTitle: config!!.zoomOutTitle || 'Zoom out',
+            position: config!!.position || 'topleft'
+        }).addTo(map);
+    }
     static addScale(map: Map, config?: IScaleOptions) {
         // Vamos a añadir el control de escala
         control.scale(config).addTo(map);
@@ -10,7 +19,6 @@ class Controls {
     /**
      * Generate layers control to available users want differente layers
      * to use in maps.
-     * // TODO Need to refactor because in this function we use repetitive functions
      * @param map Map instantiate object when add control layers
      * @param layers Layers with base and overlayers to add in map
      * @param position control position in map
@@ -24,16 +32,11 @@ class Controls {
             console.warn("Take advantage of at least two base layers to take advantage of this feature")
         }
 
-
-        const baseLayers = this.groupBaseLayers(
-            layers.baseLayers, map);
-
-
-        const overLayers = this.groupOverLayers(layers.overLayers, map);
-
-
         // Layers controls
-        control.layers(baseLayers, overLayers, {
+        control.layers(
+            this.groupBaseLayers(
+                layers.baseLayers, map),
+            this.groupOverLayers(layers.overLayers, map), {
             position
         }).addTo(map);
     }
@@ -64,6 +67,12 @@ class Controls {
                 tileLayerSelect(layer.map).addTo(map) :
                 tileLayerSelect(layer.map)
         }), {});
+    }
+
+    static FullScreen(map: Map, position?: ControlPosition) {
+        fullScreenMap({
+            position: (position) || 'topleft'
+        }).addTo(map)
     }
 }
 

@@ -1,3 +1,5 @@
+import { ControlPosition } from "leaflet";
+
 export interface IScaleOptions {
     maxWidth?: number | undefined;
     metric?: boolean | undefined;
@@ -21,4 +23,10 @@ export interface IOverLayer {
     label: string,
     map: string,
     select: boolean
+}
+
+export interface IZoomOptions {
+    zoomInTitle?: string,
+    zoomOutTitle?: string,
+    position?: ControlPosition
 }

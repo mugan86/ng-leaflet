@@ -7,7 +7,17 @@ import { IConfigMap, tileLayers } from '@mugan86/ng-leaflet';
 })
 export class AppComponent {
   title = 'angular-leaflet';
+  markers = [
+    {
+      lat: 51.5, lng: -0.09
+    },
+    {
+      lat: 52.5, lng: -0.19
+    }
+  ];
+  // markers = [];
   configMap: IConfigMap = {
+    fullscreen: true,
     layers: {
       baseLayers: [
         {
@@ -41,7 +51,11 @@ export class AppComponent {
         map: tileLayers.overlayers.openRailway,
         select: false
       }]
-    }
-
+    },
+    // If add zoom config (if add one property info) default zoom control remove
+    /*zoom: {
+      zoomInTitle: 'Acercar',
+      zoomOutTitle: 'Alejar'
+    }*/
   }
 }

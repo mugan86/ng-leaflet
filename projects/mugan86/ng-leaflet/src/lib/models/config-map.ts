@@ -1,7 +1,9 @@
-import { ILayers, IScaleOptions } from "./controls";
+import { ILayers, IScaleOptions, IZoomOptions } from "./controls";
 
 export interface IConfigMap {
     center?: [number, number];
     scale?: IScaleOptions | undefined;
-    layers: ILayers
+    layers: ILayers,
+    zoom?: IZoomOptions,
+    fullscreen?: boolean
 }

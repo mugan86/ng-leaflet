@@ -5,8 +5,10 @@ export class BaseMap {
     private map!: Map;
     private mapId = 'map';
     private center!: [number, number];
+    private zoom = true;
     constructor(config?: IConfigMap) {
         this.center = config && config!!.center || [43.1824528,-2.3878554];
+        this.zoom = (config!.zoom) ? false: true;
         this.init();
     }
 
@@ -14,7 +16,9 @@ export class BaseMap {
      * Init map with set configurations
      */
     private init(): void {
-        this.map = new Map(this.mapId).setView(this.center, 10);
+        this.map = new Map(this.mapId, {
+            zoomControl: this.zoom
+        }).setView(this.center, 10);
     }
     get = () => this.map;
 
