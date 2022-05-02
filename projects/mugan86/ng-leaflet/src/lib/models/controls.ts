@@ -6,13 +6,19 @@ export interface IScaleOptions {
 }
 
 export interface ILayers {
-    baseLayers: Array<{
-        label: string,
-        map: string,
-        atribution: string
-    }>,
-    overLayers: Array<{
-        label: string,
-        map: string
-    }>
+    baseLayers: Array<IBaseLayer>,
+    overLayers: Array<IOverLayer>
+}
+
+export interface IBaseLayer {
+    label: string,
+    map: string,
+    atribution: string,
+    default?: boolean
+}
+
+export interface IOverLayer {
+    label: string,
+    map: string,
+    select: boolean
 }
