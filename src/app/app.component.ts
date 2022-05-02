@@ -7,16 +7,14 @@ import { IConfigMap, tileLayers } from '@mugan86/ng-leaflet';
 })
 export class AppComponent {
   title = 'angular-leaflet';
-
-
-
   configMap: IConfigMap = {
     layers: {
       baseLayers: [
         {
           label: 'Default',
           map: tileLayers.baseLayers.default.map,
-          atribution: tileLayers.baseLayers.default.atribution
+          atribution: tileLayers.baseLayers.default.atribution,
+          default: true
         },
         {
           label: 'CycloOSM',
@@ -35,11 +33,13 @@ export class AppComponent {
         }],
       overLayers: [{
         label: 'Trail / Hiking',
-        map: tileLayers.overlayers.wayMarkedTrails.hiking
+        map: tileLayers.overlayers.wayMarkedTrails.hiking,
+        select: true
       },
       {
         label: 'Open Railway',
-        map: tileLayers.overlayers.openRailway
+        map: tileLayers.overlayers.openRailway,
+        select: false
       }]
     }
 
