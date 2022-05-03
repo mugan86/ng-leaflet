@@ -1,7 +1,8 @@
 import { control, ControlPosition, Map } from 'leaflet';
 import { tileLayerSelect } from '../config/tile-layers/helpers';
-import { IBaseLayer, IOverLayer, ILayers, IScaleOptions, IZoomOptions } from '../models/controls'
+import { IBaseLayer, IOverLayer, ILayers, IScaleOptions, IZoomOptions, IWatermarkOptions } from '../models/controls'
 import { fullScreenMap } from '../plugins/controls/full-screen-map';
+import { watermark } from '../plugins/controls/watermark';
 class Controls {
 
     static changeZoomConfig(map: Map, config?: IZoomOptions) {
@@ -69,11 +70,17 @@ class Controls {
         }), {});
     }
 
-    static FullScreen(map: Map, position?: ControlPosition) {
+    static activeFullScreen(map: Map, position?: ControlPosition) {
         fullScreenMap({
             position: (position) || 'topleft'
         }).addTo(map)
     }
+
+    static activeWatermark(map: Map, config: IWatermarkOptions) {
+        watermark(config).addTo(map)
+    }
+
+    
 }
 
 export { Controls }

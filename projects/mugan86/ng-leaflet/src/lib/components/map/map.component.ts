@@ -27,7 +27,8 @@ export class MapComponent implements AfterViewInit {
     this.config!!.scale && Controls.addScale(this.map.get());
     this.config!!.layers && Controls.addBaseOverLayers(this.map.get(), this.config!!.layers);
     this.config!!.zoom && Controls.changeZoomConfig(this.map.get(), this.config?.zoom);
-    this.config!!.fullscreen && Controls.FullScreen(this.map.get());
+    this.config!!.fullscreen && Controls.activeFullScreen(this.map.get());
+    this.config!!.watermark && Controls.activeWatermark(this.map.get(), this.config!!.watermark);
   }
 
 }

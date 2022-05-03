@@ -6,7 +6,9 @@ const Watermark = Control.extend({
     options: {
         position: 'bottomleft',
         img: 'https://raw.githubusercontent.com/leaflet-maps-course/resources/main/logotypes/am.png',
-        border: true
+        border: true,
+        size: '60px',
+        borderColor: '#506bff'
     },
 
     initialize: function(options: {
@@ -18,9 +20,9 @@ const Watermark = Control.extend({
         const img = DomUtil.create('img');
 
         img.src = this.options.img;
-        img.style.width = '40px';
+        img.style.width = this.options.size;
         if (this.options.border) {
-            img.style.borderBottom = "3px solid #506bff";
+            img.style.borderBottom = `3px solid ${this.options.borderColor}`;
         }
 
         return img;

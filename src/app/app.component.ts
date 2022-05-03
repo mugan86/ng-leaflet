@@ -52,6 +52,10 @@ export class AppComponent {
         select: false
       }]
     },
+    watermark: {
+      position: 'bottomleft',
+      size: '50px'
+    }
     // If add zoom config (if add one property info) default zoom control remove
     /*zoom: {
       zoomInTitle: 'Acercar',
