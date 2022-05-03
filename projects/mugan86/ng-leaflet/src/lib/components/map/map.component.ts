@@ -1,31 +1,34 @@
 import { AfterViewInit, Component, Input } from '@angular/core';
 import { IConfigMap } from '../../models/config-map';
-import { NgLeafletMap } from '../../services/ng-leaflet-map.service';
+import { Controls } from '../../services/controls';
+import { Markers } from '../../services/markers';
+import { LeafletMap as Map } from '../../services/ng-leaflet-map.service';
 
 @Component({
-  selector: 'alm-map-basic',
+  selector: 'alm-map',
   templateUrl: './map.component.html',
   styles: [
   ]
 })
 export class MapComponent implements AfterViewInit {
-  @Input() center: {lng: number, lat: number}  = {
-    lat: 51.5, lng: -0.09
-  }
-  @Input() markers: Array<{lng: number, lat: number} > = [
-    {
-      lat: 51.5, lng: -0.09
-    },
-    {
-      lat: 52.5, lng: -0.19
-    }
-  ];
-  @Input() size: {width: string, height: string }= { width: '600px', height: '600px'}
+  @Input() markers: Array<{ lng: number, lat: number }> = [  ];
+  @Input() size: { width: string, height: string } = { width: '600px', height: '600px' }
   @Input() config?: IConfigMap;
+  private map!: Map;
 
   ngAfterViewInit(): void {
-    const leafletMap = new NgLeafletMap(this.config);
-    leafletMap.addMarkers(this.markers); 
+    this.map = new Map(this.config || undefined);
+    this.markers.length && Markers.add(this.markers, this.map.get())
+    this.markers.length && this.map.fitBounds(this.markers);
+    this.config!! && this.setControls();
+  }
+
+  setControls() {
+    this.config!!.scale && Controls.addScale(this.map.get());
+    this.config!!.layers && Controls.addBaseOverLayers(this.map.get(), this.config!!.layers);
+    this.config!!.zoom && Controls.changeZoomConfig(this.map.get(), this.config?.zoom);
+    this.config!!.fullscreen && Controls.activeFullScreen(this.map.get());
+    this.config!!.watermark && Controls.activeWatermark(this.map.get(), this.config!!.watermark);
   }
 
 }

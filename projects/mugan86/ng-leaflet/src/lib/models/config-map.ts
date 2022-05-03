@@ -1,12 +1,10 @@
+import { ILayers, IScaleOptions, IWatermarkOptions, IZoomOptions } from "./controls";
+
 export interface IConfigMap {
-    location?: [number, number];
-    mapId?: string;
-    baseLayer?: {
-        map: string,
-        atribution: string
-    },
-    overLayer?: {
-        map: string,
-        atribution: string
-    }
+    center?: [number, number];
+    scale?: IScaleOptions | undefined;
+    layers: ILayers;
+    zoom?: IZoomOptions;
+    fullscreen?: boolean;
+    watermark?: IWatermarkOptions;
 }
