@@ -7,6 +7,10 @@ import { IConfigMap, tileLayers } from '@mugan86/ng-leaflet';
 })
 export class AppComponent {
   title = 'angular-leaflet';
+  page = 0;
+  items = Array(50).fill({
+    item: "banana"
+ },)
   markers = [
     {
       lat: 51.5, lng: -0.09
@@ -61,5 +65,9 @@ export class AppComponent {
       zoomInTitle: 'Acercar',
       zoomOutTitle: 'Alejar'
     }*/
+  }
+
+  selectPage(id: number) {
+    this.page = id;
   }
 }

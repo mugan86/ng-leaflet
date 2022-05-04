@@ -34,3 +34,8 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 * **Ruslan Gonzalez** : [Leaflet Angular](https://github.com/ruslanguns/angular-leaflet-playground)
 * **Official Documentation**: [Leaflet](https://leafletjs.com/reference.html)
+
+https://b5m.gipuzkoa.eus/web5000/es/conjuntos-datos
+https://mattlewis92.github.io/angular-calendar/#/kitchen-sink
+https://github.com/martgnz/municipios
+https://public.opendatasoft.com/explore/dataset/provincias-espanolas/table/?sort=provincia
