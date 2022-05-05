@@ -8,7 +8,7 @@
             <a class="navbar-brand" href="#">Angular Leaflet Map</a>
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    <a class="nav-link active" aria-current="option" href="#">Home</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Link</a>
@@ -18,72 +18,4 @@
     </div>
 </nav>
 
-<div class="container-fluid mt-3">
-    <div class="row">
-        <div class="col-2 scroll">
-            <ul class="nav flex-column text-center">
-                <li class="nav-item">
-                  <a class="nav-link active" aria-current="page" href="#">Active</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Link</a>
-                </li>
-                <li class="nav-item" *ngFor="let item of items">
-                  <a class="nav-link" href="#">Link</a>
-                </li>
-
-                
-                
-              </ul>
-        </div>
-        <div class="col">
-            <ul class="nav nav-tabs nav-justified mb-3">
-                <li class="nav-item">
-                    <a class="nav-link" (click)="selectPage(0)" [ngClass]="{'active': page == 0}">
-                        Preview
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" (click)="selectPage(1)" [ngClass]="{'active': page == 1}">
-                        app.module.ts
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" (click)="selectPage(2)" [ngClass]="{'active': page == 2}">
-                        app.component.ts
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" (click)="selectPage(3)" [ngClass]="{'active': page == 3}">
-                        app.component.html
-                    </a>
-                </li>
-            </ul>
-            <div *ngIf="page == 0">
-                <alm-map [size]="{ width: '100%', height: '400px' }" [config]="configMap" [markers]="markers"></alm-map>
-            </div>
-            <div *ngIf="page == 1">
-                app.module.ts
-            </div>
-            <div *ngIf="page == 2">
-                app.component.ts
-            </div>
-            <div *ngIf="page == 3">
-                app.component.html
-            </div>
-            <div class="row">
-                <div class="col">
-                    <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
-                        <div class="col d-flex">
-                          <span class="text-muted">© 2022 Angular Leaflet Map - Anartz Mugika Ledo</span>
-                        </div>
-                      </footer>
-                </div>
-            </div>
-
-        </div>
-        
-    </div>
-    
-
-</div>
+<router-outlet></router-outlet>

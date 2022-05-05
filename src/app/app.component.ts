@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IConfigMap, tileLayers } from '@mugan86/ng-leaflet';
+import { appModule } from './configurations';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -7,11 +8,15 @@ import { IConfigMap, tileLayers } from '@mugan86/ng-leaflet';
 })
 export class AppComponent {
   title = 'angular-leaflet';
-  page = 0;
+  option = 0;
   items = Array(50).fill({
     item: "banana"
- },)
-  markers = [
+  });
+  snippet1 = appModule;
+
+  size = undefined;
+
+  /*markers = [
     {
       lat: 51.5, lng: -0.09
     },
@@ -65,9 +70,9 @@ export class AppComponent {
       zoomInTitle: 'Acercar',
       zoomOutTitle: 'Alejar'
     }*/
-  }
+  //}*/
 
-  selectPage(id: number) {
-    this.page = id;
+  selectOption(id: number) {
+    this.option = id;
   }
 }
