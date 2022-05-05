@@ -1,4 +1,6 @@
-import { Map } from 'leaflet';
+import { Map, tileLayer } from 'leaflet';
+import { tileLayerSelect } from '../config/tile-layers/helpers';
+import { tileLayers } from '../config/tile-layers/ui';
 import { IConfigMap } from '../models/config-map';
 
 export class BaseMap {
@@ -8,17 +10,23 @@ export class BaseMap {
     private zoom = true;
     constructor(config?: IConfigMap) {
         this.center = config && config!!.center || [43.1824528,-2.3878554];
-        this.zoom = (config!.zoom) ? false: true;
-        this.init();
+        this.zoom = config && (config!.zoom) ? false: true;
+        this.init(config!!);
     }
 
     /**
      * Init map with set configurations
      */
-    private init(): void {
+    private init(config: IConfigMap): void {
         this.map = new Map(this.mapId, {
             zoomControl: this.zoom
         }).setView(this.center, 10);
+
+        if (!config) {
+            tileLayerSelect(tileLayers.baseLayers.default.map, {
+                attribution: tileLayers.baseLayers.default.atribution
+            }).addTo(this.map)
+        }
     }
     get = () => this.map;
 
