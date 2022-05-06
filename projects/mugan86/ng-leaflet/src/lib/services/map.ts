@@ -1,4 +1,4 @@
-import { Map, tileLayer } from 'leaflet';
+import { Map } from 'leaflet';
 import { tileLayerSelect } from '../config/tile-layers/helpers';
 import { tileLayers } from '../config/tile-layers/ui';
 import { IConfigMap } from '../models/config-map';
@@ -8,9 +8,11 @@ export class BaseMap {
     private mapId = 'map';
     private center!: [number, number];
     private zoom = true;
+    private zoomValue?: number;
     constructor(config?: IConfigMap) {
         this.center = config && config!!.center || [43.1824528,-2.3878554];
-        this.zoom = config && (config!.zoom) ? false: true;
+        this.zoom = config && (config!!.zoom) ? false: true;
+        this.zoomValue = config && config?.zoom?.default || 12;
         this.init(config!!);
     }
 
@@ -18,11 +20,12 @@ export class BaseMap {
      * Init map with set configurations
      */
     private init(config: IConfigMap): void {
+        console.log(config, this.zoomValue);
         this.map = new Map(this.mapId, {
             zoomControl: this.zoom
-        }).setView(this.center, 10);
+        }).setView(this.center, this.zoomValue);
 
-        if (!config) {
+        if (!config || !config.layers) {
             tileLayerSelect(tileLayers.baseLayers.default.map, {
                 attribution: tileLayers.baseLayers.default.atribution
             }).addTo(this.map)

@@ -3,7 +3,7 @@ import { ILayers, IScaleOptions, IWatermarkOptions, IZoomOptions } from "./contr
 export interface IConfigMap {
     center?: [number, number];
     scale?: IScaleOptions | undefined;
-    layers: ILayers;
+    layers?: ILayers;
     zoom?: IZoomOptions;
     fullscreen?: boolean;
     watermark?: IWatermarkOptions;

@@ -28,7 +28,8 @@ export interface IOverLayer {
 export interface IZoomOptions {
     zoomInTitle?: string;
     zoomOutTitle?: string;
-    position?: ControlPosition
+    position?: ControlPosition;
+    default?: number;
 }
 
 export interface IWatermarkOptions {

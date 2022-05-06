@@ -1,6 +1,6 @@
 <div class="container-fluid mt-3">
     <div class="row">
-        <div class="col-2 scroll">
+        <div class="col-lg-2 scroll">
             <ul class="nav flex-column text-center">
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="option" href="#">Basic</a>
@@ -8,12 +8,21 @@
                 <li class="nav-item">
                     <a class="nav-link" href="#">Basic + Custom size</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Set map center position</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Zoom controls</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Fullscreen control</a>
+                </li>
                 <li class="nav-item" *ngFor="let item of items">
                     <a class="nav-link" href="#">Link</a>
                 </li>
             </ul>
         </div>
-        <div class="col">
+        <div class="col-lg">
             <ul class="nav nav-tabs nav-justified mb-3">
                 <li class="nav-item">
                     <a class="nav-link" (click)="selectOption(0)" [ngClass]="{'active': option == 0}">
@@ -37,7 +46,7 @@
                 </li>
             </ul>
             <div *ngIf="option == 0">
-                <alm-map ></alm-map>
+                <alm-map [config]="configMap"></alm-map>
             </div>
             <div *ngIf="option == 1">
                 <pre>{{snippet1}}</pre>
@@ -47,15 +56,6 @@
             </div>
             <div *ngIf="option == 3">
                 app.component.html
-            </div>
-            <div class="row">
-                <div class="col">
-                    <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
-                        <div class="col d-flex">
-                            <span class="text-muted">© 2022 Angular Leaflet Map - Anartz Mugika Ledo</span>
-                        </div>
-                    </footer>
-                </div>
             </div>
 
         </div>

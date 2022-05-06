@@ -1,25 +1,9 @@
-#map { height: 600px; }
-
-.nav-item {
-    cursor: pointer;
-}
-
-.scroll {
-    margin:4px, 4px;
-    padding:4px;
-    max-height: 820px;
-    overflow-x: hidden;
-    overflow: scroll;
-    text-align:justify;
+#map {
+    height: 600px;
 }
 
 footer {
     position: fixed;
     bottom: 0;
     width: 100%
-}
-
-pre {
-    background-color: aliceblue;
-    padding: 15px;
 }
