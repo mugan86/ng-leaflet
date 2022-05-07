@@ -20,7 +20,6 @@ export class BaseMap {
      * Init map with set configurations
      */
     private init(config: IConfigMap): void {
-        console.log(config, this.zoomValue);
         this.map = new Map(this.mapId, {
             zoomControl: this.zoom
         }).setView(this.center, this.zoomValue);
