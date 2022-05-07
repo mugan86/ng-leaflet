@@ -1,0 +1,75 @@
+{
+    "menus": [
+        {
+            "label": "Basic",
+            "i18n": "",
+            "path": "basic"
+        },
+        {
+            "label": "Basic + Custom size",
+            "i18n": "",
+            "path": "basic-custom-size"
+        },
+        {
+            "label": "Set map center position",
+            "i18n": "",
+            "path": "map-center-position"
+        },
+        {
+            "label": "Zoom Control - Position",
+            "i18n": "",
+            "path": "zoom-control-position"
+        },
+        {
+            "label": "Zoom Control - Custom Text",
+            "i18n": "",
+            "path": "zoom-custom-text"
+        },
+        {
+            "label": "Zoom Control - Zoom Level",
+            "i18n": "",
+            "path": "zoom-level"
+        },
+        {
+            "label": "Full screen map",
+            "i18n": "",
+            "path": "full-screen-map"
+        },
+        {
+            "label": "One marker",
+            "i18n": "",
+            "path": "marker-item"
+        },
+        {
+            "label": "Many Markers",
+            "i18n": "",
+            "path": "many-markers"
+        },
+        {
+            "label": "Random markers",
+            "i18n": "",
+            "path": "random-markers"
+        },
+        {
+            "label": "Markers & Fit Bounds",
+            "i18n": "",
+            "path": "markers-fit-bounds"
+        },
+        {
+            "label": "Base Layers",
+            "i18n": "",
+            "path": "base-layers"
+        },
+        {
+            "label": "Base & Over Layers",
+            "i18n": "",
+            "path": "base-over-layers"
+        },
+        {
+            "label": "Base & Over Layers Select",
+            "i18n": "",
+            "path": "base-over-layers-select"
+        }
+
+    ]
+}
