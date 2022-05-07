@@ -9,7 +9,7 @@ export interface IScaleOptions {
 
 export interface ILayers {
     baseLayers: Array<IBaseLayer>;
-    overLayers: Array<IOverLayer>
+    overLayers?: Array<IOverLayer>
 }
 
 export interface IBaseLayer {
