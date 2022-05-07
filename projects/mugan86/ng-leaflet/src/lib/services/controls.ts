@@ -25,8 +25,8 @@ class Controls {
      * @param position control position in map
      */
     static addBaseOverLayers(map: Map, layers: ILayers, position: ControlPosition = 'topright') {
-        if (!layers.baseLayers || !layers.overLayers) {
-            throw new Error("Need to add Base and Over Layers");
+        if (!layers.baseLayers) {
+            throw new Error("Need to add Base Layers");
         }
 
         if (layers.baseLayers.length < 2) {
@@ -37,7 +37,7 @@ class Controls {
         control.layers(
             this.groupBaseLayers(
                 layers.baseLayers, map),
-            this.groupOverLayers(layers.overLayers, map), {
+            (layers.overLayers) && this.groupOverLayers(layers.overLayers, map), {
             position
         }).addTo(map);
     }
