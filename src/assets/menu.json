@@ -69,6 +69,46 @@
             "label": "Base & Over Layers Select",
             "i18n": "",
             "path": "base-over-layers-select"
+        },
+        {
+            "label": "Scale - Imperial / Metric / Bottom Right",
+            "i18n": "",
+            "path": "scale-imperial-metric-bottom-right"
+        },
+        {
+            "label": "Scale - Imperial / Metric",
+            "i18n": "",
+            "path": "scale-imperial-metric"
+        },
+        {
+            "label": "Scale - Metric",
+            "i18n": "",
+            "path": "scale-metric"
+        },
+        {
+            "label": "Scale - Imperial",
+            "i18n": "",
+            "path": "scale-imperial"
+        },
+        {
+            "label": "Scale - Set Max Width",
+            "i18n": "",
+            "path": "scale-max-width"
+        },
+        {
+            "label": "Watermark - Show",
+            "i18n": "",
+            "path": "watermark"
+        },
+        {
+            "label": "Watermark - Position",
+            "i18n": "",
+            "path": "watermark-position"
+        },
+        {
+            "label": "Watermark - Select image",
+            "i18n": "",
+            "path": "watermark-image"
         }
 
     ]

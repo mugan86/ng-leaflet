@@ -13,7 +13,8 @@ class Controls {
         }).addTo(map);
     }
     static addScale(map: Map, config?: IScaleOptions) {
-        // Vamos a añadir el control de escala
+        delete config!.show;
+        // Add Scale control after remove show property that not include in config options
         control.scale(config).addTo(map);
     }
 
@@ -77,6 +78,7 @@ class Controls {
     }
 
     static activeWatermark(map: Map, config: IWatermarkOptions) {
+        delete config.show;
         watermark(config).addTo(map)
     }
 

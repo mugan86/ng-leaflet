@@ -25,7 +25,7 @@ export class MapComponent implements AfterViewInit {
   }
 
   setControls() {
-    this.config!!.scale && Controls.addScale(this.map.get());
+    this.config!!.scale && Controls.addScale(this.map.get(), this.config?.scale);
     this.config!!.layers && Controls.addBaseOverLayers(this.map.get(), this.config!!.layers);
     this.config!!.zoom && Controls.changeZoomConfig(this.map.get(), this.config?.zoom);
     this.config!!.fullscreen && Controls.activeFullScreen(this.map.get());

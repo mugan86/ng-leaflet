@@ -58,6 +58,12 @@ export class ExampleComponent implements OnInit {
         select: true
       }]
     },
+    watermark: {
+      // img: 'https://cdn4.iconfinder.com/data/icons/logos-and-brands/512/21_Angular_logo_logos-128.png',
+      border: true,
+      size: '100px',
+      borderColor: 'red' // Use <color-name> / rgb / rgba / hexadecimal / hsl / hsla
+    }
   }
   constructor() { }
 
