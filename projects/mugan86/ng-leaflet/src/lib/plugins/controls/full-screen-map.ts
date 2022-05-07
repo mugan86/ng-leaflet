@@ -1,19 +1,23 @@
 import { Control, ControlPosition, DomUtil, Util } from "leaflet";
 
 const FullScreenMap = Control.extend({
-    initialize: function (options: { position: ControlPosition }) {
-        Util.setOptions(this, options);
-    },
+
     options: {
         position: "topleft",
+        exitText: 'Salir pantalla completa',
+        fullText: "Ver en pantalla completa"
     },
-    onAdd: () => {
+
+    initialize: function (options?: { position?: ControlPosition, exitText?: string }) {
+        Util.setOptions(this, options);
+    },
+    onAdd: function () {
         const container = DomUtil.create(
             "input",
             "leaflet-control-zoom leaflet-bar leaflet-control"
         );
         container.type = "button";
-        container.title = "Ver en pantalla completa";
+        container.title = this.options.fullText;
         container.style.backgroundImage =
             "url(https://cdn-icons-png.flaticon.com/512/2089/2089670.png)";
         container.style.backgroundSize = "15px 15px";
@@ -32,14 +36,16 @@ const FullScreenMap = Control.extend({
             // https://developer.mozilla.org/en-US/docs/Web/API/Element/requestFullScreen
             if (!document.fullscreenElement) { // Si no estamos a pantalla completa
                 document.getElementById('map')?.requestFullscreen();
-                container.title = "Salir de pantalla completa";
+                container.title = this.options.exitText;
             } else {
                 document.exitFullscreen();
-                container.title = "Ver en pantalla completa";
+                container.title = this.options.fullText;
             }
         };
         return container;
     },
 });
 
-export const fullScreenMap = (options?: { position?: ControlPosition }) => new FullScreenMap(options);
+export const fullScreenMap = (options?: {
+    position?: ControlPosition, entryText?: string, exitText?: string
+}) => new FullScreenMap(options);
