@@ -7,4 +7,5 @@ export interface IConfigMap {
     zoom?: IZoomOptions;
     fullscreen?: boolean;
     watermark?: IWatermarkOptions;
+    fitBounds?: boolean;
 }
