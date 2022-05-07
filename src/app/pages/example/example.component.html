@@ -1,24 +1,9 @@
 <div class="container-fluid mt-3">
     <div class="row">
         <div class="col-lg-2 scroll">
-            <ul class="nav flex-column text-center">
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="option" href="#">Basic</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Basic + Custom size</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Set map center position</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Zoom controls</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Fullscreen control</a>
-                </li>
-                <li class="nav-item" *ngFor="let item of items">
-                    <a class="nav-link" href="#">Link</a>
+            <ul class="nav flex-column">
+                <li class="nav-item" *ngFor="let item of menusItems">
+                    <a class="nav-link" href="#">{{ item.label }}</a>
                 </li>
             </ul>
         </div>
@@ -46,6 +31,10 @@
                 </li>
             </ul>
             <div *ngIf="option == 0">
+                
+                    <!--<alm-map [config]="configMap" [randomMarkers] = true></alm-map>-->
+                
+                <!--<alm-map [config]="configMap" [markers]="marker"></alm-map>-->
                 <alm-map [config]="configMap"></alm-map>
             </div>
             <div *ngIf="option == 1">
