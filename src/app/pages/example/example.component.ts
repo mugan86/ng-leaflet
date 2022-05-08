@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { IConfigMap, tileLayers } from '@mugan86/ng-leaflet';
-import { IMarker } from 'dist/mugan86/ng-leaflet/lib/models/marker';
+import { IConfigMap, IMarker } from '@mugan86/ng-leaflet';
+import { } from 'dist/mugan86/ng-leaflet/lib/models/marker';
+import { LatLngBounds, rectangle } from 'leaflet';
 import { appModule } from 'src/app/configurations';
 import navigation from './../../../assets/menu.json';
-
+import { Map } from 'leaflet';
 @Component({
   selector: 'app-example',
   templateUrl: './example.component.html',
@@ -12,6 +13,7 @@ import navigation from './../../../assets/menu.json';
 export class ExampleComponent implements OnInit {
   title = 'angular-leaflet';
   option = 0;
+  map!: Map;
   items = Array(50).fill({
     item: "banana"
   });
@@ -25,45 +27,15 @@ export class ExampleComponent implements OnInit {
 
   configMap: IConfigMap = {
     fullscreen: true,
-    layers: {
-      baseLayers: [
-        {
-          label: 'Default',
-          map: tileLayers.baseLayers.default.map,
-          atribution: tileLayers.baseLayers.default.atribution
-        },
-        {
-          label: 'CycloOSM',
-          map: tileLayers.baseLayers.cycloOsm.map,
-          atribution: tileLayers.baseLayers.cycloOsm.atribution,
-          default: true // <=== To show with this selection
-        },
-        {
-          label: 'OSMHot',
-          map: tileLayers.baseLayers.osmHot.map,
-          atribution: tileLayers.baseLayers.osmHot.atribution
-        },
-        {
-          label: 'OSMManik',
-          map: tileLayers.baseLayers.osmManik.map,
-          atribution: tileLayers.baseLayers.osmManik.atribution
-        }],
-      overLayers: [{
-        label: 'Trail / Hiking',
-        map: tileLayers.overlayers.wayMarkedTrails.hiking,
-        select: true
-      },
-      {
-        label: 'Open Railway',
-        map: tileLayers.overlayers.openRailway,
-        select: true
-      }]
+    zoom: {
+      // position: 'bottomleft',       // 'topright', 'topleft', 'bottomleft', 'bottomright'
+      default: 18                  // Values between 4 and 20
     },
     watermark: {
-      // img: 'https://cdn4.iconfinder.com/data/icons/logos-and-brands/512/21_Angular_logo_logos-128.png',
-      border: true,
-      size: '100px',
-      borderColor: 'red' // Use <color-name> / rgb / rgba / hexadecimal / hsl / hsla
+      // show: true
+      img: 'https://cdn4.iconfinder.com/data/icons/logos-and-brands/512/21_Angular_logo_logos-128.png',
+      // border: true,
+      //borderColor: 'red' // Use <color-name> / rgb / rgba / hexadecimal / hsl / hsla
     },
     fitBounds: true
   }
@@ -103,6 +75,38 @@ export class ExampleComponent implements OnInit {
 
   selectOption(id: number) {
     this.option = id;
+  }
+
+  setMap($event: Map) {
+    this.map = $event;
+    const bounds = new LatLngBounds([
+      [43.2, -2.273474],
+      [43.1736979, -2.4173475],
+    ]);
+    // Crear un rectángulo naranja a partir de los límites especificados
+    const rectangleOne = rectangle(bounds, {
+      color: "#ff7800",
+      weight: 1,
+      stroke: true,
+    }).addTo(this.map);
+
+    // Hacemos zoom y centramos al área que que queremos movernos
+    // Esto lo usamos si dibujamos un rectángulo, si no, usamos la ubicación inicial
+    // al crear el mapa
+    // Al estar con un rectángulo,
+    // vamos a coger la zona que ocupa haciendo un rectangulo imaginario donde obtenemos
+    // las coordenadas de arriba-izquierda, arriba-derecha, abajo-izquierda y abajo-derecha
+    // Con coger por ejemplo Norte-Este y Sur-Oeste, ya acota el rectángulo
+    this.map.fitBounds([
+      [
+        rectangleOne.getBounds().getNorthEast().lat,
+        rectangleOne.getBounds().getNorthEast().lng,
+      ],
+      [
+        rectangleOne.getBounds().getSouthWest().lat,
+        rectangleOne.getBounds().getSouthWest().lng,
+      ],
+    ]);
   }
 
 }
