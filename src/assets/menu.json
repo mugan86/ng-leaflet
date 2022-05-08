@@ -109,7 +109,21 @@
             "label": "Watermark - Select image",
             "i18n": "",
             "path": "watermark-image"
+        },
+        {
+            "label": "Watermark - Show border bottom",
+            "i18n": "",
+            "path": "watermark-show-border-bottom"
+        },
+        {
+            "label": "Watermark - Change image size",
+            "i18n": "",
+            "path": "watermark-change-image-size"
+        },
+        {
+            "label": "Watermark - Config border color",
+            "i18n": "",
+            "path": "watermark-config-border-color"
         }
-
     ]
 }

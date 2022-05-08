@@ -1,4 +1,5 @@
 import { Map, marker } from "leaflet";
+import { IMarker } from "../models/marker";
 
 class Markers {
 
@@ -6,15 +7,20 @@ class Markers {
      * Add Markers in map to view different locations
      * @param markers collection to location points (lat, lng)
      */
-    static add(map: Map, markers: Array<{ lng: number, lat: number }> = [], random: boolean = false) {
+    static add(map: Map, markers: Array<IMarker> = [], random: boolean = false) {
         if (markers.length === 1 && !random) {
-            marker([markers[0].lat, markers[0].lng]).addTo(map);
+            marker([markers[0].position.lat, markers[0].position.lng]).addTo(map);
             return;
         }
         if (random) {
             markers = Markers.randomValues(map);
         }
-        markers.map((markerItem) => marker([markerItem.lat, markerItem.lng]).addTo(map));
+        markers.map((markerItem) => {
+            const markerElement = marker([markerItem.position.lat, markerItem.position.lng],{
+                draggable: markerItem.draggable
+            }).addTo(map);
+            (markerItem.popup) && markerElement.bindPopup(markerItem.popup.content);
+        });
     }
 
     static randomValues(map: Map) {
@@ -30,8 +36,10 @@ class Markers {
         // generate random points and add to array 'allPoints'
         for (let i = 0; i < 30; i++) {
             allPoints.push({
-                lat: southWest.lat + latSpan * Math.random(),
-                lng: southWest.lng + lngSpan * Math.random(),
+                position: {
+                    lat: southWest.lat + latSpan * Math.random(),
+                    lng: southWest.lng + lngSpan * Math.random(),
+                }
             });
         }
         return allPoints;

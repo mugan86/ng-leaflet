@@ -1,5 +1,6 @@
 import { AfterViewInit, Component, Input } from '@angular/core';
 import { IConfigMap } from '../../models/config-map';
+import { IMarker } from '../../models/marker';
 import { Controls } from '../../services/controls';
 import { Markers } from '../../services/markers';
 import { LeafletMap as Map } from '../../services/ng-leaflet-map.service';
@@ -11,7 +12,7 @@ import { LeafletMap as Map } from '../../services/ng-leaflet-map.service';
   ]
 })
 export class MapComponent implements AfterViewInit {
-  @Input() markers: Array<{ lng: number, lat: number }> = [  ];
+  @Input() markers: Array<IMarker> = [  ];
   @Input() randomMarkers: boolean = false;
   @Input() size: { width: string, height: string } = { width: '100%', height: '600px' }
   @Input() config?: IConfigMap;

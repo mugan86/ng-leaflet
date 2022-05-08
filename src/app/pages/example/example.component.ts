@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { IConfigMap, tileLayers } from '@mugan86/ng-leaflet';
+import { IMarker } from 'dist/mugan86/ng-leaflet/lib/models/marker';
 import { appModule } from 'src/app/configurations';
 import navigation from './../../../assets/menu.json';
 
@@ -16,9 +17,9 @@ export class ExampleComponent implements OnInit {
   });
   menusItems = navigation.menus;
   snippet1 = appModule;
-  
-  
-  marker = [{'lat': 43.1824528, 'lng': -2.3878554}]
+
+
+  marker = [{ 'lat': 43.1824528, 'lng': -2.3878554 }]
   randomMarkers = true;
 
 
@@ -63,8 +64,33 @@ export class ExampleComponent implements OnInit {
       border: true,
       size: '100px',
       borderColor: 'red' // Use <color-name> / rgb / rgba / hexadecimal / hsl / hsla
-    }
+    },
+    fitBounds: true
   }
+
+  markers: Array<IMarker> = [
+    {
+      position: {
+        "lat": 43.17757110078426,
+        "lng": -2.3661233885984085
+      },
+      popup: {
+        content: '<p>Hello</p>'
+      }
+    },
+    {
+      position: {
+        "lat": 43.177781697765305,
+        "lng": -2.367583962060063
+      }
+    },
+    {
+      position: {
+        "lat": 43.1765773404203,
+        "lng": -2.409942167562859
+      }
+    }
+  ];
   constructor() { }
 
   ngOnInit(): void {
