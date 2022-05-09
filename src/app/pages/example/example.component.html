@@ -35,7 +35,7 @@
                     <!--<alm-map [config]="configMap" [randomMarkers] = true></alm-map>-->
                 
                 <!--<alm-map [config]="configMap" [markers]="marker"></alm-map>-->
-                <alm-map (mapElement)="setMap($event)" [config]="configMap" [markers]="markers"></alm-map>
+                <ng-leaflet-map (setUpMap)="setMap($event)" [config]="configMap" [markers]="markers"></ng-leaflet-map>
             </div>
             <div *ngIf="option == 1">
                 <pre>{{snippet1}}</pre>

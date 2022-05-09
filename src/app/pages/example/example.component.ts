@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { IConfigMap, IMarker } from '@mugan86/ng-leaflet';
-import { } from 'dist/mugan86/ng-leaflet/lib/models/marker';
 import { LatLngBounds, rectangle } from 'leaflet';
 import { appModule } from 'src/app/configurations';
 import navigation from './../../../assets/menu.json';
