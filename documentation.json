@@ -563,7 +563,7 @@
         {
             "name": "User",
             "id": "interface-User-9c7e5f1bbbab702cb032307d130876cb68969b0cd4eedef32a0c8cad8081a54e5f8f577ed6ad4539c1b99a1d246cb34031d198c2ea8eba440e64e91b14f01fdc",
-            "file": "src/stories/User.ts",
+            "file": "src/app/stories/User.ts",
             "deprecated": false,
             "deprecationMessage": "",
             "type": "interface",
@@ -1704,12 +1704,12 @@
                 }
             ],
             "stylesData": "",
-            "templateData": "<nav class=\"navbar navbar-expand-lg navbar-light bg-light\">\n    <div class=\"container-fluid\">\n        <button class=\"navbar-toggler\" type=\"button\" data-bs-toggle=\"collapse\" data-bs-target=\"#navbarTogglerDemo01\"\n            aria-controls=\"navbarTogglerDemo01\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\n            <span class=\"navbar-toggler-icon\"></span>\n        </button>\n        <div class=\"collapse navbar-collapse\" id=\"navbarTogglerDemo01\">\n            <a class=\"navbar-brand\" href=\"#\">Angular Leaflet Map</a>\n            <ul class=\"navbar-nav me-auto mb-2 mb-lg-0\">\n                <li class=\"nav-item\">\n                    <a class=\"nav-link active\" aria-current=\"option\" href=\"#\">Home</a>\n                </li>\n                <li class=\"nav-item\">\n                    <a class=\"nav-link\" href=\"#\">Link</a>\n                </li>\n            </ul>\n        </div>\n    </div>\n</nav>\n<div class=\"container-fluid mt-3\">\n    <router-outlet></router-outlet>\n    <div class=\"row\">\n        <div class=\"col-lg-2\">\n        </div>\n        <div class=\"col-lg text-center\">\n            <footer class=\"d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top\">\n                <div class=\"col d-flex\">\n                    <span class=\"text-muted\">© 2022 Angular Leaflet Map - Anartz Mugika Ledo</span>\n                </div>\n            </footer>\n        </div>\n    </div>\n</div>"
+            "templateData": "<router-outlet></router-outlet>"
         },
         {
             "name": "ButtonComponent",
             "id": "component-ButtonComponent-4ef205c97a334c309aa4001c8ab4a6d9571dcae18d0e85aaf0d367467ab5d3a9f13ab3573726f1fcb409bc9b49894dadfb80b1bbe1b6ba7041455ad9d4922004",
-            "file": "src/stories/button.component.ts",
+            "file": "src/app/stories/button.component.ts",
             "encapsulation": [],
             "entryComponents": [],
             "inputs": [],
@@ -2056,12 +2056,12 @@
             "implements": [
                 "OnInit"
             ],
-            "templateData": "<div class=\"container-fluid mt-3\">\n    <div class=\"row\">\n        <div class=\"col-lg-2 scroll\">\n            <ul class=\"nav flex-column\">\n                <li class=\"nav-item\" *ngFor=\"let item of menusItems\">\n                    <a class=\"nav-link\" href=\"#\">{{ item.label }}</a>\n                </li>\n            </ul>\n        </div>\n        <div class=\"col-lg\">\n            <ul class=\"nav nav-tabs nav-justified mb-3\">\n                <li class=\"nav-item\">\n                    <a class=\"nav-link\" (click)=\"selectOption(0)\" [ngClass]=\"{'active': option == 0}\">\n                        Preview\n                    </a>\n                </li>\n                <li class=\"nav-item\">\n                    <a class=\"nav-link\" (click)=\"selectOption(1)\" [ngClass]=\"{'active': option == 1}\">\n                        app.module.ts\n                    </a>\n                </li>\n                <li class=\"nav-item\">\n                    <a class=\"nav-link\" (click)=\"selectOption(2)\" [ngClass]=\"{'active': option == 2}\">\n                        app.component.ts\n                    </a>\n                </li>\n                <li class=\"nav-item\">\n                    <a class=\"nav-link\" (click)=\"selectOption(3)\" [ngClass]=\"{'active': option == 3}\">\n                        app.component.html\n                    </a>\n                </li>\n            </ul>\n            <div *ngIf=\"option == 0\">\n                \n                    <!--<alm-map [config]=\"configMap\" [randomMarkers] = true></alm-map>-->\n                \n                <!--<alm-map [config]=\"configMap\" [markers]=\"marker\"></alm-map>-->\n                <ng-leaflet-map (setUpMap)=\"setMap($event)\" [config]=\"configMap\" [markers]=\"markers\"></ng-leaflet-map>\n            </div>\n            <div *ngIf=\"option == 1\">\n                <pre>{{snippet1}}</pre>\n            </div>\n            <div *ngIf=\"option == 2\">\n                app.component.ts\n            </div>\n            <div *ngIf=\"option == 3\">\n                app.component.html\n            </div>\n\n        </div>\n\n    </div>\n\n\n</div>"
+            "templateData": "<nav class=\"navbar navbar-expand-lg navbar-light bg-light\">\n    <div class=\"container-fluid\">\n        <button class=\"navbar-toggler\" type=\"button\" data-bs-toggle=\"collapse\" data-bs-target=\"#navbarTogglerDemo01\"\n            aria-controls=\"navbarTogglerDemo01\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\n            <span class=\"navbar-toggler-icon\"></span>\n        </button>\n        <div class=\"collapse navbar-collapse\" id=\"navbarTogglerDemo01\">\n            <a class=\"navbar-brand\" href=\"#\">Angular Leaflet Map</a>\n            <ul class=\"navbar-nav me-auto mb-2 mb-lg-0\">\n                <li class=\"nav-item\">\n                    <a class=\"nav-link active\" aria-current=\"option\" href=\"#\">Home</a>\n                </li>\n                <li class=\"nav-item\">\n                    <a class=\"nav-link\" href=\"#\">Link</a>\n                </li>\n            </ul>\n        </div>\n    </div>\n</nav>\n<div class=\"container-fluid mt-3\">\n    <div class=\"container-fluid mt-3\">\n        <div class=\"row\">\n            <div class=\"col-lg-2 scroll\">\n                <ul class=\"nav flex-column\">\n                    <li class=\"nav-item\" *ngFor=\"let item of menusItems\">\n                        <a class=\"nav-link\" href=\"#\">{{ item.label }}</a>\n                    </li>\n                </ul>\n            </div>\n            <div class=\"col-lg\">\n                <ul class=\"nav nav-tabs nav-justified mb-3\">\n                    <li class=\"nav-item\">\n                        <a class=\"nav-link\" (click)=\"selectOption(0)\" [ngClass]=\"{'active': option == 0}\">\n                            Preview\n                        </a>\n                    </li>\n                    <li class=\"nav-item\">\n                        <a class=\"nav-link\" (click)=\"selectOption(1)\" [ngClass]=\"{'active': option == 1}\">\n                            app.module.ts\n                        </a>\n                    </li>\n                    <li class=\"nav-item\">\n                        <a class=\"nav-link\" (click)=\"selectOption(2)\" [ngClass]=\"{'active': option == 2}\">\n                            app.component.ts\n                        </a>\n                    </li>\n                    <li class=\"nav-item\">\n                        <a class=\"nav-link\" (click)=\"selectOption(3)\" [ngClass]=\"{'active': option == 3}\">\n                            app.component.html\n                        </a>\n                    </li>\n                </ul>\n                <div *ngIf=\"option == 0\">\n\n                    <!--<alm-map [config]=\"configMap\" [randomMarkers] = true></alm-map>-->\n\n                    <!--<alm-map [config]=\"configMap\" [markers]=\"marker\"></alm-map>-->\n                    <ng-leaflet-map (setUpMap)=\"setMap($event)\" [config]=\"configMap\" [markers]=\"markers\">\n                    </ng-leaflet-map>\n                </div>\n                <div *ngIf=\"option == 1\">\n                    <pre>{{snippet1}}</pre>\n                </div>\n                <div *ngIf=\"option == 2\">\n                    app.component.ts\n                </div>\n                <div *ngIf=\"option == 3\">\n                    app.component.html\n                </div>\n\n            </div>\n\n        </div>\n\n\n    </div>\n    <div class=\"row\">\n        <div class=\"col-lg-2\">\n        </div>\n        <div class=\"col-lg text-center\">\n            <footer class=\"d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top\">\n                <div class=\"col d-flex\">\n                    <span class=\"text-muted\">© 2022 Angular Leaflet Map - Anartz Mugika Ledo</span>\n                </div>\n            </footer>\n        </div>\n    </div>\n</div>"
         },
         {
             "name": "HeaderComponent",
             "id": "component-HeaderComponent-a557eec14f72c438a8033301f4d6ce023e0a1844a3b06ec2b38794a612acc31735ae78a5ee10071b230c8c20d699eb914554e69d07ade54adb371da8efb464cc",
-            "file": "src/stories/header.component.ts",
+            "file": "src/app/stories/header.component.ts",
             "encapsulation": [],
             "entryComponents": [],
             "inputs": [],
@@ -2133,7 +2133,69 @@
         },
         {
             "name": "MapComponent",
-            "id": "component-MapComponent-ae74150ece81366c81086348dc66764fe7961ee09dc6c1da0693ca6f051defbecfa3046e355fd5b108d30bf1838035016b936828869f9038efbc6742328f4ed4",
+            "id": "component-MapComponent-787c4882503e0528aff764cae43cbd4d96d970d8aeec546cedf997ecf5040ad4225d748a5e1dfe52c95a0e78a7df35c56c72f009c2cc33d88f42f06928e3f8ad",
+            "file": "src/app/pages/storybook/map/map.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-map",
+            "styleUrls": [
+                "./map.component.css"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./map.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [
+                {
+                    "name": "ngOnInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 12,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, OnInit } from '@angular/core';\n\n@Component({\n  selector: 'app-map',\n  templateUrl: './map.component.html',\n  styleUrls: ['./map.component.css']\n})\nexport class MapComponent implements OnInit {\n\n  constructor() { }\n\n  ngOnInit(): void {\n  }\n\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "",
+                    "styleUrl": "./map.component.css"
+                }
+            ],
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [],
+                "line": 8
+            },
+            "implements": [
+                "OnInit"
+            ],
+            "templateData": "<ng-leaflet-map>\n</ng-leaflet-map>"
+        },
+        {
+            "name": "MapComponent",
+            "id": "component-MapComponent-a1bbbf89e339b1044af79754f71552a32fb61a130470b801564d4f370ee9d811cfeb429a91f2f1390accf998752e05f1351ce94c4ff3783e856b8e7d1eab13c1-1",
             "file": "projects/mugan86/ng-leaflet/src/lib/components/map/map.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -2152,16 +2214,17 @@
                     "name": "config",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 17,
+                    "line": 20,
                     "type": "IConfigMap",
                     "decorators": []
                 },
                 {
                     "name": "markers",
-                    "defaultValue": "[]",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 14,
+                    "rawdescription": "\n\nMarkers\n",
+                    "description": "<p>Markers</p>\n",
+                    "line": 17,
                     "type": "Array<IMarker>",
                     "decorators": []
                 },
@@ -2170,7 +2233,7 @@
                     "defaultValue": "false",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 15,
+                    "line": 18,
                     "type": "boolean",
                     "decorators": []
                 },
@@ -2179,7 +2242,7 @@
                     "defaultValue": "{ width: '100%', height: '600px' }",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 16,
+                    "line": 19,
                     "type": "literal type",
                     "decorators": []
                 }
@@ -2190,7 +2253,7 @@
                     "defaultValue": "new EventEmitter<MapObject>()",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 18,
+                    "line": 21,
                     "type": "EventEmitter<MapObject>"
                 }
             ],
@@ -2202,7 +2265,7 @@
                     "type": "Map",
                     "optional": false,
                     "description": "",
-                    "line": 19,
+                    "line": 22,
                     "modifierKind": [
                         121
                     ]
@@ -2215,7 +2278,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 21,
+                    "line": 24,
                     "deprecated": false,
                     "deprecationMessage": ""
                 },
@@ -2225,7 +2288,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 29,
+                    "line": 32,
                     "deprecated": false,
                     "deprecationMessage": ""
                 }
@@ -2234,22 +2297,25 @@
             "deprecationMessage": "",
             "hostBindings": [],
             "hostListeners": [],
-            "description": "",
+            "description": "Pruebba",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { AfterViewInit, Component, EventEmitter, Input, Output } from '@angular/core';\nimport { IMarker, IConfigMap } from './../../models';\nimport { Controls } from '../../services/controls';\nimport { Markers } from './../../services/markers';\nimport { LeafletMap as Map } from './../../services/ng-leaflet-map.service';\nimport { Map as MapObject } from 'leaflet';\n@Component({\n  selector: 'ng-leaflet-map',\n  templateUrl: './map.component.html',\n  styles: [\n  ]\n})\nexport class MapComponent implements AfterViewInit {\n  @Input() markers: Array<IMarker> = [];\n  @Input() randomMarkers: boolean = false;\n  @Input() size: { width: string, height: string } = { width: '100%', height: '600px' }\n  @Input() config?: IConfigMap;\n  @Output() setUpMap: EventEmitter<MapObject> = new EventEmitter<MapObject>();\n  private map!: Map;\n\n  ngAfterViewInit(): void {\n    this.map = new Map(this.config || undefined);\n    (this.markers.length || this.randomMarkers) && Markers.add(this.map.get(), this.markers, this.randomMarkers);\n    this.markers.length && this.config?.fitBounds && this.map.fitBounds(this.markers);\n    this.config!! && this.setControls();\n    this.setUpMap.emit(this.map.get());\n  }\n\n  setControls() {\n    this.config!!.scale && Controls.addScale(this.map.get(), this.config?.scale);\n    this.config!!.layers && Controls.addBaseOverLayers(this.map.get(), this.config!!.layers);\n    this.config!!.zoom && Controls.changeZoomConfig(this.map.get(), this.config?.zoom);\n    this.config!!.fullscreen && Controls.activeFullScreen(this.map.get());\n    this.config!!.watermark && Controls.activeWatermark(this.map.get(), this.config!!.watermark);\n  }\n\n}\n",
+            "sourceCode": "import { AfterViewInit, Component, EventEmitter, Input, Output } from '@angular/core';\nimport { IMarker, IConfigMap } from './../../models';\nimport { Controls } from '../../services/controls';\nimport { Markers } from './../../services/markers';\nimport { LeafletMap as Map } from './../../services/ng-leaflet-map.service';\nimport { Map as MapObject } from 'leaflet';\n@Component({\n  selector: 'ng-leaflet-map',\n  templateUrl: './map.component.html',\n  styles: [\n  ]\n})\nexport class MapComponent implements AfterViewInit {\n  /**\n   * Markers\n   */\n  @Input() markers!: Array<IMarker>;\n  @Input() randomMarkers: boolean = false;\n  @Input() size: { width: string, height: string } = { width: '100%', height: '600px' }\n  @Input() config?: IConfigMap;\n  @Output() setUpMap: EventEmitter<MapObject> = new EventEmitter<MapObject>();\n  private map!: Map;\n\n  ngAfterViewInit(): void {\n    this.map = new Map(this.config || undefined);\n    this.markers && (this.markers.length || this.randomMarkers) && Markers.add(this.map.get(), this.markers, this.randomMarkers);\n    this.markers.length && this.config?.fitBounds && this.map.fitBounds(this.markers);\n    this.config!! && this.setControls();\n    this.setUpMap.emit(this.map.get());\n  }\n\n  setControls() {\n    this.config!!.scale && Controls.addScale(this.map.get(), this.config?.scale);\n    this.config!!.layers && Controls.addBaseOverLayers(this.map.get(), this.config!!.layers);\n    this.config!!.zoom && Controls.changeZoomConfig(this.map.get(), this.config?.zoom);\n    this.config!!.fullscreen && Controls.activeFullScreen(this.map.get());\n    this.config!!.watermark && Controls.activeWatermark(this.map.get(), this.config!!.watermark);\n  }\n\n}\n",
             "assetsDirs": [],
             "styleUrlsData": "",
             "stylesData": "",
             "implements": [
                 "AfterViewInit"
             ],
+            "isDuplicate": true,
+            "duplicateId": 1,
+            "duplicateName": "MapComponent-1",
             "templateData": "<div id=\"map\" [ngStyle]=\"size\"></div>"
         },
         {
             "name": "PageComponent",
             "id": "component-PageComponent-7126d8c2607c946741c651482413b43feb72b2d63cac9d3ac173fde206a5e635eb4cdbf7ca7ac9327c7d4d05cf7ef619144c34c11609ad677081d0ee4e855064",
-            "file": "src/stories/page.component.ts",
+            "file": "src/app/stories/page.component.ts",
             "encapsulation": [],
             "entryComponents": [],
             "inputs": [],
@@ -2378,13 +2444,13 @@
         },
         {
             "name": "AppRoutingModule",
-            "id": "module-AppRoutingModule-ee116df0814996fcb2b831f3d7879ec3abb02209aafc6de0b6ecfa9ced73e582409426d8de18b21b8b5ff03046c11878e2ba802e99784c7b6d834b33698e0323",
+            "id": "module-AppRoutingModule-25a9b23b942fcc33ced73ba366e98c6a59c035785f7771aca0966e7e9c60ddeb6c7274d713e1b5cc83532bdd5e30d17ba7bb238a738d726e4760cee9af5ea9ad",
             "description": "",
             "deprecationMessage": "",
             "deprecated": false,
             "file": "src/app/app-routing.module.ts",
             "methods": [],
-            "sourceCode": "import { NgModule } from '@angular/core';\nimport { RouterModule, Routes } from '@angular/router';\n\nconst routes: Routes = [\n  {\n    path: 'example/:page',\n    loadChildren: () => \"import('./pages/example/example.module').then(m => m.ExampleModule)\"\n  },\n  {\n    path: '**',\n    redirectTo: 'example/basic',\n    pathMatch: 'full',\n  },\n];\n@NgModule({\n  imports: [\n    RouterModule.forRoot(routes, {\n      useHash: true,\n      scrollPositionRestoration: 'enabled',\n    }),\n  ],\n  exports: [RouterModule],\n})\nexport class AppRoutingModule { }\n",
+            "sourceCode": "import { NgModule } from '@angular/core';\nimport { RouterModule, Routes } from '@angular/router';\n\nconst routes: Routes = [\n  {\n    path: 'example/:page',\n    loadChildren: () => \"import('./pages/example/example.module').then(m => m.ExampleModule)\"\n  },\n  {\n    path: 'storybook',\n    loadChildren: () => \"import('./pages/storybook/map/map.module').then(m => m.MapModule)\"\n  },\n  {\n    path: '**',\n    redirectTo: 'storybook',\n    pathMatch: 'full',\n  },\n];\n@NgModule({\n  imports: [\n    RouterModule.forRoot(routes, {\n      useHash: true,\n      scrollPositionRestoration: 'enabled',\n    }),\n  ],\n  exports: [RouterModule],\n})\nexport class AppRoutingModule { }\n",
             "children": [
                 {
                     "type": "providers",
@@ -2497,13 +2563,13 @@
         },
         {
             "name": "MapBasicModule",
-            "id": "module-MapBasicModule-052bd03299ae9e152a3a859ff289a0dcf474131d00bbb98af2935572465bb4fa5828ed657aff5c639a90587a3eaa73b044ab176e62c28604f571492eed1d9f96",
+            "id": "module-MapBasicModule-0a9b047fc1ea18cc4e6f7b69f905c15b26acf9ee9f0e8b87b3f02a3d680f84fd20f31d562fb3602e4af80a141e7745037b8b2699e97ab90d0db8ea2e801bc0b3",
             "description": "",
             "deprecationMessage": "",
             "deprecated": false,
             "file": "projects/mugan86/ng-leaflet/src/lib/components/map/map.module.ts",
             "methods": [],
-            "sourceCode": "import { NgModule } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { MapComponent } from './map.component';\n\n\n\n@NgModule({\n  declarations: [\n    MapComponent\n  ],\n  imports: [\n    CommonModule\n  ],\n  exports: [\n    MapComponent\n  ]\n})\nexport class MapBasicModule { }\n",
+            "sourceCode": "import { NgModule } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { MapComponent } from './map.component';\n\n@NgModule({\n  declarations: [\n    MapComponent\n  ],\n  imports: [\n    CommonModule\n  ],\n  exports: [\n    MapComponent\n  ]\n})\nexport class MapBasicModule { }\n",
             "children": [
                 {
                     "type": "providers",
@@ -2523,11 +2589,90 @@
                 },
                 {
                     "type": "exports",
+                    "elements": []
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        },
+        {
+            "name": "MapModule",
+            "id": "module-MapModule-431096ab0f23214b43c9b87c05a795ae923d7e81ec671ea16f218f61d8db3b22d8b114ca5ae0fbcfb0a687b6d86796ca17ce5cca890171f2821bdb01dd4c6344",
+            "description": "",
+            "deprecationMessage": "",
+            "deprecated": false,
+            "file": "src/app/pages/storybook/map/map.module.ts",
+            "methods": [],
+            "sourceCode": "import { NgModule } from '@angular/core';\nimport { CommonModule } from '@angular/common';\n\nimport { MapRoutingModule } from './map-routing.module';\nimport { MapComponent } from './map.component';\nimport { NgLeafletModule } from '@mugan86/ng-leaflet';\n\n\n@NgModule({\n  declarations: [\n    MapComponent\n  ],\n  imports: [\n    CommonModule,\n    MapRoutingModule,\n    NgLeafletModule\n  ]\n})\nexport class MapModule { }\n",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
                     "elements": [
                         {
                             "name": "MapComponent"
                         }
                     ]
+                },
+                {
+                    "type": "imports",
+                    "elements": [
+                        {
+                            "name": "MapRoutingModule"
+                        },
+                        {
+                            "name": "NgLeafletModule"
+                        }
+                    ]
+                },
+                {
+                    "type": "exports",
+                    "elements": []
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        },
+        {
+            "name": "MapRoutingModule",
+            "id": "module-MapRoutingModule-0de9fdf1ece521da2d59e0f39f5836185743c2c7c6f2be8b8d7256de1e91791077c5dccaee90420e1214741d51139c591291f503814d905d2e95f62692c2a20c",
+            "description": "",
+            "deprecationMessage": "",
+            "deprecated": false,
+            "file": "src/app/pages/storybook/map/map-routing.module.ts",
+            "methods": [],
+            "sourceCode": "import { NgModule } from '@angular/core';\nimport { RouterModule, Routes } from '@angular/router';\nimport { MapComponent } from './map.component';\n\nconst routes: Routes = [{\n  path: '',\n  component: MapComponent\n}];\n\n@NgModule({\n  imports: [RouterModule.forChild(routes)],\n  exports: [RouterModule]\n})\nexport class MapRoutingModule { }\n",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": []
+                },
+                {
+                    "type": "imports",
+                    "elements": []
+                },
+                {
+                    "type": "exports",
+                    "elements": []
                 },
                 {
                     "type": "bootstrap",
@@ -2541,13 +2686,13 @@
         },
         {
             "name": "NgLeafletModule",
-            "id": "module-NgLeafletModule-b226880387304aa6caceb15083adab6ff680241ec00f2d5d5e1f76f5bc190d85b14f6bded2984f444e9d414e2103691524dc2669580257627d0accd5dfbc44cc",
+            "id": "module-NgLeafletModule-3f067e6bfbf021a8fe9af9ec54948de81d8ca2484bb52c9a1f3f1400fcd0bdaad9f173f7babcbda093892ccb9f36d2bc8d465edbe5a607d5d4193662b14977fd",
             "description": "",
             "deprecationMessage": "",
             "deprecated": false,
             "file": "projects/mugan86/ng-leaflet/src/lib/ng-leaflet.module.ts",
             "methods": [],
-            "sourceCode": "import { NgModule } from '@angular/core';\nimport { MapBasicModule } from './components/map/map.module';\n\n@NgModule({\n  declarations: [],\n  imports: [\n    MapBasicModule\n  ],\n  exports: [\n    MapBasicModule\n  ]\n})\nexport class NgLeafletModule { }\n",
+            "sourceCode": "import { NgModule } from '@angular/core';\nimport { MapBasicModule } from './components/map/map.module';\n\n@NgModule({\n  declarations: [\n  ],\n  imports: [\n    MapBasicModule\n  ],\n  exports: [\n    MapBasicModule\n  ]\n})\nexport class NgLeafletModule { }\n",
             "children": [
                 {
                     "type": "providers",
@@ -2630,7 +2775,7 @@
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/stories/map-basic.stories.ts",
+                "file": "src/app/stories/Map.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
@@ -2680,7 +2825,7 @@
                 "name": "Large",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/Button.stories.ts",
+                "file": "src/app/stories/Button.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
@@ -2690,7 +2835,7 @@
                 "name": "LoggedIn",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/Header.stories.ts",
+                "file": "src/app/stories/Header.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
@@ -2700,7 +2845,7 @@
                 "name": "LoggedIn",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/Page.stories.ts",
+                "file": "src/app/stories/Page.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
@@ -2710,7 +2855,7 @@
                 "name": "LoggedOut",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/Header.stories.ts",
+                "file": "src/app/stories/Header.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
@@ -2720,7 +2865,7 @@
                 "name": "LoggedOut",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/Page.stories.ts",
+                "file": "src/app/stories/Page.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
@@ -2740,7 +2885,7 @@
                 "name": "Primary",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/Button.stories.ts",
+                "file": "src/app/stories/Button.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
@@ -2768,7 +2913,7 @@
                 "name": "Secondary",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/Button.stories.ts",
+                "file": "src/app/stories/Button.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
@@ -2778,7 +2923,7 @@
                 "name": "Small",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/Button.stories.ts",
+                "file": "src/app/stories/Button.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
@@ -2788,17 +2933,7 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/Header.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story<Header>",
-                "defaultValue": "(args: Header) => ({\n  props: args,\n})"
-            },
-            {
-                "name": "Template",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/stories/Button.stories.ts",
+                "file": "src/app/stories/Button.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story<Button>",
@@ -2808,21 +2943,31 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/Page.stories.ts",
+                "file": "src/app/stories/Header.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "type": "Story<Page>",
-                "defaultValue": "(args: Page) => ({\n  props: args,\n})"
+                "type": "Story<Header>",
+                "defaultValue": "(args: Header) => ({\n  props: args,\n})"
             },
             {
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/stories/map-basic.stories.ts",
+                "file": "src/app/stories/Map.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story<MapComponent>",
-                "defaultValue": "(args: MapComponent) => ({\n  props: args,\n})"
+                "defaultValue": "(args: MapComponent) => ({\n    props: args,\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/stories/Page.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story<Page>",
+                "defaultValue": "(args: Page) => ({\n  props: args,\n})"
             },
             {
                 "name": "tileLayers",
@@ -2975,12 +3120,12 @@
                     "type": "literal type"
                 }
             ],
-            "src/app/stories/map-basic.stories.ts": [
+            "src/app/stories/Map.stories.ts": [
                 {
                     "name": "Default",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/app/stories/map-basic.stories.ts",
+                    "file": "src/app/stories/Map.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "",
@@ -2990,11 +3135,11 @@
                     "name": "Template",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/app/stories/map-basic.stories.ts",
+                    "file": "src/app/stories/Map.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story<MapComponent>",
-                    "defaultValue": "(args: MapComponent) => ({\n  props: args,\n})"
+                    "defaultValue": "(args: MapComponent) => ({\n    props: args,\n})"
                 }
             ],
             "src/environments/environment.prod.ts": [
@@ -3043,12 +3188,12 @@
                     "defaultValue": "Control.extend({\n\n    options: {\n        position: \"topleft\",\n        exitText: 'Salir pantalla completa',\n        fullText: \"Ver en pantalla completa\"\n    },\n\n    initialize: function (options?: { position?: ControlPosition, exitText?: string }) {\n        Util.setOptions(this, options);\n    },\n    onAdd: function () {\n        const container = DomUtil.create(\n            \"input\",\n            \"leaflet-control-zoom leaflet-bar leaflet-control\"\n        );\n        container.type = \"button\";\n        container.title = this.options.fullText;\n        container.style.backgroundImage =\n            \"url(https://cdn-icons-png.flaticon.com/512/2089/2089670.png)\";\n        container.style.backgroundSize = \"15px 15px\";\n        container.style.backgroundRepeat = \"no-repeat\";\n        container.style.backgroundPosition = \"50% 50%\";\n        container.style.width = \"32px\";\n        container.style.height = \"32px\";\n        container.style.padding = \"12px\";\n        container.style.lineHeight = \"30px\";\n        container.style.fontSize = \"22px\";\n        container.style.fontWeight = \"bold\";\n        container.style.cursor = \"pointer\";\n\n\n        container.onclick = () => {\n            // https://developer.mozilla.org/en-US/docs/Web/API/Element/requestFullScreen\n            if (!document.fullscreenElement) { // Si no estamos a pantalla completa\n                document.getElementById('map')?.requestFullscreen();\n                container.title = this.options.exitText;\n            } else {\n                document.exitFullscreen();\n                container.title = this.options.fullText;\n            }\n        };\n        return container;\n    },\n})"
                 }
             ],
-            "src/stories/Button.stories.ts": [
+            "src/app/stories/Button.stories.ts": [
                 {
                     "name": "Large",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/stories/Button.stories.ts",
+                    "file": "src/app/stories/Button.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "",
@@ -3058,7 +3203,7 @@
                     "name": "Primary",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/stories/Button.stories.ts",
+                    "file": "src/app/stories/Button.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "",
@@ -3068,7 +3213,7 @@
                     "name": "Secondary",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/stories/Button.stories.ts",
+                    "file": "src/app/stories/Button.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "",
@@ -3078,7 +3223,7 @@
                     "name": "Small",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/stories/Button.stories.ts",
+                    "file": "src/app/stories/Button.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "",
@@ -3088,19 +3233,19 @@
                     "name": "Template",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/stories/Button.stories.ts",
+                    "file": "src/app/stories/Button.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story<Button>",
                     "defaultValue": "(args: Button) => ({\n  props: args,\n})"
                 }
             ],
-            "src/stories/Header.stories.ts": [
+            "src/app/stories/Header.stories.ts": [
                 {
                     "name": "LoggedIn",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/stories/Header.stories.ts",
+                    "file": "src/app/stories/Header.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "",
@@ -3110,7 +3255,7 @@
                     "name": "LoggedOut",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/stories/Header.stories.ts",
+                    "file": "src/app/stories/Header.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "",
@@ -3120,19 +3265,19 @@
                     "name": "Template",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/stories/Header.stories.ts",
+                    "file": "src/app/stories/Header.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story<Header>",
                     "defaultValue": "(args: Header) => ({\n  props: args,\n})"
                 }
             ],
-            "src/stories/Page.stories.ts": [
+            "src/app/stories/Page.stories.ts": [
                 {
                     "name": "LoggedIn",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/stories/Page.stories.ts",
+                    "file": "src/app/stories/Page.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "",
@@ -3142,7 +3287,7 @@
                     "name": "LoggedOut",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/stories/Page.stories.ts",
+                    "file": "src/app/stories/Page.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "",
@@ -3152,7 +3297,7 @@
                     "name": "Template",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/stories/Page.stories.ts",
+                    "file": "src/app/stories/Page.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story<Page>",
@@ -3255,8 +3400,32 @@
                         ]
                     },
                     {
+                        "path": "storybook",
+                        "loadChildren": "./pages/storybook/map/map.module#MapModule",
+                        "children": [
+                            {
+                                "kind": "module",
+                                "children": [
+                                    {
+                                        "name": "routes",
+                                        "filename": "src/app/pages/storybook/map/map-routing.module.ts",
+                                        "module": "MapRoutingModule",
+                                        "children": [
+                                            {
+                                                "path": "",
+                                                "component": "MapComponent"
+                                            }
+                                        ],
+                                        "kind": "module"
+                                    }
+                                ],
+                                "module": "MapModule"
+                            }
+                        ]
+                    },
+                    {
                         "path": "**",
-                        "redirectTo": "example/basic",
+                        "redirectTo": "storybook",
                         "pathMatch": "full"
                     }
                 ],
@@ -3265,7 +3434,7 @@
         ]
     },
     "coverage": {
-        "count": 3,
+        "count": 4,
         "status": "low",
         "files": [
             {
@@ -3273,8 +3442,8 @@
                 "type": "component",
                 "linktype": "component",
                 "name": "MapComponent",
-                "coveragePercent": 0,
-                "coverageCount": "0/9",
+                "coveragePercent": 11,
+                "coverageCount": "1/9",
                 "status": "low"
             },
             {
@@ -3552,7 +3721,96 @@
                 "status": "low"
             },
             {
-                "filePath": "src/app/stories/map-basic.stories.ts",
+                "filePath": "src/app/pages/storybook/map/map.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "MapComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/3",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/stories/Button.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Large",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/stories/Button.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Primary",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/stories/Button.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Secondary",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/stories/Button.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Small",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/stories/Button.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Template",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/stories/Header.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "LoggedIn",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/stories/Header.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "LoggedOut",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/stories/Header.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Template",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/stories/Map.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
@@ -3562,13 +3820,79 @@
                 "status": "low"
             },
             {
-                "filePath": "src/app/stories/map-basic.stories.ts",
+                "filePath": "src/app/stories/Map.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
                 "name": "Template",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/stories/Page.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "LoggedIn",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/stories/Page.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "LoggedOut",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/stories/Page.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Template",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/stories/User.ts",
+                "type": "interface",
+                "linktype": "interface",
+                "name": "User",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/stories/button.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "ButtonComponent",
+                "coveragePercent": 83,
+                "coverageCount": "5/6",
+                "status": "very-good"
+            },
+            {
+                "filePath": "src/app/stories/header.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "HeaderComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/5",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/stories/page.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "PageComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/5",
                 "status": "low"
             },
             {
@@ -3589,152 +3913,6 @@
                 "name": "environment",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "src/stories/Button.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "Large",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "src/stories/Button.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "Primary",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "src/stories/Button.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "Secondary",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "src/stories/Button.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "Small",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "src/stories/Button.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "Template",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "src/stories/Header.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "LoggedIn",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "src/stories/Header.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "LoggedOut",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "src/stories/Header.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "Template",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "src/stories/Page.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "LoggedIn",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "src/stories/Page.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "LoggedOut",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "src/stories/Page.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "Template",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "src/stories/User.ts",
-                "type": "interface",
-                "linktype": "interface",
-                "name": "User",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "src/stories/button.component.ts",
-                "type": "component",
-                "linktype": "component",
-                "name": "ButtonComponent",
-                "coveragePercent": 83,
-                "coverageCount": "5/6",
-                "status": "very-good"
-            },
-            {
-                "filePath": "src/stories/header.component.ts",
-                "type": "component",
-                "linktype": "component",
-                "name": "HeaderComponent",
-                "coveragePercent": 0,
-                "coverageCount": "0/5",
-                "status": "low"
-            },
-            {
-                "filePath": "src/stories/page.component.ts",
-                "type": "component",
-                "linktype": "component",
-                "name": "PageComponent",
-                "coveragePercent": 0,
-                "coverageCount": "0/5",
                 "status": "low"
             },
             {

@@ -7,8 +7,12 @@ const routes: Routes = [
     loadChildren: () => import('./pages/example/example.module').then(m => m.ExampleModule)
   },
   {
+    path: 'storybook',
+    loadChildren: () => import('./pages/storybook/map/map.module').then(m => m.MapModule)
+  },
+  {
     path: '**',
-    redirectTo: 'example/basic',
+    redirectTo: 'storybook',
     pathMatch: 'full',
   },
 ];

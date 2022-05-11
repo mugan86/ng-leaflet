@@ -1,4 +1,4 @@
-import { Story, Meta, moduleMetadata } from '@storybook/angular';
+/*import { Story, Meta, moduleMetadata } from '@storybook/angular';
 import { NgLeafletModule, SearchComponent } from '@mugan86/ng-leaflet';
 
 export default {
@@ -27,4 +27,4 @@ export const Second = Template.bind({});
 // More on args: https://storybook.js.org/docs/angular/writing-stories/args
 Second.args = {
   primary: false
-};
+};*/
