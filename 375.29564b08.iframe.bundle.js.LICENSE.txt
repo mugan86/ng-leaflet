@@ -4,6 +4,11 @@ object-assign
 @license MIT
 */
 
+/* @preserve
+ * Leaflet 1.8.0, a JS library for interactive maps. https://leafletjs.com
+ * (c) 2010-2022 Vladimir Agafonkin, (c) 2010-2011 CloudMade
+ */
+
 /*!
  * The buffer module from node.js, for the browser.
  *
