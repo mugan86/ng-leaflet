@@ -2,7 +2,7 @@ import { Story, Meta, moduleMetadata, storiesOf } from '@storybook/angular';
 import { NgLeafletModule, MapComponent } from '@mugan86/ng-leaflet';
 
 export default {
-    title: 'Map Basics/1-Basic',
+    title: 'Map Basics/3-RandomMarkers',
     component: MapComponent,
     decorators: [
         moduleMetadata({
@@ -19,15 +19,16 @@ const Template: Story<MapComponent> = (args: MapComponent) => ({
     props: args,
 });
 
-export const First = Template.bind({});
+export const Second = Template.bind({});
 
 // More on args: https://storybook.js.org/docs/angular/writing-stories/args
-First.args = {
-    mapId: 'first__map',
+Second.args = {
+    mapId: 'random-markers__map',
   size: {
-      height: '500px',
+      height: '400px',
       width: '100%'
-  }
+  },
+  randomMarkers: true
 };
 
 

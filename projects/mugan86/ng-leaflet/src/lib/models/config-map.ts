@@ -9,3 +9,8 @@ export interface IConfigMap {
     watermark?: IWatermarkOptions;
     fitBounds?: boolean;
 }
+
+export interface ISizeMap {
+    width: string;
+    height: string;
+}

@@ -53,12 +53,12 @@
         },
         {
             "name": "IConfigMap",
-            "id": "interface-IConfigMap-0821789599a4b1d8b437fa29495e1c449503f4dd71822e79b52a87e3d862e9fac39b7797a923f8f25e098506fd268424c821f965f16bafd9adba895edf808520",
+            "id": "interface-IConfigMap-2b513e70a63f1a737fd30f04fcdcc7f576535714144c313778defbf5b1f11aed976e08cfb60507247a4400428e6d3e6806475c4733604fd92e7855ae7f20d14a",
             "file": "projects/mugan86/ng-leaflet/src/lib/models/config-map.ts",
             "deprecated": false,
             "deprecationMessage": "",
             "type": "interface",
-            "sourceCode": "import { ILayers, IScaleOptions, IWatermarkOptions, IZoomOptions } from \"./controls\";\n\nexport interface IConfigMap {\n    center?: [number, number];\n    scale?: IScaleOptions | undefined;\n    layers?: ILayers;\n    zoom?: IZoomOptions;\n    fullscreen?: boolean;\n    watermark?: IWatermarkOptions;\n    fitBounds?: boolean;\n}",
+            "sourceCode": "import { ILayers, IScaleOptions, IWatermarkOptions, IZoomOptions } from \"./controls\";\n\nexport interface IConfigMap {\n    center?: [number, number];\n    scale?: IScaleOptions | undefined;\n    layers?: ILayers;\n    zoom?: IZoomOptions;\n    fullscreen?: boolean;\n    watermark?: IWatermarkOptions;\n    fitBounds?: boolean;\n}\n\nexport interface ISizeMap {\n    width: string;\n    height: string;\n}",
             "properties": [
                 {
                     "name": "center",
@@ -305,6 +305,38 @@
                     "description": "<p>If true, the control is updated on moveend, otherwise it&#39;s always\nup-to-date (updated on move). Default: false</p>\n",
                     "line": 13,
                     "rawdescription": "\n\nIf true, the control is updated on moveend, otherwise it's always\nup-to-date (updated on move). Default: false\n"
+                }
+            ],
+            "indexSignatures": [],
+            "kind": 165,
+            "methods": []
+        },
+        {
+            "name": "ISizeMap",
+            "id": "interface-ISizeMap-2b513e70a63f1a737fd30f04fcdcc7f576535714144c313778defbf5b1f11aed976e08cfb60507247a4400428e6d3e6806475c4733604fd92e7855ae7f20d14a",
+            "file": "projects/mugan86/ng-leaflet/src/lib/models/config-map.ts",
+            "deprecated": false,
+            "deprecationMessage": "",
+            "type": "interface",
+            "sourceCode": "import { ILayers, IScaleOptions, IWatermarkOptions, IZoomOptions } from \"./controls\";\n\nexport interface IConfigMap {\n    center?: [number, number];\n    scale?: IScaleOptions | undefined;\n    layers?: ILayers;\n    zoom?: IZoomOptions;\n    fullscreen?: boolean;\n    watermark?: IWatermarkOptions;\n    fitBounds?: boolean;\n}\n\nexport interface ISizeMap {\n    width: string;\n    height: string;\n}",
+            "properties": [
+                {
+                    "name": "height",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 15
+                },
+                {
+                    "name": "width",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 14
                 }
             ],
             "indexSignatures": [],
@@ -563,7 +595,7 @@
         {
             "name": "User",
             "id": "interface-User-9c7e5f1bbbab702cb032307d130876cb68969b0cd4eedef32a0c8cad8081a54e5f8f577ed6ad4539c1b99a1d246cb34031d198c2ea8eba440e64e91b14f01fdc",
-            "file": "src/app/stories/User.ts",
+            "file": "src/stories/User.ts",
             "deprecated": false,
             "deprecationMessage": "",
             "type": "interface",
@@ -612,12 +644,12 @@
     "classes": [
         {
             "name": "BaseMap",
-            "id": "class-BaseMap-cb86b5825744b3aab193545648b8845b27de5c65e08398624a36309ac67ae76647f3ecbaff8ce5f33d41edb45c63a3f0d11b57153078e2d636f7c87e95503ca5",
+            "id": "class-BaseMap-c4f5376abb8148e0529db09a2f8cb59ec3cee2cbeb1c229417e6ce3534c40cdd69999bd824c950b84dcb7611558e91a4c07c3d25a57ce7803c877dcf8e690626",
             "file": "projects/mugan86/ng-leaflet/src/lib/services/map.ts",
             "deprecated": false,
             "deprecationMessage": "",
             "type": "class",
-            "sourceCode": "import { Map } from 'leaflet';\nimport { tileLayerSelect } from '../config/tile-layers/helpers';\nimport { tileLayers } from '../config/tile-layers/ui';\nimport { IConfigMap } from '../models/config-map';\nimport { IMarker } from '../models/marker';\n\nexport class BaseMap {\n    private map!: Map;\n    private mapId = 'map';\n    private center!: [number, number];\n    private zoom = true;\n    private zoomValue?: number;\n    constructor(config?: IConfigMap) {\n        this.center = config && config!!.center || [43.1824528,-2.3878554];\n        this.zoom = config && (config!!.zoom) ? false: true;\n        this.zoomValue = config && config?.zoom?.default || 12;\n        this.init(config!!);\n    }\n\n    /**\n     * Init map with set configurations\n     */\n    private init(config: IConfigMap): void {\n        this.map = new Map(this.mapId, {\n            zoomControl: this.zoom\n        }).setView(this.center, this.zoomValue);\n\n        if (!config || !config.layers) {\n            tileLayerSelect(tileLayers.baseLayers.default.map, {\n                attribution: tileLayers.baseLayers.default.atribution\n            }).addTo(this.map)\n        }\n    }\n    get = () => this.map;\n\n    /**\n     * Place camera centering and zooming with location points\n     * @param markers Location point to center /adjust zoom using all points\n     */\n    fitBounds(markers: Array<IMarker>) {\n        this.get().fitBounds([\n            ...markers.map((point) => [point.position.lat, point.position.lng] as [number, number]),\n        ]);\n    }    \n}",
+            "sourceCode": "import { Map } from 'leaflet';\nimport { tileLayerSelect } from '../config/tile-layers/helpers';\nimport { tileLayers } from '../config/tile-layers/ui';\nimport { IConfigMap } from '../models/config-map';\nimport { IMarker } from '../models/marker';\n\nexport class BaseMap {\n    private map!: Map;\n    private mapId = 'map';\n    private center!: [number, number];\n    private zoom = true;\n    private zoomValue?: number;\n    constructor(config?: IConfigMap, mapId?: string) {\n        this.center = config && config!!.center || [43.1824528,-2.3878554];\n        this.mapId = (mapId) || 'map'\n        this.zoom = config && (config!!.zoom) ? false: true;\n        this.zoomValue = config && config?.zoom?.default || 12;\n        this.init(config!!);\n    }\n\n    /**\n     * Init map with set configurations\n     */\n    private init(config: IConfigMap): void {\n        this.map = new Map(this.mapId, {\n            zoomControl: this.zoom\n        }).setView(this.center, this.zoomValue);\n\n        if (!config || !config.layers) {\n            tileLayerSelect(tileLayers.baseLayers.default.map, {\n                attribution: tileLayers.baseLayers.default.atribution\n            }).addTo(this.map)\n        }\n    }\n    get = () => this.map;\n\n    /**\n     * Place camera centering and zooming with location points\n     * @param markers Location point to center /adjust zoom using all points\n     */\n    fitBounds(markers: Array<IMarker>) {\n        this.get().fitBounds([\n            ...markers.map((point) => [point.position.lat, point.position.lng] as [number, number]),\n        ]);\n    }    \n}",
             "constructorObj": {
                 "name": "constructor",
                 "description": "",
@@ -630,6 +662,13 @@
                         "deprecated": false,
                         "deprecationMessage": "",
                         "optional": true
+                    },
+                    {
+                        "name": "mapId",
+                        "type": "string",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "optional": true
                     }
                 ],
                 "line": 12,
@@ -637,6 +676,16 @@
                     {
                         "name": "config",
                         "type": "IConfigMap",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "optional": true,
+                        "tagName": {
+                            "text": "param"
+                        }
+                    },
+                    {
+                        "name": "mapId",
+                        "type": "string",
                         "deprecated": false,
                         "deprecationMessage": "",
                         "optional": true,
@@ -667,7 +716,7 @@
                     "type": "",
                     "optional": false,
                     "description": "",
-                    "line": 34
+                    "line": 35
                 },
                 {
                     "name": "map",
@@ -734,7 +783,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 40,
+                    "line": 41,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n\nPlace camera centering and zooming with location points\n",
@@ -742,8 +791,8 @@
                     "jsdoctags": [
                         {
                             "name": {
-                                "pos": 1254,
-                                "end": 1261,
+                                "pos": 1308,
+                                "end": 1315,
                                 "flags": 4227072,
                                 "modifierFlagsCache": 0,
                                 "transformFlags": 0,
@@ -754,8 +803,8 @@
                             "deprecated": false,
                             "deprecationMessage": "",
                             "tagName": {
-                                "pos": 1248,
-                                "end": 1253,
+                                "pos": 1302,
+                                "end": 1307,
                                 "flags": 4227072,
                                 "modifierFlagsCache": 0,
                                 "transformFlags": 0,
@@ -779,7 +828,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 23,
+                    "line": 24,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n\nInit map with set configurations\n",
@@ -1219,12 +1268,12 @@
         },
         {
             "name": "LeafletMap",
-            "id": "class-LeafletMap-c7c87836efc1b64231eb45e605f6cb656cb4de99b5415dc5e0a85f129b200e104f3cc1a4ce2e19ef85b28a862e5e35bf5d785168aca9cf5ce3badc0538423962",
+            "id": "class-LeafletMap-015df0247e56e45c3cf24a597d798ee16f99b7467b55da78c223e7ea0cfca85bcf3d9ef2858293f7b6fe50b6badce95bb62c1541abe62a11a3b918c23ba38ef5",
             "file": "projects/mugan86/ng-leaflet/src/lib/services/ng-leaflet-map.service.ts",
             "deprecated": false,
             "deprecationMessage": "",
             "type": "class",
-            "sourceCode": "import { IConfigMap } from \"../models/config-map\";\nimport { BaseMap } from \"./map\"\n\nclass LeafletMap extends BaseMap {\n    constructor(config?: IConfigMap) {\n        super(config);\n    }\n}\n\nexport { LeafletMap };",
+            "sourceCode": "import { IConfigMap } from \"../models/config-map\";\nimport { BaseMap } from \"./map\"\n\nclass LeafletMap extends BaseMap {\n    constructor(config?: IConfigMap, mapId?: string) {\n        super(config, mapId);\n    }\n}\n\nexport { LeafletMap };",
             "constructorObj": {
                 "name": "constructor",
                 "description": "",
@@ -1237,6 +1286,13 @@
                         "deprecated": false,
                         "deprecationMessage": "",
                         "optional": true
+                    },
+                    {
+                        "name": "mapId",
+                        "type": "string",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "optional": true
                     }
                 ],
                 "line": 4,
@@ -1244,6 +1300,16 @@
                     {
                         "name": "config",
                         "type": "IConfigMap",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "optional": true,
+                        "tagName": {
+                            "text": "param"
+                        }
+                    },
+                    {
+                        "name": "mapId",
+                        "type": "string",
                         "deprecated": false,
                         "deprecationMessage": "",
                         "optional": true,
@@ -1277,7 +1343,7 @@
                     "type": "",
                     "optional": false,
                     "description": "",
-                    "line": 34,
+                    "line": 35,
                     "inheritance": {
                         "file": "BaseMap"
                     }
@@ -1359,7 +1425,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 40,
+                    "line": 41,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n\nPlace camera centering and zooming with location points\n",
@@ -1367,8 +1433,8 @@
                     "jsdoctags": [
                         {
                             "name": {
-                                "pos": 1254,
-                                "end": 1261,
+                                "pos": 1308,
+                                "end": 1315,
                                 "flags": 4227072,
                                 "modifierFlagsCache": 0,
                                 "transformFlags": 0,
@@ -1379,8 +1445,8 @@
                             "deprecated": false,
                             "deprecationMessage": "",
                             "tagName": {
-                                "pos": 1248,
-                                "end": 1253,
+                                "pos": 1302,
+                                "end": 1307,
                                 "flags": 4227072,
                                 "modifierFlagsCache": 0,
                                 "transformFlags": 0,
@@ -1407,7 +1473,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 23,
+                    "line": 24,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n\nInit map with set configurations\n",
@@ -1709,7 +1775,7 @@
         {
             "name": "ButtonComponent",
             "id": "component-ButtonComponent-4ef205c97a334c309aa4001c8ab4a6d9571dcae18d0e85aaf0d367467ab5d3a9f13ab3573726f1fcb409bc9b49894dadfb80b1bbe1b6ba7041455ad9d4922004",
-            "file": "src/app/stories/button.component.ts",
+            "file": "src/stories/button.component.ts",
             "encapsulation": [],
             "entryComponents": [],
             "inputs": [],
@@ -2061,7 +2127,7 @@
         {
             "name": "HeaderComponent",
             "id": "component-HeaderComponent-a557eec14f72c438a8033301f4d6ce023e0a1844a3b06ec2b38794a612acc31735ae78a5ee10071b230c8c20d699eb914554e69d07ade54adb371da8efb464cc",
-            "file": "src/app/stories/header.component.ts",
+            "file": "src/stories/header.component.ts",
             "encapsulation": [],
             "entryComponents": [],
             "inputs": [],
@@ -2133,7 +2199,7 @@
         },
         {
             "name": "MapComponent",
-            "id": "component-MapComponent-787c4882503e0528aff764cae43cbd4d96d970d8aeec546cedf997ecf5040ad4225d748a5e1dfe52c95a0e78a7df35c56c72f009c2cc33d88f42f06928e3f8ad",
+            "id": "component-MapComponent-fa37f1f6ee19018246795cbeb5b55b059892256e22e6f9b97cf80a8a4ae99b4f1b740e300f8e4b881696ba5aa94ad82123cc59578d7cca67290bf5c5f2ef4761",
             "file": "src/app/pages/storybook/map/map.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -2149,21 +2215,45 @@
                 "./map.component.html"
             ],
             "viewProviders": [],
-            "inputsClass": [],
-            "outputsClass": [],
-            "propertiesClass": [],
-            "methodsClass": [
+            "inputsClass": [
                 {
-                    "name": "ngOnInit",
-                    "args": [],
-                    "optional": false,
-                    "returnType": "void",
-                    "typeParameters": [],
-                    "line": 12,
+                    "name": "config",
                     "deprecated": false,
-                    "deprecationMessage": ""
+                    "deprecationMessage": "",
+                    "line": 13,
+                    "type": "IConfigMap",
+                    "decorators": []
+                },
+                {
+                    "name": "markers",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 10,
+                    "type": "Array<IMarker>",
+                    "decorators": []
+                },
+                {
+                    "name": "randomMarkers",
+                    "defaultValue": "false",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 11,
+                    "type": "boolean",
+                    "decorators": []
+                },
+                {
+                    "name": "size",
+                    "defaultValue": "{ width: '100%', height: '600px' }",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 12,
+                    "type": "literal type",
+                    "decorators": []
                 }
             ],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
             "deprecated": false,
             "deprecationMessage": "",
             "hostBindings": [],
@@ -2171,7 +2261,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, OnInit } from '@angular/core';\n\n@Component({\n  selector: 'app-map',\n  templateUrl: './map.component.html',\n  styleUrls: ['./map.component.css']\n})\nexport class MapComponent implements OnInit {\n\n  constructor() { }\n\n  ngOnInit(): void {\n  }\n\n}\n",
+            "sourceCode": "import { Component, Input } from '@angular/core';\nimport { IConfigMap, IMarker } from '@mugan86/ng-leaflet';\n\n@Component({\n  selector: 'app-map',\n  templateUrl: './map.component.html',\n  styleUrls: ['./map.component.css']\n})\nexport class MapComponent {\n  @Input() markers!: Array<IMarker>;\n  @Input() randomMarkers: boolean = false;\n  @Input() size: { width: string, height: string } = { width: '100%', height: '600px' }\n  @Input() config?: IConfigMap;\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -2180,22 +2270,11 @@
                 }
             ],
             "stylesData": "",
-            "constructorObj": {
-                "name": "constructor",
-                "description": "",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "args": [],
-                "line": 8
-            },
-            "implements": [
-                "OnInit"
-            ],
-            "templateData": "<ng-leaflet-map>\n</ng-leaflet-map>"
+            "templateData": "<ng-leaflet-map [size]=\"size\" [markers]=\"markers\" [randomMarkers]=\"randomMarkers\" [config]=\"config\">\n</ng-leaflet-map>\n"
         },
         {
             "name": "MapComponent",
-            "id": "component-MapComponent-a1bbbf89e339b1044af79754f71552a32fb61a130470b801564d4f370ee9d811cfeb429a91f2f1390accf998752e05f1351ce94c4ff3783e856b8e7d1eab13c1-1",
+            "id": "component-MapComponent-9f2e1f99deb1453d4870a81e5c3164e206bf9f62452b5f62d89eec16963c5dfd65748a52fc04e6b515b70be66ad715bea862a0c85a9b7bc56a4304912a6ce395-1",
             "file": "projects/mugan86/ng-leaflet/src/lib/components/map/map.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -2214,8 +2293,41 @@
                     "name": "config",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 20,
+                    "rawdescription": "\n\nUse map differents configurations to custom\n",
+                    "description": "<p>Use map differents configurations to custom</p>\n",
+                    "line": 40,
                     "type": "IConfigMap",
+                    "decorators": []
+                },
+                {
+                    "name": "mapId",
+                    "defaultValue": "'map'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "pos": 708,
+                            "end": 721,
+                            "flags": 4227072,
+                            "modifierFlagsCache": 0,
+                            "transformFlags": 0,
+                            "kind": 325,
+                            "tagName": {
+                                "pos": 709,
+                                "end": 717,
+                                "flags": 4227072,
+                                "modifierFlagsCache": 0,
+                                "transformFlags": 0,
+                                "kind": 79,
+                                "escapedText": "required"
+                            },
+                            "comment": ""
+                        }
+                    ],
+                    "rawdescription": "\n\nAssign map ID that need is unique and not duplicate\n\n",
+                    "description": "<p>Assign map ID that need is unique and not duplicate</p>\n",
+                    "line": 24,
+                    "type": "string",
                     "decorators": []
                 },
                 {
@@ -2224,7 +2336,7 @@
                     "deprecationMessage": "",
                     "rawdescription": "\n\nMarkers\n",
                     "description": "<p>Markers</p>\n",
-                    "line": 17,
+                    "line": 18,
                     "type": "Array<IMarker>",
                     "decorators": []
                 },
@@ -2233,17 +2345,60 @@
                     "defaultValue": "false",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 18,
+                    "jsdoctags": [
+                        {
+                            "pos": 787,
+                            "end": 800,
+                            "flags": 4227072,
+                            "modifierFlagsCache": 0,
+                            "transformFlags": 0,
+                            "kind": 325,
+                            "tagName": {
+                                "pos": 788,
+                                "end": 796,
+                                "flags": 4227072,
+                                "modifierFlagsCache": 0,
+                                "transformFlags": 0,
+                                "kind": 79,
+                                "escapedText": "required"
+                            },
+                            "comment": ""
+                        }
+                    ],
+                    "rawdescription": "\n\nButton contents\n\n",
+                    "description": "<p>Button contents</p>\n",
+                    "line": 30,
                     "type": "boolean",
                     "decorators": []
                 },
                 {
                     "name": "size",
-                    "defaultValue": "{ width: '100%', height: '600px' }",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 19,
-                    "type": "literal type",
+                    "jsdoctags": [
+                        {
+                            "pos": 903,
+                            "end": 916,
+                            "flags": 4227072,
+                            "modifierFlagsCache": 0,
+                            "transformFlags": 0,
+                            "kind": 325,
+                            "tagName": {
+                                "pos": 904,
+                                "end": 912,
+                                "flags": 4227072,
+                                "modifierFlagsCache": 0,
+                                "transformFlags": 0,
+                                "kind": 79,
+                                "escapedText": "required"
+                            },
+                            "comment": ""
+                        }
+                    ],
+                    "rawdescription": "\n\nSpecify use Map size to working map\n\n",
+                    "description": "<p>Specify use Map size to working map</p>\n",
+                    "line": 36,
+                    "type": "ISizeMap",
                     "decorators": []
                 }
             ],
@@ -2253,7 +2408,7 @@
                     "defaultValue": "new EventEmitter<MapObject>()",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 21,
+                    "line": 41,
                     "type": "EventEmitter<MapObject>"
                 }
             ],
@@ -2265,7 +2420,7 @@
                     "type": "Map",
                     "optional": false,
                     "description": "",
-                    "line": 22,
+                    "line": 42,
                     "modifierKind": [
                         121
                     ]
@@ -2278,7 +2433,17 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 24,
+                    "line": 51,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                },
+                {
+                    "name": "ngOnInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 44,
                     "deprecated": false,
                     "deprecationMessage": ""
                 },
@@ -2288,7 +2453,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 32,
+                    "line": 59,
                     "deprecated": false,
                     "deprecationMessage": ""
                 }
@@ -2297,10 +2462,10 @@
             "deprecationMessage": "",
             "hostBindings": [],
             "hostListeners": [],
-            "description": "Pruebba",
+            "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { AfterViewInit, Component, EventEmitter, Input, Output } from '@angular/core';\nimport { IMarker, IConfigMap } from './../../models';\nimport { Controls } from '../../services/controls';\nimport { Markers } from './../../services/markers';\nimport { LeafletMap as Map } from './../../services/ng-leaflet-map.service';\nimport { Map as MapObject } from 'leaflet';\n@Component({\n  selector: 'ng-leaflet-map',\n  templateUrl: './map.component.html',\n  styles: [\n  ]\n})\nexport class MapComponent implements AfterViewInit {\n  /**\n   * Markers\n   */\n  @Input() markers!: Array<IMarker>;\n  @Input() randomMarkers: boolean = false;\n  @Input() size: { width: string, height: string } = { width: '100%', height: '600px' }\n  @Input() config?: IConfigMap;\n  @Output() setUpMap: EventEmitter<MapObject> = new EventEmitter<MapObject>();\n  private map!: Map;\n\n  ngAfterViewInit(): void {\n    this.map = new Map(this.config || undefined);\n    this.markers && (this.markers.length || this.randomMarkers) && Markers.add(this.map.get(), this.markers, this.randomMarkers);\n    this.markers.length && this.config?.fitBounds && this.map.fitBounds(this.markers);\n    this.config!! && this.setControls();\n    this.setUpMap.emit(this.map.get());\n  }\n\n  setControls() {\n    this.config!!.scale && Controls.addScale(this.map.get(), this.config?.scale);\n    this.config!!.layers && Controls.addBaseOverLayers(this.map.get(), this.config!!.layers);\n    this.config!!.zoom && Controls.changeZoomConfig(this.map.get(), this.config?.zoom);\n    this.config!!.fullscreen && Controls.activeFullScreen(this.map.get());\n    this.config!!.watermark && Controls.activeWatermark(this.map.get(), this.config!!.watermark);\n  }\n\n}\n",
+            "sourceCode": "import { AfterViewInit, Component, EventEmitter, Input, Output } from '@angular/core';\nimport { IMarker, IConfigMap } from './../../models';\nimport { Controls } from '../../services/controls';\nimport { Markers } from './../../services/markers';\nimport { LeafletMap as Map } from './../../services/ng-leaflet-map.service';\nimport { Map as MapObject } from 'leaflet';\nimport { ISizeMap } from '../../models/config-map';\n@Component({\n  selector: 'ng-leaflet-map',\n  templateUrl: './map.component.html',\n  styles: [\n  ]\n})\nexport class MapComponent implements AfterViewInit {\n  /**\n   * Markers\n   */\n  @Input() markers!: Array<IMarker>;\n  /**\n   * Assign map ID that need is unique and not duplicate\n   * \n   * @required\n   */\n  @Input() mapId = 'map';\n  /**\n   * Button contents\n   *\n   * @required\n   */\n  @Input() randomMarkers: boolean = false;\n  /**\n   * Specify use Map size to working map\n   *\n   * @required\n   */\n  @Input() size!: ISizeMap;\n  /**\n   * Use map differents configurations to custom\n   */\n  @Input() config?: IConfigMap;\n  @Output() setUpMap: EventEmitter<MapObject> = new EventEmitter<MapObject>();\n  private map!: Map;\n\n  ngOnInit() {\n    this.size = (this.size) || {\n      width: '100%',\n      height: '500px'\n    }\n  }\n\n  ngAfterViewInit(): void {\n    this.map = new Map(this.config || undefined, this.mapId || undefined);\n    this.markers && (this.markers.length || this.randomMarkers) && Markers.add(this.map.get(), this.markers, this.randomMarkers);\n    this.markers.length && this.config?.fitBounds && this.map.fitBounds(this.markers);\n    this.config!! && this.setControls();\n    this.setUpMap.emit(this.map.get());\n  }\n\n  setControls() {\n    this.config!!.scale && Controls.addScale(this.map.get(), this.config?.scale);\n    this.config!!.layers && Controls.addBaseOverLayers(this.map.get(), this.config!!.layers);\n    this.config!!.zoom && Controls.changeZoomConfig(this.map.get(), this.config?.zoom);\n    this.config!!.fullscreen && Controls.activeFullScreen(this.map.get());\n    this.config!!.watermark && Controls.activeWatermark(this.map.get(), this.config!!.watermark);\n  }\n\n}\n",
             "assetsDirs": [],
             "styleUrlsData": "",
             "stylesData": "",
@@ -2310,12 +2475,12 @@
             "isDuplicate": true,
             "duplicateId": 1,
             "duplicateName": "MapComponent-1",
-            "templateData": "<div id=\"map\" [ngStyle]=\"size\"></div>"
+            "templateData": "<div [id]=\"mapId\" [ngStyle]=\"size\"></div>"
         },
         {
             "name": "PageComponent",
             "id": "component-PageComponent-7126d8c2607c946741c651482413b43feb72b2d63cac9d3ac173fde206a5e635eb4cdbf7ca7ac9327c7d4d05cf7ef619144c34c11609ad677081d0ee4e855064",
-            "file": "src/app/stories/page.component.ts",
+            "file": "src/stories/page.component.ts",
             "encapsulation": [],
             "entryComponents": [],
             "inputs": [],
@@ -2775,7 +2940,7 @@
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/stories/Map.stories.ts",
+                "file": "src/app/stories/01-Basic/A-Map.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
@@ -2825,7 +2990,7 @@
                 "name": "Large",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/stories/Button.stories.ts",
+                "file": "src/stories/Button.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
@@ -2835,7 +3000,7 @@
                 "name": "LoggedIn",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/stories/Header.stories.ts",
+                "file": "src/stories/Header.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
@@ -2845,7 +3010,7 @@
                 "name": "LoggedIn",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/stories/Page.stories.ts",
+                "file": "src/stories/Page.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
@@ -2855,7 +3020,7 @@
                 "name": "LoggedOut",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/stories/Header.stories.ts",
+                "file": "src/stories/Header.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
@@ -2865,7 +3030,7 @@
                 "name": "LoggedOut",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/stories/Page.stories.ts",
+                "file": "src/stories/Page.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
@@ -2885,7 +3050,7 @@
                 "name": "Primary",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/stories/Button.stories.ts",
+                "file": "src/stories/Button.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
@@ -2910,10 +3075,20 @@
                 "type": "literal type"
             },
             {
+                "name": "Second",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/stories/01-Basic/B-MapCustomSize.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
                 "name": "Secondary",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/stories/Button.stories.ts",
+                "file": "src/stories/Button.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
@@ -2923,7 +3098,7 @@
                 "name": "Small",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/stories/Button.stories.ts",
+                "file": "src/stories/Button.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
@@ -2933,7 +3108,7 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/stories/Button.stories.ts",
+                "file": "src/stories/Button.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story<Button>",
@@ -2943,7 +3118,7 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/stories/Header.stories.ts",
+                "file": "src/stories/Header.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story<Header>",
@@ -2953,7 +3128,17 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/stories/Map.stories.ts",
+                "file": "src/stories/Page.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story<Page>",
+                "defaultValue": "(args: Page) => ({\n  props: args,\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/stories/01-Basic/A-Map.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story<MapComponent>",
@@ -2963,11 +3148,11 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/stories/Page.stories.ts",
+                "file": "src/app/stories/01-Basic/B-MapCustomSize.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "type": "Story<Page>",
-                "defaultValue": "(args: Page) => ({\n  props: args,\n})"
+                "type": "Story<MapComponent>",
+                "defaultValue": "(args: MapComponent) => ({\n    props: args,\n})"
             },
             {
                 "name": "tileLayers",
@@ -3120,12 +3305,12 @@
                     "type": "literal type"
                 }
             ],
-            "src/app/stories/Map.stories.ts": [
+            "src/app/stories/01-Basic/A-Map.stories.ts": [
                 {
                     "name": "Default",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/app/stories/Map.stories.ts",
+                    "file": "src/app/stories/01-Basic/A-Map.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "",
@@ -3135,7 +3320,7 @@
                     "name": "Template",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/app/stories/Map.stories.ts",
+                    "file": "src/app/stories/01-Basic/A-Map.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story<MapComponent>",
@@ -3188,12 +3373,12 @@
                     "defaultValue": "Control.extend({\n\n    options: {\n        position: \"topleft\",\n        exitText: 'Salir pantalla completa',\n        fullText: \"Ver en pantalla completa\"\n    },\n\n    initialize: function (options?: { position?: ControlPosition, exitText?: string }) {\n        Util.setOptions(this, options);\n    },\n    onAdd: function () {\n        const container = DomUtil.create(\n            \"input\",\n            \"leaflet-control-zoom leaflet-bar leaflet-control\"\n        );\n        container.type = \"button\";\n        container.title = this.options.fullText;\n        container.style.backgroundImage =\n            \"url(https://cdn-icons-png.flaticon.com/512/2089/2089670.png)\";\n        container.style.backgroundSize = \"15px 15px\";\n        container.style.backgroundRepeat = \"no-repeat\";\n        container.style.backgroundPosition = \"50% 50%\";\n        container.style.width = \"32px\";\n        container.style.height = \"32px\";\n        container.style.padding = \"12px\";\n        container.style.lineHeight = \"30px\";\n        container.style.fontSize = \"22px\";\n        container.style.fontWeight = \"bold\";\n        container.style.cursor = \"pointer\";\n\n\n        container.onclick = () => {\n            // https://developer.mozilla.org/en-US/docs/Web/API/Element/requestFullScreen\n            if (!document.fullscreenElement) { // Si no estamos a pantalla completa\n                document.getElementById('map')?.requestFullscreen();\n                container.title = this.options.exitText;\n            } else {\n                document.exitFullscreen();\n                container.title = this.options.fullText;\n            }\n        };\n        return container;\n    },\n})"
                 }
             ],
-            "src/app/stories/Button.stories.ts": [
+            "src/stories/Button.stories.ts": [
                 {
                     "name": "Large",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/app/stories/Button.stories.ts",
+                    "file": "src/stories/Button.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "",
@@ -3203,7 +3388,7 @@
                     "name": "Primary",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/app/stories/Button.stories.ts",
+                    "file": "src/stories/Button.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "",
@@ -3213,7 +3398,7 @@
                     "name": "Secondary",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/app/stories/Button.stories.ts",
+                    "file": "src/stories/Button.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "",
@@ -3223,7 +3408,7 @@
                     "name": "Small",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/app/stories/Button.stories.ts",
+                    "file": "src/stories/Button.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "",
@@ -3233,19 +3418,19 @@
                     "name": "Template",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/app/stories/Button.stories.ts",
+                    "file": "src/stories/Button.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story<Button>",
                     "defaultValue": "(args: Button) => ({\n  props: args,\n})"
                 }
             ],
-            "src/app/stories/Header.stories.ts": [
+            "src/stories/Header.stories.ts": [
                 {
                     "name": "LoggedIn",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/app/stories/Header.stories.ts",
+                    "file": "src/stories/Header.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "",
@@ -3255,7 +3440,7 @@
                     "name": "LoggedOut",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/app/stories/Header.stories.ts",
+                    "file": "src/stories/Header.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "",
@@ -3265,19 +3450,19 @@
                     "name": "Template",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/app/stories/Header.stories.ts",
+                    "file": "src/stories/Header.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story<Header>",
                     "defaultValue": "(args: Header) => ({\n  props: args,\n})"
                 }
             ],
-            "src/app/stories/Page.stories.ts": [
+            "src/stories/Page.stories.ts": [
                 {
                     "name": "LoggedIn",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/app/stories/Page.stories.ts",
+                    "file": "src/stories/Page.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "",
@@ -3287,7 +3472,7 @@
                     "name": "LoggedOut",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/app/stories/Page.stories.ts",
+                    "file": "src/stories/Page.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "",
@@ -3297,7 +3482,7 @@
                     "name": "Template",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/app/stories/Page.stories.ts",
+                    "file": "src/stories/Page.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story<Page>",
@@ -3314,6 +3499,28 @@
                     "deprecationMessage": "",
                     "type": "object",
                     "defaultValue": "{\n    ADDIS_ABEBA_ETIOPIA: [8.9674055, 38.7896463],\n    BARCELONA: [41.3926467, 2.0701492],\n    BOGOTA_COLOMBIA: [4.7109877, -74.1071116],\n    CARACAS_VENEZUELA: [10.4668323, -66.9081806],\n    CASABLANCA: [33.5765585, -7.5969511],\n    FLORENCIA: [43.7876803, 11.2339399],\n    HONOLULU_HAWAI_EEUU: [21.3320135, -157.8287631],\n    LONDRES_GRAN_BRETAÑA: [51.5285582, -0.2416809],\n    LOS_ANGELES_EEUU: [34.0201613, -118.6919198],\n    MADRID: [40.4378698, -3.8196205],\n    MANILA_FILIPINAS: [14.5964957, 120.9445402],\n    MOSCU_RUSIA: [55.7535874, 37.546607],\n    PARIS_FRANCIA: [48.8588377, 2.2770203],\n    SAN_FRANCISCO_EEUU: [37.754894, -122.4290677],\n    SEVILLA: [37.3753501, -6.0250982],\n    SORALUZE: [43.1736976, -2.4173474],\n    TAIPEI_TAIWAN: [25.0171608, 121.3662924],\n    TOKIO_JAPON: [35.6681625, 139.6007832],\n    VALENCIA: [39.4669627, -0.4352962],\n    VENECIA_ITALIA: [45.4374999, 12.3319962],\n    VITORIA_GASTEIZ: [42.8540316, -2.7121775],\n}"
+                }
+            ],
+            "src/app/stories/01-Basic/B-MapCustomSize.stories.ts": [
+                {
+                    "name": "Second",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/stories/01-Basic/B-MapCustomSize.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/stories/01-Basic/B-MapCustomSize.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story<MapComponent>",
+                    "defaultValue": "(args: MapComponent) => ({\n    props: args,\n})"
                 }
             ],
             "projects/mugan86/ng-leaflet/src/lib/config/tile-layers/helpers.ts": [
@@ -3442,9 +3649,9 @@
                 "type": "component",
                 "linktype": "component",
                 "name": "MapComponent",
-                "coveragePercent": 11,
-                "coverageCount": "1/9",
-                "status": "low"
+                "coveragePercent": 45,
+                "coverageCount": "5/11",
+                "status": "medium"
             },
             {
                 "filePath": "projects/mugan86/ng-leaflet/src/lib/config/tile-layers/helpers.ts",
@@ -3513,6 +3720,15 @@
                 "name": "IConfigMap",
                 "coveragePercent": 0,
                 "coverageCount": "0/8",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/mugan86/ng-leaflet/src/lib/models/config-map.ts",
+                "type": "interface",
+                "linktype": "interface",
+                "name": "ISizeMap",
+                "coveragePercent": 0,
+                "coverageCount": "0/3",
                 "status": "low"
             },
             {
@@ -3726,91 +3942,11 @@
                 "linktype": "component",
                 "name": "MapComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/3",
+                "coverageCount": "0/5",
                 "status": "low"
             },
             {
-                "filePath": "src/app/stories/Button.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "Large",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "src/app/stories/Button.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "Primary",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "src/app/stories/Button.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "Secondary",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "src/app/stories/Button.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "Small",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "src/app/stories/Button.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "Template",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "src/app/stories/Header.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "LoggedIn",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "src/app/stories/Header.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "LoggedOut",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "src/app/stories/Header.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "Template",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "src/app/stories/Map.stories.ts",
+                "filePath": "src/app/stories/01-Basic/A-Map.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
@@ -3820,7 +3956,7 @@
                 "status": "low"
             },
             {
-                "filePath": "src/app/stories/Map.stories.ts",
+                "filePath": "src/app/stories/01-Basic/A-Map.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
@@ -3830,69 +3966,23 @@
                 "status": "low"
             },
             {
-                "filePath": "src/app/stories/Page.stories.ts",
+                "filePath": "src/app/stories/01-Basic/B-MapCustomSize.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
-                "name": "LoggedIn",
+                "name": "Second",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
             },
             {
-                "filePath": "src/app/stories/Page.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "LoggedOut",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "src/app/stories/Page.stories.ts",
+                "filePath": "src/app/stories/01-Basic/B-MapCustomSize.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
                 "name": "Template",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "src/app/stories/User.ts",
-                "type": "interface",
-                "linktype": "interface",
-                "name": "User",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "src/app/stories/button.component.ts",
-                "type": "component",
-                "linktype": "component",
-                "name": "ButtonComponent",
-                "coveragePercent": 83,
-                "coverageCount": "5/6",
-                "status": "very-good"
-            },
-            {
-                "filePath": "src/app/stories/header.component.ts",
-                "type": "component",
-                "linktype": "component",
-                "name": "HeaderComponent",
-                "coveragePercent": 0,
-                "coverageCount": "0/5",
-                "status": "low"
-            },
-            {
-                "filePath": "src/app/stories/page.component.ts",
-                "type": "component",
-                "linktype": "component",
-                "name": "PageComponent",
-                "coveragePercent": 0,
-                "coverageCount": "0/5",
                 "status": "low"
             },
             {
@@ -3913,6 +4003,152 @@
                 "name": "environment",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/Button.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Large",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/Button.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Primary",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/Button.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Secondary",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/Button.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Small",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/Button.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Template",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/Header.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "LoggedIn",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/Header.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "LoggedOut",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/Header.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Template",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/Page.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "LoggedIn",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/Page.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "LoggedOut",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/Page.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Template",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/User.ts",
+                "type": "interface",
+                "linktype": "interface",
+                "name": "User",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/button.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "ButtonComponent",
+                "coveragePercent": 83,
+                "coverageCount": "5/6",
+                "status": "very-good"
+            },
+            {
+                "filePath": "src/stories/header.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "HeaderComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/5",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/page.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "PageComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/5",
                 "status": "low"
             },
             {
