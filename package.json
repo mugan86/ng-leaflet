@@ -13,7 +13,7 @@
     "docs:json": "compodoc -p ./tsconfig.json -e json -d .",
     "storybook": "yarn docs:json && start-storybook -p 6006",
     "build-storybook": "yarn docs:json && build-storybook",
-    "deploy-storybook": "npx gh-pages -d storybook-static"
+    "deploy-storybook": "yarn run build-storybook && npx gh-pages -d storybook-static"
   },
   "private": true,
   "dependencies": {

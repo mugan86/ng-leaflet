@@ -2274,7 +2274,7 @@
         },
         {
             "name": "MapComponent",
-            "id": "component-MapComponent-9f2e1f99deb1453d4870a81e5c3164e206bf9f62452b5f62d89eec16963c5dfd65748a52fc04e6b515b70be66ad715bea862a0c85a9b7bc56a4304912a6ce395-1",
+            "id": "component-MapComponent-39256191001c297a2e8df29d4dee06a7fa025da6ae82445ebf5ca14b0c2043f3863d9e487e2431566c5c5ee726327e78b1af77924287402a31f94d68fbcf6e92-1",
             "file": "projects/mugan86/ng-leaflet/src/lib/components/map/map.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -2408,7 +2408,9 @@
                     "defaultValue": "new EventEmitter<MapObject>()",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 41,
+                    "rawdescription": "\n\nUse the loading state to indicate that the data Avatar needs is still loading.\n",
+                    "description": "<p>Use the loading state to indicate that the data Avatar needs is still loading.</p>\n",
+                    "line": 44,
                     "type": "EventEmitter<MapObject>"
                 }
             ],
@@ -2420,7 +2422,7 @@
                     "type": "Map",
                     "optional": false,
                     "description": "",
-                    "line": 42,
+                    "line": 45,
                     "modifierKind": [
                         121
                     ]
@@ -2433,7 +2435,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 51,
+                    "line": 54,
                     "deprecated": false,
                     "deprecationMessage": ""
                 },
@@ -2443,7 +2445,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 44,
+                    "line": 47,
                     "deprecated": false,
                     "deprecationMessage": ""
                 },
@@ -2453,7 +2455,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 59,
+                    "line": 63,
                     "deprecated": false,
                     "deprecationMessage": ""
                 }
@@ -2465,7 +2467,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { AfterViewInit, Component, EventEmitter, Input, Output } from '@angular/core';\nimport { IMarker, IConfigMap } from './../../models';\nimport { Controls } from '../../services/controls';\nimport { Markers } from './../../services/markers';\nimport { LeafletMap as Map } from './../../services/ng-leaflet-map.service';\nimport { Map as MapObject } from 'leaflet';\nimport { ISizeMap } from '../../models/config-map';\n@Component({\n  selector: 'ng-leaflet-map',\n  templateUrl: './map.component.html',\n  styles: [\n  ]\n})\nexport class MapComponent implements AfterViewInit {\n  /**\n   * Markers\n   */\n  @Input() markers!: Array<IMarker>;\n  /**\n   * Assign map ID that need is unique and not duplicate\n   * \n   * @required\n   */\n  @Input() mapId = 'map';\n  /**\n   * Button contents\n   *\n   * @required\n   */\n  @Input() randomMarkers: boolean = false;\n  /**\n   * Specify use Map size to working map\n   *\n   * @required\n   */\n  @Input() size!: ISizeMap;\n  /**\n   * Use map differents configurations to custom\n   */\n  @Input() config?: IConfigMap;\n  @Output() setUpMap: EventEmitter<MapObject> = new EventEmitter<MapObject>();\n  private map!: Map;\n\n  ngOnInit() {\n    this.size = (this.size) || {\n      width: '100%',\n      height: '500px'\n    }\n  }\n\n  ngAfterViewInit(): void {\n    this.map = new Map(this.config || undefined, this.mapId || undefined);\n    this.markers && (this.markers.length || this.randomMarkers) && Markers.add(this.map.get(), this.markers, this.randomMarkers);\n    this.markers.length && this.config?.fitBounds && this.map.fitBounds(this.markers);\n    this.config!! && this.setControls();\n    this.setUpMap.emit(this.map.get());\n  }\n\n  setControls() {\n    this.config!!.scale && Controls.addScale(this.map.get(), this.config?.scale);\n    this.config!!.layers && Controls.addBaseOverLayers(this.map.get(), this.config!!.layers);\n    this.config!!.zoom && Controls.changeZoomConfig(this.map.get(), this.config?.zoom);\n    this.config!!.fullscreen && Controls.activeFullScreen(this.map.get());\n    this.config!!.watermark && Controls.activeWatermark(this.map.get(), this.config!!.watermark);\n  }\n\n}\n",
+            "sourceCode": "import { AfterViewInit, Component, EventEmitter, Input, Output } from '@angular/core';\nimport { IMarker, IConfigMap } from './../../models';\nimport { Controls } from '../../services/controls';\nimport { Markers } from './../../services/markers';\nimport { LeafletMap as Map } from './../../services/ng-leaflet-map.service';\nimport { Map as MapObject } from 'leaflet';\nimport { ISizeMap } from '../../models/config-map';\n@Component({\n  selector: 'ng-leaflet-map',\n  templateUrl: './map.component.html',\n  styles: [\n  ]\n})\nexport class MapComponent implements AfterViewInit {\n  /**\n   * Markers\n   */\n  @Input() markers!: Array<IMarker>;\n  /**\n   * Assign map ID that need is unique and not duplicate\n   * \n   * @required\n   */\n  @Input() mapId = 'map';\n  /**\n   * Button contents\n   *\n   * @required\n   */\n  @Input() randomMarkers: boolean = false;\n  /**\n   * Specify use Map size to working map\n   *\n   * @required\n   */\n  @Input() size!: ISizeMap;\n  /**\n   * Use map differents configurations to custom\n   */\n  @Input() config?: IConfigMap;\n  /**\n    Use the loading state to indicate that the data Avatar needs is still loading.\n    */\n  @Output() setUpMap: EventEmitter<MapObject> = new EventEmitter<MapObject>();\n  private map!: Map;\n\n  ngOnInit() {\n    this.size = (this.size) || {\n      width: '100%',\n      height: '500px'\n    }\n  }\n\n  ngAfterViewInit(): void {\n    this.map = new Map(this.config || undefined, this.mapId || undefined);\n    this.markers && (this.markers.length) && Markers.add(this.map.get(), this.markers);\n    this.randomMarkers && Markers.add(this.map.get(), [], this.randomMarkers);\n    this.markers && this.markers.length && this.config?.fitBounds && this.map.fitBounds(this.markers);\n    this.config!! && this.setControls();\n    this.setUpMap.emit(this.map.get());\n  }\n\n  setControls() {\n    this.config!!.scale && Controls.addScale(this.map.get(), this.config?.scale);\n    this.config!!.layers && Controls.addBaseOverLayers(this.map.get(), this.config!!.layers);\n    this.config!!.zoom && Controls.changeZoomConfig(this.map.get(), this.config?.zoom);\n    this.config!!.fullscreen && Controls.activeFullScreen(this.map.get());\n    this.config!!.watermark && Controls.activeWatermark(this.map.get(), this.config!!.watermark);\n  }\n\n}\n",
             "assetsDirs": [],
             "styleUrlsData": "",
             "stylesData": "",
@@ -2937,16 +2939,6 @@
                 "defaultValue": "require.context('./', true, /\\.spec\\.ts$/)"
             },
             {
-                "name": "Default",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/app/stories/01-Basic/A-Map.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "",
-                "defaultValue": "Template.bind({})"
-            },
-            {
                 "name": "environment",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -2965,6 +2957,16 @@
                 "deprecationMessage": "",
                 "type": "object",
                 "defaultValue": "{\n  production: false\n}"
+            },
+            {
+                "name": "First",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/stories/01-Basic/A-Map.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
             },
             {
                 "name": "fullScreenMap",
@@ -3085,6 +3087,16 @@
                 "defaultValue": "Template.bind({})"
             },
             {
+                "name": "Second",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/stories/01-Basic/C-RandomMarkers.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
                 "name": "Secondary",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -3103,16 +3115,6 @@
                 "deprecationMessage": "",
                 "type": "",
                 "defaultValue": "Template.bind({})"
-            },
-            {
-                "name": "Template",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/stories/Button.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story<Button>",
-                "defaultValue": "(args: Button) => ({\n  props: args,\n})"
             },
             {
                 "name": "Template",
@@ -3138,6 +3140,16 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "src/stories/Button.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story<Button>",
+                "defaultValue": "(args: Button) => ({\n  props: args,\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "src/app/stories/01-Basic/A-Map.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -3149,6 +3161,16 @@
                 "ctype": "miscellaneous",
                 "subtype": "variable",
                 "file": "src/app/stories/01-Basic/B-MapCustomSize.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story<MapComponent>",
+                "defaultValue": "(args: MapComponent) => ({\n    props: args,\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/stories/01-Basic/C-RandomMarkers.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story<MapComponent>",
@@ -3305,28 +3327,6 @@
                     "type": "literal type"
                 }
             ],
-            "src/app/stories/01-Basic/A-Map.stories.ts": [
-                {
-                    "name": "Default",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/app/stories/01-Basic/A-Map.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "",
-                    "defaultValue": "Template.bind({})"
-                },
-                {
-                    "name": "Template",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/app/stories/01-Basic/A-Map.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story<MapComponent>",
-                    "defaultValue": "(args: MapComponent) => ({\n    props: args,\n})"
-                }
-            ],
             "src/environments/environment.prod.ts": [
                 {
                     "name": "environment",
@@ -3349,6 +3349,28 @@
                     "deprecationMessage": "",
                     "type": "object",
                     "defaultValue": "{\n  production: false\n}"
+                }
+            ],
+            "src/app/stories/01-Basic/A-Map.stories.ts": [
+                {
+                    "name": "First",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/stories/01-Basic/A-Map.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/stories/01-Basic/A-Map.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story<MapComponent>",
+                    "defaultValue": "(args: MapComponent) => ({\n    props: args,\n})"
                 }
             ],
             "projects/mugan86/ng-leaflet/src/lib/plugins/controls/full-screen-map.ts": [
@@ -3523,6 +3545,28 @@
                     "defaultValue": "(args: MapComponent) => ({\n    props: args,\n})"
                 }
             ],
+            "src/app/stories/01-Basic/C-RandomMarkers.stories.ts": [
+                {
+                    "name": "Second",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/stories/01-Basic/C-RandomMarkers.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/stories/01-Basic/C-RandomMarkers.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story<MapComponent>",
+                    "defaultValue": "(args: MapComponent) => ({\n    props: args,\n})"
+                }
+            ],
             "projects/mugan86/ng-leaflet/src/lib/config/tile-layers/helpers.ts": [
                 {
                     "name": "tileLayerSelect",
@@ -3649,9 +3693,9 @@
                 "type": "component",
                 "linktype": "component",
                 "name": "MapComponent",
-                "coveragePercent": 45,
-                "coverageCount": "5/11",
-                "status": "medium"
+                "coveragePercent": 54,
+                "coverageCount": "6/11",
+                "status": "good"
             },
             {
                 "filePath": "projects/mugan86/ng-leaflet/src/lib/config/tile-layers/helpers.ts",
@@ -3950,7 +3994,7 @@
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
-                "name": "Default",
+                "name": "First",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
@@ -3977,6 +4021,26 @@
             },
             {
                 "filePath": "src/app/stories/01-Basic/B-MapCustomSize.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Template",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/stories/01-Basic/C-RandomMarkers.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Second",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/stories/01-Basic/C-RandomMarkers.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",

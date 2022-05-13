@@ -38,6 +38,9 @@ export class MapComponent implements AfterViewInit {
    * Use map differents configurations to custom
    */
   @Input() config?: IConfigMap;
+  /**
+    Use the loading state to indicate that the data Avatar needs is still loading.
+    */
   @Output() setUpMap: EventEmitter<MapObject> = new EventEmitter<MapObject>();
   private map!: Map;
 
