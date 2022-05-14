@@ -74,7 +74,7 @@
   "homepage": "http://mugan86.github.io/ng-leaflet",
   "husky": {
     "hooks": {
-      "pre-commit": "ng lint && npx --no commitlint --edit \"$1\"",
+      "pre-commit": "ng lint && npx commitlint --from HEAD~1 --to HEAD --verbose",
       "pre-push": "npm test"
     }
   }
