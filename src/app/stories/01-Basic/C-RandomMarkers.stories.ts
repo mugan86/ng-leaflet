@@ -2,7 +2,7 @@ import { Story, Meta, moduleMetadata, storiesOf } from '@storybook/angular';
 import { NgLeafletModule, MapComponent } from '@mugan86/ng-leaflet';
 
 export default {
-    title: 'Map Basics/3-RandomMarkers',
+    title: 'Map Basics/Random Markers',
     component: MapComponent,
     decorators: [
         moduleMetadata({

@@ -2939,6 +2939,16 @@
                 "defaultValue": "require.context('./', true, /\\.spec\\.ts$/)"
             },
             {
+                "name": "Default",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/stories/01-Basic/A-Map.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
                 "name": "environment",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -2957,16 +2967,6 @@
                 "deprecationMessage": "",
                 "type": "object",
                 "defaultValue": "{\n  production: false\n}"
-            },
-            {
-                "name": "First",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/app/stories/01-Basic/A-Map.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "",
-                "defaultValue": "Template.bind({})"
             },
             {
                 "name": "fullScreenMap",
@@ -3080,16 +3080,6 @@
                 "name": "Second",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/stories/01-Basic/B-MapCustomSize.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "",
-                "defaultValue": "Template.bind({})"
-            },
-            {
-                "name": "Second",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "src/app/stories/01-Basic/C-RandomMarkers.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -3120,6 +3110,16 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "src/stories/Button.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story<Button>",
+                "defaultValue": "(args: Button) => ({\n  props: args,\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "src/stories/Header.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -3135,16 +3135,6 @@
                 "deprecationMessage": "",
                 "type": "Story<Page>",
                 "defaultValue": "(args: Page) => ({\n  props: args,\n})"
-            },
-            {
-                "name": "Template",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/stories/Button.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story<Button>",
-                "defaultValue": "(args: Button) => ({\n  props: args,\n})"
             },
             {
                 "name": "Template",
@@ -3215,6 +3205,36 @@
                 "deprecationMessage": "",
                 "type": "",
                 "defaultValue": "(\n    service: string = tileLayersWMS.mundialis.baseUrl,\n    options : ITilerLayerOptions = {\n        minZoom: 0,\n        maxZoom: 20,\n        attribution: tileLayers.baseLayers.default.atribution,\n        layers: tileLayersWMS.mundialis.layers.topoOsmWMS,\n        format: 'image/png',\n        transparent: true,\n    }\n) => {\n    return tileLayer.wms(service, options);\n}"
+            },
+            {
+                "name": "W50Per200px",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/stories/01-Basic/B-MapCustomSize.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "W50Per500px",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/stories/01-Basic/B-MapCustomSize.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "W80Per300px",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/stories/01-Basic/B-MapCustomSize.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
             },
             {
                 "name": "watermark",
@@ -3327,6 +3347,28 @@
                     "type": "literal type"
                 }
             ],
+            "src/app/stories/01-Basic/A-Map.stories.ts": [
+                {
+                    "name": "Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/stories/01-Basic/A-Map.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/stories/01-Basic/A-Map.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story<MapComponent>",
+                    "defaultValue": "(args: MapComponent) => ({\n    props: args,\n})"
+                }
+            ],
             "src/environments/environment.prod.ts": [
                 {
                     "name": "environment",
@@ -3349,28 +3391,6 @@
                     "deprecationMessage": "",
                     "type": "object",
                     "defaultValue": "{\n  production: false\n}"
-                }
-            ],
-            "src/app/stories/01-Basic/A-Map.stories.ts": [
-                {
-                    "name": "First",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/app/stories/01-Basic/A-Map.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "",
-                    "defaultValue": "Template.bind({})"
-                },
-                {
-                    "name": "Template",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/app/stories/01-Basic/A-Map.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story<MapComponent>",
-                    "defaultValue": "(args: MapComponent) => ({\n    props: args,\n})"
                 }
             ],
             "projects/mugan86/ng-leaflet/src/lib/plugins/controls/full-screen-map.ts": [
@@ -3523,28 +3543,6 @@
                     "defaultValue": "{\n    ADDIS_ABEBA_ETIOPIA: [8.9674055, 38.7896463],\n    BARCELONA: [41.3926467, 2.0701492],\n    BOGOTA_COLOMBIA: [4.7109877, -74.1071116],\n    CARACAS_VENEZUELA: [10.4668323, -66.9081806],\n    CASABLANCA: [33.5765585, -7.5969511],\n    FLORENCIA: [43.7876803, 11.2339399],\n    HONOLULU_HAWAI_EEUU: [21.3320135, -157.8287631],\n    LONDRES_GRAN_BRETAÑA: [51.5285582, -0.2416809],\n    LOS_ANGELES_EEUU: [34.0201613, -118.6919198],\n    MADRID: [40.4378698, -3.8196205],\n    MANILA_FILIPINAS: [14.5964957, 120.9445402],\n    MOSCU_RUSIA: [55.7535874, 37.546607],\n    PARIS_FRANCIA: [48.8588377, 2.2770203],\n    SAN_FRANCISCO_EEUU: [37.754894, -122.4290677],\n    SEVILLA: [37.3753501, -6.0250982],\n    SORALUZE: [43.1736976, -2.4173474],\n    TAIPEI_TAIWAN: [25.0171608, 121.3662924],\n    TOKIO_JAPON: [35.6681625, 139.6007832],\n    VALENCIA: [39.4669627, -0.4352962],\n    VENECIA_ITALIA: [45.4374999, 12.3319962],\n    VITORIA_GASTEIZ: [42.8540316, -2.7121775],\n}"
                 }
             ],
-            "src/app/stories/01-Basic/B-MapCustomSize.stories.ts": [
-                {
-                    "name": "Second",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/app/stories/01-Basic/B-MapCustomSize.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "",
-                    "defaultValue": "Template.bind({})"
-                },
-                {
-                    "name": "Template",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/app/stories/01-Basic/B-MapCustomSize.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story<MapComponent>",
-                    "defaultValue": "(args: MapComponent) => ({\n    props: args,\n})"
-                }
-            ],
             "src/app/stories/01-Basic/C-RandomMarkers.stories.ts": [
                 {
                     "name": "Second",
@@ -3565,6 +3563,48 @@
                     "deprecationMessage": "",
                     "type": "Story<MapComponent>",
                     "defaultValue": "(args: MapComponent) => ({\n    props: args,\n})"
+                }
+            ],
+            "src/app/stories/01-Basic/B-MapCustomSize.stories.ts": [
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/stories/01-Basic/B-MapCustomSize.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story<MapComponent>",
+                    "defaultValue": "(args: MapComponent) => ({\n    props: args,\n})"
+                },
+                {
+                    "name": "W50Per200px",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/stories/01-Basic/B-MapCustomSize.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "W50Per500px",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/stories/01-Basic/B-MapCustomSize.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "W80Per300px",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/stories/01-Basic/B-MapCustomSize.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
                 }
             ],
             "projects/mugan86/ng-leaflet/src/lib/config/tile-layers/helpers.ts": [
@@ -3994,7 +4034,7 @@
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
-                "name": "First",
+                "name": "Default",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
@@ -4014,7 +4054,7 @@
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
-                "name": "Second",
+                "name": "Template",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
@@ -4024,7 +4064,27 @@
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
-                "name": "Template",
+                "name": "W50Per200px",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/stories/01-Basic/B-MapCustomSize.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "W50Per500px",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/stories/01-Basic/B-MapCustomSize.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "W80Per300px",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"

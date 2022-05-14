@@ -12,5 +12,5 @@ export const parameters = {
   },
   docs: { inlineStories: true },
   layout: 'centered',
-  controls: { expanded: false },
+  controls: { expanded: true },
 }

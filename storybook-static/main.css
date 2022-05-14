@@ -4,6 +4,16 @@ body {
     overflow-y: hidden;
 }
 
+/**
+Storybook docs styles
+*/
+
+.sbdocs.sbdocs-wrapper.css-zgt7u1 {
+    background: #7eb941ab;
+    margin-top: -10px;
+    height: 100%;
+}
+
 /* You can add global styles to this file, and also import other style files */
 ng-leaflet-map {
     margin: 20px;

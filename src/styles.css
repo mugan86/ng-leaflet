@@ -3,3 +3,12 @@
 body {
     overflow-y: hidden;
 }
+
+/**
+Storybook docs styles
+*/
+.sbdocs.sbdocs-wrapper.css-zgt7u1 {
+    background: #7eb941ab;
+    margin-top: -10px;
+    height: 100%;
+}

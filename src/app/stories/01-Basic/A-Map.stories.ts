@@ -1,8 +1,7 @@
-import { Story, Meta, moduleMetadata, storiesOf } from '@storybook/angular';
+import { Story, Meta, moduleMetadata } from '@storybook/angular';
 import { NgLeafletModule, MapComponent } from '@mugan86/ng-leaflet';
-
 export default {
-    title: 'Map Basics/1-Basic',
+    title: 'Map Basics/Basic',
     component: MapComponent,
     decorators: [
         moduleMetadata({
@@ -12,13 +11,18 @@ export default {
     parameters: {
         // More on Story layout: https://storybook.js.org/docs/angular/configure/story-layout
         layout: 'fullscreen',
-        componentSubtitle: 'Displays an image that represents a user or organization',
+        componentSubtitle: 'Show basic map with 100% width and 600px heigth. Set with default location in Gipuzkoa (Spain) and use Open Street Map Default map',
     },
     argTypes: {
         /**
          * Controls options. Not show values in table
          * https://storybook.js.org/docs/angular/essentials/controls
          */
+        mapId: {
+            //name: 'Identify Map reference',
+            description: 'This value must be UNIQUE in select page.',
+            defaultValue: 'map'
+        },
         markers: {
             table: {
                 disable: true
@@ -46,13 +50,13 @@ const Template: Story<MapComponent> = (args: MapComponent) => ({
     props: args,
 });
 
-export const First = Template.bind({});
+export const Default = Template.bind({});
 
 // More on args: https://storybook.js.org/docs/angular/writing-stories/args
-First.args = {
+Default.args = {
     mapId: 'first__map',
     size: {
-        height: '500px',
+        height: '600px',
         width: '100%'
     },
 };
