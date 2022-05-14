@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { IConfigMap, IMarker } from '@mugan86/ng-leaflet';
 import { LatLngBounds, rectangle } from 'leaflet';
 import { appModule } from 'src/app/configurations';
@@ -9,7 +9,7 @@ import { Map } from 'leaflet';
   templateUrl: './example.component.html',
   styleUrls: ['./example.component.css']
 })
-export class ExampleComponent implements OnInit {
+export class ExampleComponent {
   title = 'angular-leaflet';
   option = 0;
   map!: Map;
@@ -62,10 +62,6 @@ export class ExampleComponent implements OnInit {
       }
     }
   ];
-  constructor() { }
-
-  ngOnInit(): void {
-  }
 
   getRandomInRange = (from: number, to: number, fixed = 3) => {
     return +(Math.random() * (to - from) + from).toFixed(fixed) * 1;

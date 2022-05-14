@@ -30,27 +30,27 @@
             <div class="col-lg">
                 <ul class="nav nav-tabs nav-justified mb-3">
                     <li class="nav-item">
-                        <a class="nav-link" (click)="selectOption(0)" [ngClass]="{'active': option == 0}">
+                        <a class="nav-link" (click)="selectOption(0)" [ngClass]="{'active': option === 0}">
                             Preview
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" (click)="selectOption(1)" [ngClass]="{'active': option == 1}">
+                        <a class="nav-link" (click)="selectOption(1)" [ngClass]="{'active': option === 1}">
                             app.module.ts
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" (click)="selectOption(2)" [ngClass]="{'active': option == 2}">
+                        <a class="nav-link" (click)="selectOption(2)" [ngClass]="{'active': option === 2}">
                             app.component.ts
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" (click)="selectOption(3)" [ngClass]="{'active': option == 3}">
+                        <a class="nav-link" (click)="selectOption(3)" [ngClass]="{'active': option === 3}">
                             app.component.html
                         </a>
                     </li>
                 </ul>
-                <div *ngIf="option == 0">
+                <div *ngIf="option === 0">
 
                     <!--<alm-map [config]="configMap" [randomMarkers] = true></alm-map>-->
 
@@ -58,13 +58,13 @@
                     <ng-leaflet-map (setUpMap)="setMap($event)" [config]="configMap" [markers]="markers">
                     </ng-leaflet-map>
                 </div>
-                <div *ngIf="option == 1">
+                <div *ngIf="option === 1">
                     <pre>{{snippet1}}</pre>
                 </div>
-                <div *ngIf="option == 2">
+                <div *ngIf="option === 2">
                     app.component.ts
                 </div>
-                <div *ngIf="option == 3">
+                <div *ngIf="option === 3">
                     app.component.html
                 </div>
 
