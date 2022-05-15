@@ -102,6 +102,15 @@
             ],
             "scripts": []
           }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "src/**/*.ts",
+              "src/**/*.html"
+            ]
+          }
         }
       }
     },
@@ -109,7 +118,7 @@
       "projectType": "library",
       "root": "projects/mugan86/ng-leaflet",
       "sourceRoot": "projects/mugan86/ng-leaflet/src",
-      "prefix": "alm",
+      "prefix": "ng-leaflet",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:ng-packagr",

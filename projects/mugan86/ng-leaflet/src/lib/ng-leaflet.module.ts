@@ -2,7 +2,8 @@ import { NgModule } from '@angular/core';
 import { MapBasicModule } from './components/map/map.module';
 
 @NgModule({
-  declarations: [],
+  declarations: [
+  ],
   imports: [
     MapBasicModule
   ],

@@ -1,0 +1,17 @@
+.scroll {
+    margin:4px, 4px;
+    padding:4px;
+    max-height: 820px;
+    overflow-x: hidden;
+    overflow: scroll;
+    text-align:justify;
+}
+
+.nav-item {
+    cursor: pointer;
+}
+
+pre {
+    background-color: aliceblue;
+    padding: 15px;
+}

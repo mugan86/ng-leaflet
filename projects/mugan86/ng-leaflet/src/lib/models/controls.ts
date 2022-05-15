@@ -1,15 +1,21 @@
 import { ControlPosition } from "leaflet";
 
 export interface IScaleOptions {
-    maxWidth?: number | undefined;
-    metric?: boolean | undefined;
-    imperial?: boolean | undefined;
+    show?: boolean;
+    position?: ControlPosition;
+    maxWidth?: number;
+    metric?: boolean;
+    imperial?: boolean;
+    /**
+     * If true, the control is updated on moveend, otherwise it's always 
+     * up-to-date (updated on move). Default: false
+    */
     updateWhenIdle?: boolean | undefined;
 }
 
 export interface ILayers {
     baseLayers: Array<IBaseLayer>;
-    overLayers: Array<IOverLayer>
+    overLayers?: Array<IOverLayer>
 }
 
 export interface IBaseLayer {
@@ -28,7 +34,8 @@ export interface IOverLayer {
 export interface IZoomOptions {
     zoomInTitle?: string;
     zoomOutTitle?: string;
-    position?: ControlPosition
+    position?: ControlPosition;
+    default?: number;
 }
 
 export interface IWatermarkOptions {
@@ -37,4 +44,5 @@ export interface IWatermarkOptions {
     position?: ControlPosition;
     size?: string;
     borderColor?: string;
+    show?: boolean;
 }

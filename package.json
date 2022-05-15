@@ -9,7 +9,13 @@
     "test": "ng test",
     "lib.build": "ng build @mugan86/ng-leaflet",
     "test.lib": "npm test @mugan86/ng-leaflet",
-    "watch:lib": "ng build @mugan86/ng-leaflet --watch"
+    "watch:lib": "ng build @mugan86/ng-leaflet --watch",
+    "docs:json": "compodoc -p ./tsconfig.json -e json -d .",
+    "storybook": "yarn docs:json && start-storybook -p 6006",
+    "build-storybook": "yarn docs:json && build-storybook",
+    "deploy-storybook": "yarn run build-storybook && npx gh-pages -d storybook-static",
+    "lint": "ng lint",
+    "prepare": "husky install"
   },
   "private": true,
   "dependencies": {
@@ -28,11 +34,34 @@
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~13.0.2",
+    "@angular-eslint/builder": "13.2.1",
+    "@angular-eslint/eslint-plugin": "13.2.1",
+    "@angular-eslint/eslint-plugin-template": "13.2.1",
+    "@angular-eslint/schematics": "13.2.1",
+    "@angular-eslint/template-parser": "13.2.1",
     "@angular/cli": "~13.0.2",
     "@angular/compiler-cli": "~13.0.0",
+    "@babel/core": "^7.17.10",
+    "@commitlint/cli": "^16.3.0",
+    "@commitlint/config-conventional": "^16.2.4",
+    "@compodoc/compodoc": "^1.1.19",
+    "@storybook/addon-actions": "^6.4.22",
+    "@storybook/addon-essentials": "^6.4.22",
+    "@storybook/addon-interactions": "^6.4.22",
+    "@storybook/addon-links": "^6.4.22",
+    "@storybook/angular": "^6.4.22",
+    "@storybook/builder-webpack5": "^6.4.22",
+    "@storybook/manager-webpack5": "^6.4.22",
+    "@storybook/testing-library": "^0.0.11",
     "@types/jasmine": "~3.10.0",
     "@types/leaflet": "^1.4.5",
     "@types/node": "^12.11.1",
+    "@typescript-eslint/eslint-plugin": "5.17.0",
+    "@typescript-eslint/parser": "5.17.0",
+    "babel-loader": "^8.2.5",
+    "eslint": "^8.12.0",
+    "gh-pages": "^4.0.0",
+    "husky": "^8.0.0",
     "jasmine-core": "~3.10.0",
     "karma": "~6.3.0",
     "karma-chrome-launcher": "~3.1.0",
@@ -41,5 +70,6 @@
     "karma-jasmine-html-reporter": "~1.7.0",
     "ng-packagr": "^13.0.0",
     "typescript": "~4.4.3"
-  }
+  },
+  "homepage": "http://mugan86.github.io/ng-leaflet"
 }

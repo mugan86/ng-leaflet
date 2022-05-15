@@ -6,7 +6,7 @@ const Watermark = Control.extend({
     options: {
         position: 'bottomleft',
         img: 'https://raw.githubusercontent.com/leaflet-maps-course/resources/main/logotypes/am.png',
-        border: true,
+        border: false,
         size: '60px',
         borderColor: '#506bff'
     },

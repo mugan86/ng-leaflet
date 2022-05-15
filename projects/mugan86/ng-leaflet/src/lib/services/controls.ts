@@ -13,7 +13,8 @@ class Controls {
         }).addTo(map);
     }
     static addScale(map: Map, config?: IScaleOptions) {
-        // Vamos a añadir el control de escala
+        delete config!.show;
+        // Add Scale control after remove show property that not include in config options
         control.scale(config).addTo(map);
     }
 
@@ -25,8 +26,8 @@ class Controls {
      * @param position control position in map
      */
     static addBaseOverLayers(map: Map, layers: ILayers, position: ControlPosition = 'topright') {
-        if (!layers.baseLayers || !layers.overLayers) {
-            throw new Error("Need to add Base and Over Layers");
+        if (!layers.baseLayers) {
+            throw new Error("Need to add Base Layers");
         }
 
         if (layers.baseLayers.length < 2) {
@@ -37,7 +38,7 @@ class Controls {
         control.layers(
             this.groupBaseLayers(
                 layers.baseLayers, map),
-            this.groupOverLayers(layers.overLayers, map), {
+            (layers.overLayers) && this.groupOverLayers(layers.overLayers, map), {
             position
         }).addTo(map);
     }
@@ -77,6 +78,7 @@ class Controls {
     }
 
     static activeWatermark(map: Map, config: IWatermarkOptions) {
+        delete config.show;
         watermark(config).addTo(map)
     }
 
