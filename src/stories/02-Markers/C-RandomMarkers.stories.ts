@@ -55,7 +55,11 @@ Second.args = {
         height: '400px',
         width: '100%'
     },
-    randomMarkers: true
+    config: {
+        zoom: {
+            position: 'bottomleft'
+        }
+    }
 };
 
 
