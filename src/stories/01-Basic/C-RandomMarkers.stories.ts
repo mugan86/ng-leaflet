@@ -1,4 +1,4 @@
-import { Story, Meta, moduleMetadata, storiesOf } from '@storybook/angular';
+import { Story, Meta, moduleMetadata } from '@storybook/angular';
 import { NgLeafletModule, MapComponent } from '@mugan86/ng-leaflet';
 
 export default {

@@ -9,8 +9,8 @@ export const parameters = {
       color: /(background|color)$/i,
       date: /Date$/,
     },
+    expanded: true
   },
   docs: { inlineStories: true },
-  layout: 'centered',
-  controls: { expanded: true },
+  layout: 'centered'
 }

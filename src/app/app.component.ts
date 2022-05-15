@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { IConfigMap, tileLayers } from '@mugan86/ng-leaflet';
 import { appModule } from './configurations';
 @Component({
   selector: 'app-root',
