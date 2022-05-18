@@ -4,5 +4,8 @@
   "lib": {
     "entryFile": "src/public-api.ts"
   },
-  "assets": ["assets"]
+  "allowedNonPeerDependencies": ["leaflet", "@types/leaflet"],
+  "assets": [
+    "assets"
+  ]
 }
