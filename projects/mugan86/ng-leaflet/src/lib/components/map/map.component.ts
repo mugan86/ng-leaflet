@@ -5,6 +5,7 @@ import { Markers } from './../../services/markers';
 import { LeafletMap as Map } from './../../services/ng-leaflet-map.service';
 import { Map as MapObject } from 'leaflet';
 import { ISizeMap } from '../../models/config-map';
+import { DefaultConfig } from '../../services';
 @Component({
   selector: 'ng-leaflet-map',
   templateUrl: './map.component.html',
@@ -44,14 +45,69 @@ export class MapComponent implements AfterViewInit {
   @Output() setUpMap: EventEmitter<MapObject> = new EventEmitter<MapObject>();
   private map!: Map;
 
+  constructor(private defaultConfig: DefaultConfig) { }
+
   ngOnInit() {
-    this.size = (this.size) || {
-      width: '100%',
-      height: '500px'
+    // Check if size config exist and if not exist, take default 100% w - 500px h
+    this.size = (this.size) || this.defaultConfig.get().size
+  }
+
+  setConfiguration() {
+    if (!this.config && this.defaultConfig.get().config) {
+      console.warn('Use default config');
+      this.config = this.defaultConfig.get().config;
+      return;
+    }
+    if (!this.config && !this.defaultConfig.get().config) {
+      console.warn("Use Library default configs \n" + (JSON.stringify({
+        fullscreen: false,
+        center: [43.1824528, -2.3878554],
+        mapId: 'map',
+        zoom: true,
+        zoomValue: 12
+      }, null, 2)));
+      return;
+    }
+    if (this.config && this.defaultConfig.get().config) {
+      console.warn("Overwrite defaultConfig with new set config duplicates values properties");
+      // Rewrite
+      this.checkAndAsignDefaultConfigs()
+    }
+
+  }
+
+  private checkAndAsignDefaultConfigs() {
+
+    if (!this.config!.center && this.defaultConfig.get().config.center) {
+      this.config!.center = this.defaultConfig.get().config.center
+    }
+    if (!this.config!.fullscreen && this.defaultConfig.get().config.fullscreen) {
+      this.config!.fullscreen = this.defaultConfig.get().config.fullscreen
+    }
+
+    if (!this.config!.scale && this.defaultConfig.get().config.scale) {
+      this.config!.scale = this.defaultConfig.get().config.scale
+    }
+
+    if (!this.config!.layers && this.defaultConfig.get().config.layers) {
+      this.config!.layers = this.defaultConfig.get().config.layers
+    }
+
+    if (!this.config!.zoom && this.defaultConfig.get().config.zoom) {
+      this.config!.zoom = this.defaultConfig.get().config.zoom
+    }
+
+    if (!this.config!.watermark && this.defaultConfig.get().config.watermark) {
+      this.config!.watermark = this.defaultConfig.get().config.watermark
+    }
+
+    if (!this.config!.fitBounds && this.defaultConfig.get().config.fitBounds) {
+      this.config!.fitBounds = this.defaultConfig.get().config.fitBounds
     }
   }
 
   ngAfterViewInit(): void {
+    this.setConfiguration();
     this.map = new Map(this.config || undefined, this.mapId || undefined);
     this.markers && (this.markers.length) && Markers.add(this.map.get(), this.markers);
     this.randomMarkers && Markers.add(this.map.get(), [], this.randomMarkers);
