@@ -14,7 +14,6 @@ const ATRIBUTIONS_LIST = {
         'Map data: &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, <a href="http://viewfinderpanoramas.org">SRTM</a> | Map style: &copy; <a href="https://opentopomap.org">OpenTopoMap</a> (<a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a>)',
     Stadia:
         '&copy; <a href="https://stadiamaps.com/">Stadia Maps</a>, &copy; <a href="https://openmaptiles.org/">OpenMapTiles</a> &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors',
-    USGS: 'Tiles courtesy of the <a href="https://usgs.gov/">U.S. Geological Survey</a>',
 };
 
 export const tileLayers = {
@@ -76,14 +75,6 @@ export const tileLayers = {
                     'https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png',
             },
             atribution: ATRIBUTIONS_LIST.CartoDb,
-        },
-        usgsUs: {
-            map: {
-                topo: 'https://basemap.nationalmap.gov/arcgis/rest/services/USGSTopo/MapServer/tile/{z}/{y}/{x}',
-                imagery:
-                    'https://basemap.nationalmap.gov/arcgis/rest/services/USGSImageryOnly/MapServer/tile/{z}/{y}/{x}',
-            },
-            atribution: ATRIBUTIONS_LIST.USGS,
         }
     },
     overlayers: {
