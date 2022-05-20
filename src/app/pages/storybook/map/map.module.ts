@@ -36,7 +36,10 @@ const config: IConfigMap = {
   imports: [
     CommonModule,
     MapRoutingModule,
-    NgLeafletModule.forRoot(config)
+    NgLeafletModule.forRoot(config, {
+      width: '100%',
+      height: '600px'
+    })
   ]
 })
 export class MapModule { }

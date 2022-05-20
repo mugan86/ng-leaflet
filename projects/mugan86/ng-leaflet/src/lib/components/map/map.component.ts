@@ -49,7 +49,21 @@ export class MapComponent implements AfterViewInit {
 
   ngOnInit() {
     // Check if size config exist and if not exist, take default 100% w - 500px h
-    this.size = (this.size) || this.defaultConfig.get().size
+    if (this.size && this.defaultConfig.get().size) {
+      console.warn('Use set size');
+    }
+    if (!this.size && !this.defaultConfig.get().size) {
+      this.size = {
+        width: '100%',
+        height: '500px'
+      };
+      return;
+    }
+    // Check if size config exist and if not exist, take default 100% w - 500px h
+    if (!this.size && this.defaultConfig.get().size) {
+      console.warn('Use default global size');
+      this.size = this.defaultConfig.get().size;
+    }
   }
 
   setConfiguration() {
