@@ -9,3 +9,4 @@ export * from './lib/config/tile-layers/ui';
 export * from './lib/models';
 export * from './lib/services';
 export * from './lib/plugins';
+export * from './lib/examples/locations/world';

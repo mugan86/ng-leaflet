@@ -7,8 +7,10 @@ import { IConfigMap, IMarker } from '@mugan86/ng-leaflet';
   styleUrls: ['./map.component.css']
 })
 export class MapComponent {
-  @Input() markers!: Array<IMarker>;
-  @Input() randomMarkers: boolean = false;
-  @Input() size: { width: string, height: string } = { width: '100%', height: '600px' }
-  @Input() config?: IConfigMap;
+  @Input() markers: Array<IMarker> = [ ];
+  @Input() randomMarkers: boolean = true;
+  @Input() size: { width: string, height: string } = { width: '100%', height: '250px' }
+  @Input() config?: IConfigMap = {
+    fullscreen: true
+  };
 }

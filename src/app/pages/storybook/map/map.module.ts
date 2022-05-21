@@ -3,9 +3,32 @@ import { CommonModule } from '@angular/common';
 
 import { MapRoutingModule } from './map-routing.module';
 import { MapComponent } from './map.component';
-import { NgLeafletModule } from '@mugan86/ng-leaflet';
+import { IConfigMap, NgLeafletModule, tileLayers } from '@mugan86/ng-leaflet';
 
-
+const config: IConfigMap = {
+  fullscreen: true,
+  center: [40.4378698,-3.8196188],
+  zoom: {
+    position: 'topright'
+  },
+  watermark: {
+    show: true,
+    position: 'topleft'
+  },
+  layers: {
+    baseLayers: [{
+      label: 'Carto - Positron',
+      map: tileLayers.baseLayers.cartoDb.map.positron,
+      atribution: tileLayers.baseLayers.cartoDb.atribution,
+      default: true
+    },
+    {
+      label: 'Cyclo OSM',
+      map: tileLayers.baseLayers.cycloOsm.map,
+      atribution: tileLayers.baseLayers.cycloOsm.atribution
+    }]
+  }
+}
 @NgModule({
   declarations: [
     MapComponent
@@ -13,7 +36,10 @@ import { NgLeafletModule } from '@mugan86/ng-leaflet';
   imports: [
     CommonModule,
     MapRoutingModule,
-    NgLeafletModule
+    NgLeafletModule.forRoot(config, {
+      width: '100%',
+      height: '600px'
+    })
   ]
 })
 export class MapModule { }
