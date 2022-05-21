@@ -15,8 +15,7 @@
     "build-storybook": "yarn docs:json && build-storybook",
     "deploy-storybook": "yarn run build-storybook && npx gh-pages -d storybook-static",
     "lint": "ng lint",
-    "prepare": "husky install",
-    "publish:lib": "yarn publish --access public"
+    "prepare": "husky install"
   },
   "private": true,
   "dependencies": {
