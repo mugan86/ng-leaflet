@@ -34,3 +34,13 @@ https://stackblitz.com/edit/angular-leaflet-watermark-image-size?file=src%2Fapp%
 https://stackblitz.com/edit/angular-leaflet-watermark-image-border?file=src%2Fapp%2Fapp.component.ts,src%2Fapp%2Fapp.component.html
 ### 18 - Global configurations
 https://stackblitz.com/edit/angular-leaflet-map-basic-dflpbc?file=src%2Fapp%2Fapp.component.ts
+
+### 19 - Expand with other options that appear in doc but not implement in library
+
+#### Rectangle
+
+https://stackblitz.com/edit/angular-leaflet-map-expand-with-more-options?file=src%2Fapp%2Fapp.component.ts,src%2Fapp%2Fapp.module.ts
+
+#### Use GeoJSON
+
+https://stackblitz.com/edit/angular-leaflet-map-expand-with-more-options-two?file=src%2Fapp%2Fapp.component.ts,src%2Fapp%2Fearth-quakes.ts
