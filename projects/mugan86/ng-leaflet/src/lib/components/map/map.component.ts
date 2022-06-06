@@ -125,7 +125,7 @@ export class MapComponent implements AfterViewInit {
     this.map = new Map(this.config || undefined, this.mapId || undefined);
     this.markers && (this.markers.length) && Markers.add(this.map.get(), this.markers);
     this.randomMarkers && Markers.add(this.map.get(), [], this.randomMarkers);
-    this.markers && this.markers.length && this.map.fitBounds(this.markers);
+    this.markers && this.markers.length && this.config!.fitBounds && this.map.fitBounds(this.markers);
     this.config!! && this.setControls();
     this.setUpMap.emit(this.map.get());
   }
