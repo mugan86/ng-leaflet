@@ -8,6 +8,25 @@
 - Implementar nuevas características.
 - Hacer traducciones.
 
+## Desarrollamos con Github
+Usamos github para alojar el código, rastrear problemas y solicitudes de funciones, así como aceptar solicitudes de extracción.
+
+## Usamos [Github Flow](https://guides.github.com/introduction/flow/index.html), por lo que todos los cambios de código ocurren a través de solicitudes de extracción
+Las solicitudes de extracción son la mejor manera de proponer cambios en el código base (usamos [Github Flow](https://guides.github.com/introduction/flow/index.html)). Damos la bienvenida activamente a sus solicitudes de extracción:
+
+1. Bifurque el repositorio y cree su rama desde `develop`.
+2. Si ha agregado código que debe probarse, agregue pruebas.
+3. Si ha cambiado las API, actualice la documentación.
+4. Asegúrese de que el conjunto de pruebas pase.
+5. Cree un Stackblitz [demostración de la plantilla] (https://stackblitz.com/edit/angular-leaflet-map-basic?file=src%2Fapp%2Fapp.component.ts) para mostrar la nueva funcionalidad. Puedes construir sobre [estos ejemplos ya creados](https://mugan86.github.io/ng-leaflet/es/demos-ejemplos).
+6. Asegúrese de que su código se desvanezca.
+7. Escriba un buen mensaje de compromiso para [Gitflow comete mejores prácticas para escribir mensajes](https://roalcantara.medium.com/a-guide-to-improve-the-git-hub-flow-and-commits-messages-b495461e1115 )
+8. ¡Emita esa solicitud de extracción!
+
+Pendiente de seguir añadiendo información...
+
+-----------
+
 # 🇬🇧 Contributing to Angular Leaflet Map
 We love your input! We want to make contributing to this project as easy and transparent as possible, whether it's:
 
