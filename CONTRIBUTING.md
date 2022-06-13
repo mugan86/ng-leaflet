@@ -27,8 +27,10 @@ Pull requests are the best way to propose changes to the codebase (we use [Githu
 2. If you've added code that should be tested, add tests.
 3. If you've changed APIs, update the documentation.
 4. Ensure the test suite passes.
-5. Make sure your code lints.
-6. Issue that pull request!
+5. Create a Stackblitz [demo from the template](https://stackblitz.com/edit/angular-leaflet-map-basic?file=src%2Fapp%2Fapp.component.ts) to showcase the new functionality. You can build on [these examples already created](https://mugan86.github.io/ng-leaflet/es/demos-ejemplos). 
+6. Make sure your code lints.
+7. Write good commit message to [Gitflow commit beest practices to write messages](https://roalcantara.medium.com/a-guide-to-improve-the-git-hub-flow-and-commits-messages-b495461e1115)
+8. Issue that pull request!
 
 ## Any contributions you make will be under the MIT Software License
 In short, when you submit code changes, your submissions are understood to be under the same [MIT License](http://choosealicense.com/licenses/mit/) that covers the project. Feel free to contact the maintainers if that's a concern.
