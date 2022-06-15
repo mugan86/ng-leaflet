@@ -8,6 +8,10 @@ export interface IConfigMap {
     fullscreen?: boolean;
     watermark?: IWatermarkOptions;
     fitBounds?: boolean;
+    ourLocation?: {
+        active: boolean;
+        zoom?: number;
+    };
 }
 
 export interface ISizeMap {

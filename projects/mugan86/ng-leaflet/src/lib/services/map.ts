@@ -3,6 +3,7 @@ import { tileLayerSelect } from '../config/tile-layers/helpers';
 import { tileLayers } from '../config/tile-layers/ui';
 import { IConfigMap } from '../models/config-map';
 import { IMarker } from '../models/marker';
+import { OurLocation } from './location';
 
 export class BaseMap {
     private map!: Map;
@@ -15,6 +16,7 @@ export class BaseMap {
         this.mapId = (mapId) || 'map'
         this.zoom = config && (config!!.zoom) ? false: true;
         this.zoomValue = config && config.zoom?.default || 12;
+        
         this.init(config!!);
     }
 
@@ -31,6 +33,9 @@ export class BaseMap {
                 attribution: tileLayers.baseLayers.default.atribution
             }).addTo(this.map)
         }
+        
+        // Available geolocation option with flyTo option
+        config?.ourLocation && new OurLocation(this.map, config.ourLocation.zoom);
     }
     get = () => this.map;
 
