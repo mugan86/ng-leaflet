@@ -39,7 +39,3 @@ class OurLocation {
 }
 
 export { OurLocation };
-
-function flyTo(arg0: number[], arg1: number) {
-    throw new Error("Function not implemented.");
-}
