@@ -1,3 +1,3 @@
-import { watermark, fullScreenMap } from './controls';
+import { watermark, fullScreenMap, geolocation } from './controls';
 
-export { watermark, fullScreenMap };
+export { watermark, fullScreenMap, geolocation };

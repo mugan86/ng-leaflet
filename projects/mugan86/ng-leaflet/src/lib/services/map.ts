@@ -33,9 +33,6 @@ export class BaseMap {
                 attribution: tileLayers.baseLayers.default.atribution
             }).addTo(this.map)
         }
-        
-        // Available geolocation option with flyTo option
-        config?.ourLocation && new OurLocation(this.map, config.ourLocation.zoom);
     }
     get = () => this.map;
 
