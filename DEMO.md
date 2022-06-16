@@ -1,46 +1,38 @@
-### 1.- Basic:
-https://stackblitz.com/edit/angular-leaflet-map-basic?file=src%2Fapp%2Fapp.component.ts
-### 2.- Basic + Custom Size
-https://stackblitz.com/edit/angular-leaflet-map-basic-custom-size?file=src%2Fapp%2Fapp.component.html
-### 3.- Set Map Center: 
-https://stackblitz.com/edit/angular-leaflet-map-basic-set-center-position?file=src%2Fapp%2Fapp.component.ts
-### 4.- Zoom Controls - Positions / In out titles
-https://stackblitz.com/edit/angular-leaflet-zoom-positions-titles?file=src%2Fapp%2Fapp.component.ts
-### 5.- Zoom Level
-https://stackblitz.com/edit/angular-leaflet-zoom-levels?file=src%2Fapp%2Fapp.component.ts
-### 6.- Marker Basic and fitBounds
-https://stackblitz.com/edit/angular-leaflet-map-with-marker?file=src%2Fapp%2Fapp.component.ts
-### 7.- Markers and fitBounds
-https://stackblitz.com/edit/angular-leaflet-map-with-markers?file=src%2Fapp%2Fapp.component.ts
-### 8.- Random Markers with default zoom and Fit Bounds
-https://stackblitz.com/edit/angular-leaflet-map-random-markers?file=src%2Fapp%2Fapp.component.ts,src%2Fapp%2Fapp.component.html
-### 9.- Random Markers with differents zoom levels and Fit Bounds
-https://stackblitz.com/edit/angular-leaflet-zoom-levels-random-markers?file=src%2Fapp%2Fapp.component.ts,src%2Fapp%2Fapp.component.html
-### 10.- Base Layers
-https://stackblitz.com/edit/angular-leaflet-map-random-markers-tmqbap?file=src%2Fapp%2Fapp.component.ts
-### 11.- Base / Over Layers
-https://stackblitz.com/edit/angular-leaflet-map-base-over-layers?file=src%2Fapp%2Fapp.component.ts,src%2Fapp%2Fapp.component.html
-### 12.- Base / Over Layers with select default base and active overlayers
-https://stackblitz.com/edit/angular-leaflet-map-base-over-layers-default?file=src%2Fapp%2Fapp.component.ts,src%2Fapp%2Fapp.component.html
-### 13.- Scale Control position
-https://stackblitz.com/edit/angular-leaflet-scale-positions-titles?file=src%2Fapp%2Fapp.component.ts,src%2Fapp%2Fapp.component.html
-### 14.- Scale - Units Only Show and Max witdh control
-https://stackblitz.com/edit/angular-leaflet-scale-units-max-width?file=src%2Fapp%2Fapp.component.ts,src%2Fapp%2Fapp.component.html
-### 15.- Watermark - Control position 
-https://stackblitz.com/edit/angular-leaflet-watermark-positions?file=src%2Fapp%2Fapp.component.ts
-### 16.- Watermark - Image change and differents sizes
-https://stackblitz.com/edit/angular-leaflet-watermark-image-size?file=src%2Fapp%2Fapp.component.ts,src%2Fapp%2Fapp.component.html,node_modules%2F%40mugan86%2Fng-leaflet%2Flib%2Fmodels%2Fconfig-map.d.ts
-### 17.- Border and custom colors
-https://stackblitz.com/edit/angular-leaflet-watermark-image-border?file=src%2Fapp%2Fapp.component.ts,src%2Fapp%2Fapp.component.html
-### 18 - Global configurations
-https://stackblitz.com/edit/angular-leaflet-map-basic-dflpbc?file=src%2Fapp%2Fapp.component.ts
+---
+title: Demos / Ejemplos
+sidebar_position: 4
+description: >-
+  En este apartado tenéis disponible el listado de ejemplos que puede resultar
+  super útil para poder aprender el uso de esta librería e implementarlo en
+  vuestros proyectos
+---
 
-### 19 - Expand with other options that appear in doc but not implement in library
 
-#### Rectangle
+# 📝 Demos / Ejemplos
 
-https://stackblitz.com/edit/angular-leaflet-map-expand-with-more-options?file=src%2Fapp%2Fapp.component.ts,src%2Fapp%2Fapp.module.ts
+Ejemplos con las funcionalidades principales que se usa para poder explicar todas las características de la librería.
 
-#### Use GeoJSON
-
-https://stackblitz.com/edit/angular-leaflet-map-expand-with-more-options-two?file=src%2Fapp%2Fapp.component.ts,src%2Fapp%2Fearth-quakes.ts
+| Funcionalidad                                                        | Link                                                                                                                                                                                                                     |
+| -------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Mapa básico                                                          | [Stackblitz](https://stackblitz.com/edit/angular-leaflet-map-basic?file=src%2Fapp%2Fapp.component.ts)                                                                                                                    |
+| Mapa básico con tamaño personalizado                                 | [Stackblitz](https://stackblitz.com/edit/angular-leaflet-map-basic-custom-size?file=src%2Fapp%2Fapp.component.html)                                                                                                      |
+| Mapa especificando la posición central de la ubicación               | [Stackblitz](https://stackblitz.com/edit/angular-leaflet-map-basic-set-center-position?file=src%2Fapp%2Fapp.component.ts)                                                                                                |
+| Controles de Zoom -  Posiciones / Personalizar botón \`+ y -         | [Stackblitz](https://stackblitz.com/edit/angular-leaflet-zoom-positions-titles?file=src%2Fapp%2Fapp.component.ts)                                                                                                        |
+| Controles de Zoom - Nivel de Zoom                                    | [Stackblitz](https://stackblitz.com/edit/angular-leaflet-zoom-levels?file=src%2Fapp%2Fapp.component.ts)                                                                                                                  |
+| Marcador básico y ajuste de cámara con fitBounds                     | [Stackblitz](https://stackblitz.com/edit/angular-leaflet-map-with-marker?file=src%2Fapp%2Fapp.component.ts)                                                                                                              |
+| Marcadores y ajuste de cámara con fitBounds                          | [Stackblitz](https://stackblitz.com/edit/angular-leaflet-map-with-markers?file=src%2Fapp%2Fapp.component.ts)                                                                                                             |
+| Marcadores aleatorios con un zoom por defecto y fitBounds            | [Stackblitz](https://stackblitz.com/edit/angular-leaflet-map-random-markers?file=src%2Fapp%2Fapp.component.ts,src%2Fapp%2Fapp.component.html)                                                                            |
+| Marcadores aleatorios con diferentes niveles de zoom y fitBounds     | [Stackblitz](https://stackblitz.com/edit/angular-leaflet-zoom-levels-random-markers?file=src%2Fapp%2Fapp.component.ts,src%2Fapp%2Fapp.component.html)                                                                    |
+| Capas Base - Base Layers                                             | [Stackblitz](https://stackblitz.com/edit/angular-leaflet-map-random-markers-tmqbap?file=src%2Fapp%2Fapp.component.ts)                                                                                                    |
+| Capas Base y superposición / Base Layers & Overlayers                | [Stackblitz](https://stackblitz.com/edit/angular-leaflet-map-base-over-layers?file=src%2Fapp%2Fapp.component.ts,src%2Fapp%2Fapp.component.html)                                                                          |
+| Capas Base y superposición / Base Layers & Overlayers - Selección    | [Stackblitz](https://stackblitz.com/edit/angular-leaflet-map-base-over-layers-default?file=src%2Fapp%2Fapp.component.ts,src%2Fapp%2Fapp.component.html)                                                                  |
+| Control de Escala - Selección de posición                            | [Stackblitz](https://stackblitz.com/edit/angular-leaflet-scale-positions-titles?file=src%2Fapp%2Fapp.component.ts,src%2Fapp%2Fapp.component.html)                                                                        |
+| Control de Escala - Selección de unidades y ancho máximo del control | [Stackblitz](https://stackblitz.com/edit/angular-leaflet-scale-units-max-width?file=src%2Fapp%2Fapp.component.ts,src%2Fapp%2Fapp.component.html)                                                                         |
+| Marca de agua - Control de posición                                  | [Stackblitz](https://stackblitz.com/edit/angular-leaflet-watermark-positions?file=src%2Fapp%2Fapp.component.ts)                                                                                                          |
+| Marca de agua - Cambio de imagen y tamaños                           | [Stackblitz](https://stackblitz.com/edit/angular-leaflet-watermark-image-size?file=src%2Fapp%2Fapp.component.ts,src%2Fapp%2Fapp.component.html,node\_modules%2F%40mugan86%2Fng-leaflet%2Flib%2Fmodels%2Fconfig-map.d.ts) |
+| Marca de agua -  Añadir borde y colores personalizados               | [Stackblitz](https://stackblitz.com/edit/angular-leaflet-watermark-image-border?file=src%2Fapp%2Fapp.component.ts,src%2Fapp%2Fapp.component.html)                                                                        |
+| Configuraciones globales                                             | [Stackblitz](https://stackblitz.com/edit/angular-leaflet-map-basic-dflpbc?file=src%2Fapp%2Fapp.component.ts)                                                                                                             |
+| Expandiendo opciones librería - Rectángulo                           | [Stackblitz](https://stackblitz.com/edit/angular-leaflet-map-expand-with-more-options?file=src%2Fapp%2Fapp.component.ts,src%2Fapp%2Fapp.module.ts)                                                                       |
+| Expandiendo opciones librería - GeoJSON                              | [Stackblitz](https://stackblitz.com/edit/angular-leaflet-map-expand-with-more-options-two?file=src%2Fapp%2Fapp.component.ts,src%2Fapp%2Fearth-quakes.ts)                                                                 |
+| Expandiendo opciones librería . GeoJSON + API                        | [Gitlab](https://mugan86.gitlab.io/ng-leaflet-geojson/)                                                                                                                                                                  |
+| Control - Geolocalización                        | [Stackblitz](https://stackblitz.com/edit/angular-leaflet-ctrl-geolocation?embed=1&file=src/app/app.component.ts&theme=dark)                                                                                                                                                               |
