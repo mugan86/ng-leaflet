@@ -136,6 +136,7 @@ export class MapComponent implements AfterViewInit {
     this.config!!.zoom && Controls.changeZoomConfig(this.map.get(), this.config?.zoom);
     this.config!!.fullscreen && Controls.activeFullScreen(this.map.get());
     this.config!!.watermark && Controls.activeWatermark(this.map.get(), this.config!!.watermark);
+    this.config!!.ourLocation?.active && Controls.getOurLocation(this.map.get(), this.config?.ourLocation.zoom || 12)
   }
 
 }

@@ -15,6 +15,7 @@ export class BaseMap {
         this.mapId = (mapId) || 'map'
         this.zoom = config && (config!!.zoom) ? false: true;
         this.zoomValue = config && config.zoom?.default || 12;
+        
         this.init(config!!);
     }
 
