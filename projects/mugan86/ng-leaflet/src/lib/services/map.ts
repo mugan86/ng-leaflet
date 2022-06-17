@@ -3,7 +3,6 @@ import { tileLayerSelect } from '../config/tile-layers/helpers';
 import { tileLayers } from '../config/tile-layers/ui';
 import { IConfigMap } from '../models/config-map';
 import { IMarker } from '../models/marker';
-import { OurLocation } from './location';
 
 export class BaseMap {
     private map!: Map;
