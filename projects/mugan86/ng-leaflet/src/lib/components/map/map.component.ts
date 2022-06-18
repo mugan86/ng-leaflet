@@ -66,8 +66,7 @@ export class MapComponent implements AfterViewInit {
       this.size = this.defaultConfig.get().size;
     }
   }
-
-  setConfiguration() {
+  private checkConfigs() {
     if (!this.config && this.defaultConfig.get().config) {
       console.warn('Use default config');
       this.config = this.defaultConfig.get().config;
@@ -83,6 +82,10 @@ export class MapComponent implements AfterViewInit {
       }, null, 2)));
       return;
     }
+  }
+
+  setConfiguration() {
+    this.checkConfigs();
     if (this.config && this.defaultConfig.get().config) {
       console.warn("Overwrite defaultConfig with new set config duplicates values properties");
       // Rewrite
@@ -124,9 +127,6 @@ export class MapComponent implements AfterViewInit {
   ngAfterViewInit(): void {
     this.setConfiguration();
     this.map = new Map(this.config || undefined, this.mapId || undefined);
-    this.markers && (this.markers.length) && Markers.add(this.map.get(), this.markers);
-    this.randomMarkers && Markers.add(this.map.get(), [], this.randomMarkers);
-    this.markers && this.markers.length && this.config!.fitBounds && this.map.fitBounds(this.markers);
     this.config!! && this.setControls();
     if (this.config!!.drawRoute) {
      if (this.markers.length >= 3) {
@@ -134,6 +134,10 @@ export class MapComponent implements AfterViewInit {
      } else {
        console.warn('Need min 3 markers to draw correctly route');
      }
+    } else {
+      this.markers && (this.markers.length) && Markers.add(this.map.get(), this.markers);
+      this.randomMarkers && Markers.add(this.map.get(), [], this.randomMarkers);
+      this.markers && this.markers.length && this.config!.fitBounds && this.map.fitBounds(this.markers);
     }
     this.setUpMap.emit(this.map.get());
   }

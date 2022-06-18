@@ -1,18 +1,14 @@
 
+import { IMarker } from './../models';
 import { circle, Map, polyline } from 'leaflet';
+import { IRoutePointConfig } from '../models';
 
 
 class DrawMap {
     private map!: Map;
     routeConfig: {
-        start: {
-            color: string, weight: number, fillColor: string,
-            fillOpacity: number, radius: number, label?: string
-        },
-        finish: {
-            color: string, weight: number, fillColor: string,
-            fillOpacity: number, radius: number, label?: string
-        }
+        start: IRoutePointConfig,
+        finish: IRoutePointConfig,
     } = {
             start: {
                 color: 'white', weight: 1, fillColor: 'green',
@@ -23,12 +19,11 @@ class DrawMap {
                 fillOpacity: 1, radius: 7.5
             }
         }
+    coordinates: [number, number][] = [];
+
     constructor(map: Map) {
         this.map = map;
     }
-
-
-
     /*getPoints = (trackUrl: string) => {
       axios
         .get(
@@ -42,17 +37,32 @@ class DrawMap {
         .catch((error) => console.error(error));
     };*/
 
-    drawPoints = (points: Array<{ position: {lat: number, lng: number} }>) => {
-        // Add geographic coordinates to complete polyline that use to draw route
-        const coordinates: [number, number][] = points.map((point) => {
+    coordinatesFromMarkers = (points: Array<IMarker>) => {
+        this.coordinates = points.map((point) => {
             return [
                 point.position.lat,
                 point.position.lng
             ];
         });
+    }
 
+    coordinatesFromGpx = (trackUrl: string) => {
+        
+        /*this.coordinates = points.map((point) => {
+            return [
+                point.position.lat,
+                point.position.lng
+            ];
+        });*/
+        console.log(trackUrl);
+    }
+
+    drawPoints = (points: Array<IMarker> = [], trackUrl: string = '') => {
+        // Add geographic coordinates to complete polyline that use to draw route
+        
+        (points.length >=3 ) ? this.coordinatesFromMarkers(points) : this.coordinatesFromGpx(trackUrl);
         // Draw route using polyline
-        polyline(coordinates, {
+        polyline(this.coordinates, {
             color: 'orange'
         }).addTo(this.map);
 
@@ -66,7 +76,7 @@ class DrawMap {
             points[points.length - 1].position.lat, points[points.length - 1].position.lng
         ], false);
 
-        this.map.fitBounds(coordinates);
+        this.map.fitBounds(this.coordinates);
     }
 
     addPoint(point: [number, number], start: boolean) {
