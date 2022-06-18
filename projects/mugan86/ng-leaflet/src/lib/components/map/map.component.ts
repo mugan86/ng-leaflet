@@ -6,6 +6,7 @@ import { LeafletMap as Map } from './../../services/ng-leaflet-map.service';
 import { Map as MapObject } from 'leaflet';
 import { ISizeMap } from '../../models/config-map';
 import { DefaultConfig } from '../../services';
+import { DrawMap } from '../../services/draw-map';
 @Component({
   selector: 'ng-leaflet-map',
   templateUrl: './map.component.html',
@@ -127,6 +128,13 @@ export class MapComponent implements AfterViewInit {
     this.randomMarkers && Markers.add(this.map.get(), [], this.randomMarkers);
     this.markers && this.markers.length && this.config!.fitBounds && this.map.fitBounds(this.markers);
     this.config!! && this.setControls();
+    if (this.config!!.drawRoute) {
+     if (this.markers.length >= 3) {
+      new DrawMap(this.map.get()).drawPoints(this.markers);
+     } else {
+       console.warn('Need min 3 markers to draw correctly route');
+     }
+    }
     this.setUpMap.emit(this.map.get());
   }
 

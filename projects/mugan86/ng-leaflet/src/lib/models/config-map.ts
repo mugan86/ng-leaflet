@@ -12,6 +12,7 @@ export interface IConfigMap {
         active: boolean;
         zoom?: number;
     };
+    drawRoute?: boolean;
 }
 
 export interface ISizeMap {
