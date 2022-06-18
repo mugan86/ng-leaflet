@@ -1,2 +1,2 @@
-<ng-leaflet-map  [size]="size" [markers]="markers" [randomMarkers]="randomMarkers" [config]="config">
+<ng-leaflet-map *ngIf="markers.length > 100" [size]="size" [markers]="markers" [randomMarkers]="randomMarkers" [config]="config">
 </ng-leaflet-map>

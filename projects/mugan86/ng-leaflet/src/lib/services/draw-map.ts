@@ -24,18 +24,6 @@ class DrawMap {
     constructor(map: Map) {
         this.map = map;
     }
-    /*getPoints = (trackUrl: string) => {
-      axios
-        .get(
-          trackUrl
-        )
-        .then((result) => {
-          const gpx = new gpxParser(); //Create gpxParser Object
-          gpx.parse(result.data); //parse gpx file from string data
-          this.drawPoints(gpx.tracks[0].points);
-        })
-        .catch((error) => console.error(error));
-    };*/
 
     coordinatesFromMarkers = (points: Array<IMarker>) => {
         this.coordinates = points.map((point) => {
@@ -46,21 +34,10 @@ class DrawMap {
         });
     }
 
-    coordinatesFromGpx = (trackUrl: string) => {
-        
-        /*this.coordinates = points.map((point) => {
-            return [
-                point.position.lat,
-                point.position.lng
-            ];
-        });*/
-        console.log(trackUrl);
-    }
-
-    drawPoints = (points: Array<IMarker> = [], trackUrl: string = '') => {
+    drawPoints = (points: Array<IMarker> = []) => {
         // Add geographic coordinates to complete polyline that use to draw route
         
-        (points.length >=3 ) ? this.coordinatesFromMarkers(points) : this.coordinatesFromGpx(trackUrl);
+        this.coordinatesFromMarkers(points);
         // Draw route using polyline
         polyline(this.coordinates, {
             color: 'orange'

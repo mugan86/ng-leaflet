@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { IConfigMap, IMarker } from '@mugan86/ng-leaflet';
-
+import gpxParser from 'gpxparser';
 @Component({
   selector: 'app-map',
   templateUrl: './map.component.html',
@@ -39,4 +39,30 @@ export class MapComponent {
     },
     drawRoute: true
   };
+
+  ngOnInit() {
+    this.markers.length = 0;
+    fetch('https://raw.githubusercontent.com/leaflet-maps-course/resources/main/tracks/track.gpx')
+      .then(response => response.text())
+      .then(data => {
+        const gpx = new gpxParser(); //Create gpxParser Object
+        gpx.parse(data); //parse gpx file from string data
+        gpx.tracks[0].points.map((point) => {
+          this.markers.push({
+            position: {
+              lat: point.lat,
+              lng: point.lon
+            }
+          })
+        });
+      });
+
+    /*axios.get('https://raw.githubusercontent.com/leaflet-maps-course/resources/main/tracks/track.gpx')
+.then( result => {
+    const gpx = new gpxParser(); //Create gpxParser Object
+    gpx.parse(result.data); //parse gpx file from string data
+    gpx.tracks[0].points.map((point) => console.log(point.lat, point.lon));
+})
+.catch( error => console.error(error));*/
+  }
 }
