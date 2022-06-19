@@ -1,4 +1,4 @@
-import { DomUtil, control } from 'leaflet';
+import { DomUtil } from 'leaflet';
 import { Util } from 'leaflet';
 import { ControlPosition } from 'leaflet';
 import { Control } from 'leaflet';
