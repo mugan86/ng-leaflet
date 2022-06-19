@@ -37,7 +37,11 @@ export class MapComponent implements OnInit{
     zoom: {
       default: 15
     },
-    drawRoute: true
+    drawRoute: {
+      active: true,
+      title: 'Jabali Trail Short',
+      showControl: true
+    }
   };
 
   ngOnInit() {

@@ -33,7 +33,10 @@
               "src/styles.css",
               "dist/mugan86/ng-leaflet/assets/styles/common.css"
             ],
-            "scripts": []
+            "scripts": [],
+            "allowedCommonJsDependencies": [
+              "gpxparser"
+            ]
           },
           "configurations": {
             "production": {

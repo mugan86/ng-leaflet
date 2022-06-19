@@ -123,7 +123,7 @@ export class MapComponent implements AfterViewInit {
     if (!this.config!.fitBounds && this.defaultConfig.get().config.fitBounds) {
       this.config!.fitBounds = this.defaultConfig.get().config.fitBounds;
     }
-    console.log('CONFIGS DRAWROUTE')
+    
     if (!this.config!.drawRoute && this.defaultConfig.get().config.drawRoute) {
       this.config!.drawRoute = this.defaultConfig.get().config.drawRoute;
     }
@@ -154,6 +154,12 @@ export class MapComponent implements AfterViewInit {
     this.config!!.fullscreen && Controls.activeFullScreen(this.map.get());
     this.config!!.watermark && Controls.activeWatermark(this.map.get(), this.config!!.watermark);
     this.config!!.ourLocation?.active && Controls.getOurLocation(this.map.get(), this.config?.ourLocation.zoom || 12)
+    this.config!!.drawRoute?.showControl && Controls.addTitle(
+      this.map.get(), 
+      this.config!!.drawRoute.title || '', 
+      this.config!!.drawRoute.subtitle || '', 
+      this.config!!.drawRoute.position
+    );
   }
 
 }

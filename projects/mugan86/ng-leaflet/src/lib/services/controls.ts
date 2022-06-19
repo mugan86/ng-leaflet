@@ -1,6 +1,7 @@
 import { control, ControlPosition, Map } from 'leaflet';
 import { tileLayerSelect } from '../config/tile-layers/helpers';
 import { IBaseLayer, IOverLayer, ILayers, IScaleOptions, IZoomOptions, IWatermarkOptions } from '../models/controls'
+import { textContent } from '../plugins/controls';
 import { fullScreenMap } from '../plugins/controls/full-screen-map';
 import { geolocation } from '../plugins/controls/geolocation';
 import { watermark } from '../plugins/controls/watermark';
@@ -87,6 +88,14 @@ class Controls {
         geolocation({
             position: (position) || 'topleft', 
             zoom
+        }).addTo(map);
+    }
+
+    static addTitle(map: Map, title: string, subtitle: string = '', position?: ControlPosition) {
+        textContent( {
+            position: (position) || 'bottomleft',
+            title,
+            subtitle
         }).addTo(map);
     }
 
