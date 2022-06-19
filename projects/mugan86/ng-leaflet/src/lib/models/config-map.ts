@@ -1,3 +1,4 @@
+import { ControlPosition } from "leaflet";
 import { ILayers, IScaleOptions, IWatermarkOptions, IZoomOptions } from "./controls";
 
 export interface IConfigMap {
@@ -11,6 +12,13 @@ export interface IConfigMap {
     ourLocation?: {
         active: boolean;
         zoom?: number;
+    };
+    drawRoute?: {
+        active?: boolean;
+        title?: string;
+        subtitle?: string;
+        position?: ControlPosition; 
+        showControl?: boolean;
     };
 }
 

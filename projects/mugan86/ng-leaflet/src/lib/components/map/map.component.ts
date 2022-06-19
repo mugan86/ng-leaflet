@@ -6,6 +6,7 @@ import { LeafletMap as Map } from './../../services/ng-leaflet-map.service';
 import { Map as MapObject } from 'leaflet';
 import { ISizeMap } from '../../models/config-map';
 import { DefaultConfig } from '../../services';
+import { DrawMap } from '../../services/draw-map';
 @Component({
   selector: 'ng-leaflet-map',
   templateUrl: './map.component.html',
@@ -65,8 +66,7 @@ export class MapComponent implements AfterViewInit {
       this.size = this.defaultConfig.get().size;
     }
   }
-
-  setConfiguration() {
+  private checkConfigs() {
     if (!this.config && this.defaultConfig.get().config) {
       console.warn('Use default config');
       this.config = this.defaultConfig.get().config;
@@ -78,10 +78,15 @@ export class MapComponent implements AfterViewInit {
         center: [43.1824528, -2.3878554],
         mapId: 'map',
         zoom: true,
-        zoomValue: 12
+        zoomValue: 12,
+        drawRoute: false
       }, null, 2)));
       return;
     }
+  }
+
+  setConfiguration() {
+    this.checkConfigs();
     if (this.config && this.defaultConfig.get().config) {
       console.warn("Overwrite defaultConfig with new set config duplicates values properties");
       // Rewrite
@@ -93,40 +98,52 @@ export class MapComponent implements AfterViewInit {
   private checkAndAsignDefaultConfigs() {
 
     if (!this.config!.center && this.defaultConfig.get().config.center) {
-      this.config!.center = this.defaultConfig.get().config.center
+      this.config!.center = this.defaultConfig.get().config.center;
     }
     if (!this.config!.fullscreen && this.defaultConfig.get().config.fullscreen) {
-      this.config!.fullscreen = this.defaultConfig.get().config.fullscreen
+      this.config!.fullscreen = this.defaultConfig.get().config.fullscreen;
     }
 
     if (!this.config!.scale && this.defaultConfig.get().config.scale) {
-      this.config!.scale = this.defaultConfig.get().config.scale
+      this.config!.scale = this.defaultConfig.get().config.scale;
     }
 
     if (!this.config!.layers && this.defaultConfig.get().config.layers) {
-      this.config!.layers = this.defaultConfig.get().config.layers
+      this.config!.layers = this.defaultConfig.get().config.layers;
     }
 
     if (!this.config!.zoom && this.defaultConfig.get().config.zoom) {
-      this.config!.zoom = this.defaultConfig.get().config.zoom
+      this.config!.zoom = this.defaultConfig.get().config.zoom;
     }
 
     if (!this.config!.watermark && this.defaultConfig.get().config.watermark) {
-      this.config!.watermark = this.defaultConfig.get().config.watermark
+      this.config!.watermark = this.defaultConfig.get().config.watermark;
     }
 
     if (!this.config!.fitBounds && this.defaultConfig.get().config.fitBounds) {
-      this.config!.fitBounds = this.defaultConfig.get().config.fitBounds
+      this.config!.fitBounds = this.defaultConfig.get().config.fitBounds;
+    }
+    
+    if (!this.config!.drawRoute && this.defaultConfig.get().config.drawRoute) {
+      this.config!.drawRoute = this.defaultConfig.get().config.drawRoute;
     }
   }
 
   ngAfterViewInit(): void {
     this.setConfiguration();
     this.map = new Map(this.config || undefined, this.mapId || undefined);
-    this.markers && (this.markers.length) && Markers.add(this.map.get(), this.markers);
-    this.randomMarkers && Markers.add(this.map.get(), [], this.randomMarkers);
-    this.markers && this.markers.length && this.config!.fitBounds && this.map.fitBounds(this.markers);
     this.config!! && this.setControls();
+    if (this.config && this.config!!.drawRoute) {
+      if (this.markers.length >= 3) {
+        new DrawMap(this.map.get()).drawPoints(this.markers);
+      } else {
+        console.warn('Need min 3 markers to draw correctly route');
+      }
+    } else {
+      this.markers && (this.markers.length) && Markers.add(this.map.get(), this.markers);
+      this.randomMarkers && Markers.add(this.map.get(), [], this.randomMarkers);
+      this.markers && this.markers.length && this.config!.fitBounds && this.map.fitBounds(this.markers);
+    }
     this.setUpMap.emit(this.map.get());
   }
 
@@ -137,6 +154,12 @@ export class MapComponent implements AfterViewInit {
     this.config!!.fullscreen && Controls.activeFullScreen(this.map.get());
     this.config!!.watermark && Controls.activeWatermark(this.map.get(), this.config!!.watermark);
     this.config!!.ourLocation?.active && Controls.getOurLocation(this.map.get(), this.config?.ourLocation.zoom || 12)
+    this.config!!.drawRoute?.showControl && Controls.addTitle(
+      this.map.get(), 
+      this.config!!.drawRoute.title || '', 
+      this.config!!.drawRoute.subtitle || '', 
+      this.config!!.drawRoute.position
+    );
   }
 
 }
