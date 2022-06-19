@@ -27,7 +27,8 @@ const config: IConfigMap = {
       map: tileLayers.baseLayers.cycloOsm.map,
       atribution: tileLayers.baseLayers.cycloOsm.atribution
     }]
-  }
+  },
+  drawRoute: true
 }
 @NgModule({
   declarations: [

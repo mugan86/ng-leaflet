@@ -78,7 +78,8 @@ export class MapComponent implements AfterViewInit {
         center: [43.1824528, -2.3878554],
         mapId: 'map',
         zoom: true,
-        zoomValue: 12
+        zoomValue: 12,
+        drawRoute: false
       }, null, 2)));
       return;
     }
@@ -97,30 +98,34 @@ export class MapComponent implements AfterViewInit {
   private checkAndAsignDefaultConfigs() {
 
     if (!this.config!.center && this.defaultConfig.get().config.center) {
-      this.config!.center = this.defaultConfig.get().config.center
+      this.config!.center = this.defaultConfig.get().config.center;
     }
     if (!this.config!.fullscreen && this.defaultConfig.get().config.fullscreen) {
-      this.config!.fullscreen = this.defaultConfig.get().config.fullscreen
+      this.config!.fullscreen = this.defaultConfig.get().config.fullscreen;
     }
 
     if (!this.config!.scale && this.defaultConfig.get().config.scale) {
-      this.config!.scale = this.defaultConfig.get().config.scale
+      this.config!.scale = this.defaultConfig.get().config.scale;
     }
 
     if (!this.config!.layers && this.defaultConfig.get().config.layers) {
-      this.config!.layers = this.defaultConfig.get().config.layers
+      this.config!.layers = this.defaultConfig.get().config.layers;
     }
 
     if (!this.config!.zoom && this.defaultConfig.get().config.zoom) {
-      this.config!.zoom = this.defaultConfig.get().config.zoom
+      this.config!.zoom = this.defaultConfig.get().config.zoom;
     }
 
     if (!this.config!.watermark && this.defaultConfig.get().config.watermark) {
-      this.config!.watermark = this.defaultConfig.get().config.watermark
+      this.config!.watermark = this.defaultConfig.get().config.watermark;
     }
 
     if (!this.config!.fitBounds && this.defaultConfig.get().config.fitBounds) {
-      this.config!.fitBounds = this.defaultConfig.get().config.fitBounds
+      this.config!.fitBounds = this.defaultConfig.get().config.fitBounds;
+    }
+    console.log('CONFIGS DRAWROUTE')
+    if (!this.config!.drawRoute && this.defaultConfig.get().config.drawRoute) {
+      this.config!.drawRoute = this.defaultConfig.get().config.drawRoute;
     }
   }
 
@@ -128,12 +133,12 @@ export class MapComponent implements AfterViewInit {
     this.setConfiguration();
     this.map = new Map(this.config || undefined, this.mapId || undefined);
     this.config!! && this.setControls();
-    if (this.config!!.drawRoute) {
-     if (this.markers.length >= 3) {
-      new DrawMap(this.map.get()).drawPoints(this.markers);
-     } else {
-       console.warn('Need min 3 markers to draw correctly route');
-     }
+    if (this.config && this.config!!.drawRoute) {
+      if (this.markers.length >= 3) {
+        new DrawMap(this.map.get()).drawPoints(this.markers);
+      } else {
+        console.warn('Need min 3 markers to draw correctly route');
+      }
     } else {
       this.markers && (this.markers.length) && Markers.add(this.map.get(), this.markers);
       this.randomMarkers && Markers.add(this.map.get(), [], this.randomMarkers);

@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { IConfigMap, IMarker } from '@mugan86/ng-leaflet';
 import gpxParser from 'gpxparser';
 @Component({
@@ -6,7 +6,7 @@ import gpxParser from 'gpxparser';
   templateUrl: './map.component.html',
   styleUrls: ['./map.component.css']
 })
-export class MapComponent {
+export class MapComponent implements OnInit{
 
   @Input() markers: Array<IMarker> = [{
     position: {
