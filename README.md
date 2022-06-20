@@ -25,6 +25,10 @@ En este apartado, [podremos visualizar las tarjetas con las funcionalidades plan
 
 El propósito es que observéis las que están disponibles, seleccionéis una de ellas, abráis una incidencia de **issue** para empezar a trabajar con esa funcionalidad.
 
+## Contribuir en el proyecto
+
+Para poder contribuir en el proyecto os animamos a que leáis [esta guía de contribución](CONTRIBUTING.md) (que está en desarrollo) para seguir los pasos correctamente y poder aportar vuestro granito de arena.
+
 ## Hacer petición para integrar nuevas funcionalidades
 Una vez terminada la funcionalidad, debemos de realizar un pull request lo más detallado posible con los casos de uso (capturas serían bienvenidas), se revisará por varias personas y si todo está ok, se aceptará. En el caso de que no sea satisfactorio, se dará un feedback detallado con lo que falta / no es correcto.
 
