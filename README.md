@@ -1,14 +1,33 @@
-# AngularLeaflet
+# Angular Leaflet Map
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.0.2.
+Proyecto creado con [Angular CLI](https://github.com/angular/angular-cli) version 13.0.2. para desarrollo de aplicaciones Angular con información que muestra mapas para diferentes propósitos.
 
-## Development server
+##### Creador:
+* [Anartz Mugika Ledo](https://anartz-mugika.com/)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+##### Recomendaciones:
+1. Tener instalado NodeJS versión LTS >= 14.
+2. Tener instalado Yarn, para poder gestionar las dependencias en vez de usar NPM
+3. Leer las guías para contribuir, participar y colaborar tanto en el desarrollo como en el apartado de traducciones.
+4. Si se hacen sugerencias, se agradecería que se hiciese desde el apartado "issues" con el título "[Suggest - Propuesta] Descriptive title / Título descriptivo." Se aceptan las sugerencias tanto en Español e Inglés siempre y cuando se detalle bien lo propuesto con algún enlace a un ejemplo en Google Maps u otras librerías o una imagen con un wireframe.
 
-## Code scaffolding
+Antes de empezar con las cosas a tener en cuenta en el proyecto, podemos encontrar algunos enlaces muy interesantes relacionados con la librería:
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+* [Documentación oficial de la librería](https://mugan86.github.io/ng-leaflet/)
+* [Ejemplos con las demos con las diferentes variantes](./DEMO.md)
+* [Leaflet - Página oficial](https://leafletjs.com/)
+* [Curso GRATIS para aprender a trabajar con Leaflet en Typescript](https://www.youtube.com/playlist?list=PLaaTcPGicjqgLAUhR_grKBGCXbyKaP7qR)
+* [Inspiración con proyectos realizados](https://tomik23.github.io/leaflet-examples/)
+
+## Estado del proyecto en las tareas
+
+En este apartado, [podremos visualizar las tarjetas con las funcionalidades planeadas](https://github.com/mugan86/ng-leaflet/projects/1), las que está en desarrollo y las que ya están implementadas en producción.
+
+El propósito es que observéis las que están disponibles, seleccionéis una de ellas, abráis una incidencia de **issue** para empezar a trabajar con esa funcionalidad.
+
+## Hacer petición para integrar nuevas funcionalidades
+Una vez terminada la funcionalidad, debemos de realizar un pull request lo más detallado posible con los casos de uso (capturas serían bienvenidas), se revisará por varias personas y si todo está ok, se aceptará. En el caso de que no sea satisfactorio, se dará un feedback detallado con lo que falta / no es correcto.
+
 
 ## Build
 
@@ -30,17 +49,5 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 ![Image](screens/1-map-basic-base-over-layer.png)
 
-# Use references
+En construcción la información complementaria y traducción al inglés
 
-* **Ruslan Gonzalez** : [Leaflet Angular](https://github.com/ruslanguns/angular-leaflet-playground)
-* **Official Documentation**: [Leaflet](https://leafletjs.com/reference.html)
-
-* Gipuzkoa Opendata: https://b5m.gipuzkoa.eus/web5000/es/conjuntos-datos
-* Calendar Event: https://mattlewis92.github.io/angular-calendar/#/kitchen-sink
-* Municipios: https://github.com/martgnz/municipios
-* Provincias Españolas: https://public.opendatasoft.com/explore/dataset/provincias-espanolas/table/?sort=provincia
-* World Rivers: http://ihp-wins.unesco.org/layers/geonode:world_rivers/metadata_detail
-* Paises del mundo: https://github.com/martynafford/natural-earth-geojson/blob/master/110m/cultural/ne_110m_admin_0_countries.json
-* World Earthquakes: https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/2.5_day.geojson
-* Mapas: https://www.igismap.com/download-spain-administrative-boundary-shapefiles-autonomous-communities-provinces-municipalities/
-* Examples: https://tomik23.github.io/leaflet-examples/
