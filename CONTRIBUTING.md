@@ -1,27 +1,47 @@
 # 🇪🇸 Contribuyendo al proyecto Angular Leaflet Map
-¡Nos encanta tu aporte! Queremos que las contribuciones a este proyecto sean lo más fáciles y transparentes posible, como por ejemplo:
+¡Nos encantaría recibir tu aporte! Queremos que las contribuciones a este proyecto sean lo más fáciles y transparentes posible, como por ejemplo:
 
 - Reportar errores
 - Discutir el estado actual del código.
 - Presentar una propuesta de corrección de una incidencia.
 - Sugerir nuevas características.
 - Implementar nuevas características.
-- Hacer traducciones.
+- Hacer traducciones de idiomas existentes y/o nuevos idiomas
 
 ## Desarrollamos con Github
-Usamos github para alojar el código, rastrear problemas y solicitudes de funciones, así como aceptar solicitudes de extracción.
+Usamos github para almaccenar todo el código, analizar los problemas que puedan surgir y solicitudes de nuevas funcionalidades, así como aceptar solicitudes de mejora / solución de lo dearrollado.
 
-## Usamos [Github Flow](https://guides.github.com/introduction/flow/index.html), por lo que todos los cambios de código ocurren a través de solicitudes de extracción
-Las solicitudes de extracción son la mejor manera de proponer cambios en el código base (usamos [Github Flow](https://guides.github.com/introduction/flow/index.html)). Damos la bienvenida activamente a sus solicitudes de extracción:
+## Usamos [Github Flow](https://guides.github.com/introduction/flow/index.html), por lo que todos los cambios de código se darán a través de pull requests
+Los pull requests son la mejor manera de proponer cambios en el código base (usamos [Github Flow](https://guides.github.com/introduction/flow/index.html)). Son bienvenidos vuestros pull requests. Instrucciones para realizar correctamente el proceso para propuestas / solución de código:
 
-1. Bifurque el repositorio y cree su rama desde `develop`.
-2. Si ha agregado código que debe probarse, agregue pruebas.
-3. Si ha cambiado las API, actualice la documentación.
-4. Asegúrese de que el conjunto de pruebas pase.
-5. Cree un Stackblitz [demostración de la plantilla] (https://stackblitz.com/edit/angular-leaflet-map-basic?file=src%2Fapp%2Fapp.component.ts) para mostrar la nueva funcionalidad. Puedes construir sobre [estos ejemplos ya creados](https://mugan86.github.io/ng-leaflet/es/demos-ejemplos).
-6. Asegúrese de que su código se desvanezca.
-7. Escriba un buen mensaje de compromiso para [Gitflow comete mejores prácticas para escribir mensajes](https://roalcantara.medium.com/a-guide-to-improve-the-git-hub-flow-and-commits-messages-b495461e1115 )
-8. ¡Emita esa solicitud de extracción!
+1. Bifurque el repositorio mediante **fork** y cree su rama desde `develop`.
+2. El idioma que se usará tanto para los commit y el desarrollo del código será en inglés. Aplicaremos buenas prácticas basándonos en la [guía de estilos de Angular](https://angular.io/guide/styleguide).
+3. Si agregamos código que debe probarse, agregue pruebas.
+4. Si cambiamos / añadimos algo en las API, actualizamos la documentación (que se encuentra en **official-docs/es**) para que esté lo más actualizado posible.
+5. Asegúrese de que el conjunto de test pase.
+6. Escriba un buen mensaje de commit para [Gitflow comete mejores prácticas para escribir mensajes](https://roalcantara.medium.com/a-guide-to-improve-the-git-hub-flow-and-commits-messages-b495461e1115 )
+7. Para un buen commit y seguir trabajando correctamente con Git Flow, debemos de tener en cuenta los siguientes puntos, ya que si no respetamos el formato, no podremos realizar commit.
+8. El formato a seguir en el commit:
+```bash
+git commit -m "<type> : <message>"
+```
+Donde tenemos los ddiferentes **types**:
+
+* **feat**: Nueva funcionalidad
+* **fix**: Corrección de un error / bug
+* **docs**: Cambios en la documentación
+* **style**: Cambios que no afectan en el funccionamiento del código (espacios en blanco, formato, faltantes) punto y coma, etc.)
+* **refactor**: Un cambio de código que no corrige un error ni agrega una característica
+* **perf**: Un cambio de código que mejora el rendimiento
+* **test**: Adición de tests faltantes o corrección de tests existentes
+* **build**: Cambios que afectan el sistema de compilación, la configuración de CI o las dependencias externas (ámbitos de ejemplo: gulp, broccoli, npm)
+* **ci**: Cualquier cambio en nuestros scripts y archivos de configuración de CI (Travis, Circle CI, BrowserStack, SauceLabs)
+* **chore**: Otros cambios que no modifican los archivos `src` o `test`
+Siendo un ejemplo de posible commit, por ejemplo para una nueva funcionalidad para pantalla completa.
+```bash
+git commit -m "feat : add fullscreen control option"
+```
+9. ¡Emitir el pull request!
 
 Pendiente de seguir añadiendo información...
 
