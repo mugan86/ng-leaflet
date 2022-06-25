@@ -1,6 +1,5 @@
 import { IConfigMap, IMarker } from '@mugan86/ng-leaflet';
-import { Component, Input, OnInit } from '@angular/core';
-import gpxParser from 'gpxparser';
+import { Component } from '@angular/core';
 @Component({
   selector: 'app-map',
   templateUrl: './map.component.html',

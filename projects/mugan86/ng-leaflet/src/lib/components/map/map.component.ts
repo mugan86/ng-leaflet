@@ -3,11 +3,10 @@ import { IMarker, IConfigMap } from './../../models';
 import { Controls } from '../../services/controls';
 import { Markers } from './../../services/markers';
 import { LeafletMap as Map } from './../../services/ng-leaflet-map.service';
-import { Map as MapObject, marker } from 'leaflet';
+import { Map as MapObject } from 'leaflet';
 import { ISizeMap } from '../../models/config-map';
 import { DefaultConfig } from '../../services';
 import { DrawMap } from '../../services/draw-map';
-import { MarkerColor } from '../../config/markers/default';
 @Component({
   selector: 'ng-leaflet-map',
   templateUrl: './map.component.html',
