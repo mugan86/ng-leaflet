@@ -1,14 +1,35 @@
-import { Component, Input, OnInit } from '@angular/core';
 import { IConfigMap, IMarker } from '@mugan86/ng-leaflet';
+import { Component, Input, OnInit } from '@angular/core';
 import gpxParser from 'gpxparser';
 @Component({
   selector: 'app-map',
   templateUrl: './map.component.html',
   styleUrls: ['./map.component.css']
 })
-export class MapComponent implements OnInit{
-
-  @Input() markers: Array<IMarker> = [{
+export class MapComponent{
+  markers: Array<IMarker> = [
+    {
+      position: {
+        lat: 43.17757110078426,
+        lng: -2.3661233885984085,
+      },
+    },
+    {
+      position: {
+        lat: 43.177781697765305,
+        lng: -2.367583962060063,
+      },
+    },
+  ];
+  config?: IConfigMap = {
+    fitBounds: true,
+    drawRoute: {
+      active: false,
+      showControl: false
+    },
+    markerColor: 'orange'
+  };
+  /*@Input() markers: Array<IMarker> = [{
     position: {
       lat: 43.17774378506745,
       lng: -2.4150770902633667
@@ -43,6 +64,29 @@ export class MapComponent implements OnInit{
       showControl: true
     }
   };
+  */
+  /*markers: Array<IMarker> = [
+    {
+      position: {
+        lat: 43.17757110078426,
+        lng: -2.3661233885984085,
+      },
+    },
+    {
+      position: {
+        lat: 43.177781697765305,
+        lng: -2.367583962060063,
+      },
+    },
+  ];
+  config?: IConfigMap = {
+    fitBounds: true,
+    drawRoute: {
+      active: true,
+      showControl: false
+    },
+    markerColor: 'gold'
+  };
 
   ngOnInit() {
     this.markers.length = 0;
@@ -60,13 +104,5 @@ export class MapComponent implements OnInit{
           })
         });
       });
-
-    /*axios.get('https://raw.githubusercontent.com/leaflet-maps-course/resources/main/tracks/track.gpx')
-.then( result => {
-    const gpx = new gpxParser(); //Create gpxParser Object
-    gpx.parse(result.data); //parse gpx file from string data
-    gpx.tracks[0].points.map((point) => console.log(point.lat, point.lon));
-})
-.catch( error => console.error(error));*/
-  }
+    }*/
 }

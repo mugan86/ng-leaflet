@@ -3,10 +3,11 @@ import { IMarker, IConfigMap } from './../../models';
 import { Controls } from '../../services/controls';
 import { Markers } from './../../services/markers';
 import { LeafletMap as Map } from './../../services/ng-leaflet-map.service';
-import { Map as MapObject } from 'leaflet';
+import { Map as MapObject, marker } from 'leaflet';
 import { ISizeMap } from '../../models/config-map';
 import { DefaultConfig } from '../../services';
 import { DrawMap } from '../../services/draw-map';
+import { MarkerColor } from '../../config/markers/default';
 @Component({
   selector: 'ng-leaflet-map',
   templateUrl: './map.component.html',
@@ -127,21 +128,27 @@ export class MapComponent implements AfterViewInit {
     if (!this.config!.drawRoute && this.defaultConfig.get().config.drawRoute) {
       this.config!.drawRoute = this.defaultConfig.get().config.drawRoute;
     }
+
+    if (!this.config!.markerColor && this.defaultConfig.get().config.markerColor) {
+      this.config!.markerColor = this.defaultConfig.get().config.markerColor;
+    }
   }
 
   ngAfterViewInit(): void {
     this.setConfiguration();
     this.map = new Map(this.config || undefined, this.mapId || undefined);
     this.config!! && this.setControls();
-    if (this.config && this.config!!.drawRoute) {
+    if (this.config && this.config!!.drawRoute && this.config!!.drawRoute!!.active) {
       if (this.markers.length >= 3) {
         new DrawMap(this.map.get()).drawPoints(this.markers);
       } else {
         console.warn('Need min 3 markers to draw correctly route');
       }
     } else {
-      this.markers && (this.markers.length) && Markers.add(this.map.get(), this.markers);
-      this.randomMarkers && Markers.add(this.map.get(), [], this.randomMarkers);
+      console.log(this.config)
+      const markerColor = this.config!!.markerColor || 'blue';
+      this.markers && (this.markers.length) && Markers.add(this.map.get(), this.markers, false, markerColor);
+      this.randomMarkers && Markers.add(this.map.get(), [], this.randomMarkers, markerColor);
       this.markers && this.markers.length && this.config!.fitBounds && this.map.fitBounds(this.markers);
     }
     this.setUpMap.emit(this.map.get());
