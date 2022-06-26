@@ -34,42 +34,20 @@ En este apartado, [podremos visualizar las tarjetas con las funcionalidades plan
 
 ![Image Panel](https://raw.githubusercontent.com/mugan86/ng-leaflet/develop/screens/2.-%20features%20-%20project.png)
 
-El propósito es que observéis las que están disponibles, seleccionéis una de ellas (lo correspondiente a un checkbox), abráis una incidencia de **issue** para empezar a trabajar con esa funcionalidad seleccionando lo que váis a hacer siguiendo los pasos con las indicaciones:
+## Contribuir en el proyecto
+
+Para poder contribuir en el proyecto os animamos a que leáis [esta guía de contribución](CONTRIBUTING.md) (que está en desarrollo) para seguir los pasos correctamente y poder aportar vuestro granito de arena.
+
+El propósito es que observéis las que están disponibles (en el panel que se ha mostrado anteriormente), seleccionéis una de ellas (lo correspondiente a un checkbox), abráis una incidencia de **issue** para empezar a trabajar con esa funcionalidad seleccionando lo que váis a hacer siguiendo los pasos con las indicaciones:
 
 ![Issue](https://github.com/mugan86/ng-leaflet/blob/develop/screens/3.-%20issue.png?raw=true)
-
 
 Una vez abierta la incidencia, acceded al [canal oficial en Discord de la librería](https://social.anartz-mugika.com/angular-leaflet-map-discord) y en el apartado **"#features"** añadís un mensaje como el siguiente. En ese momento recibiremos el aviso y lo antes posible creamos la tarjeta para que se te asigne y así poder completar la funcionalidad.
 
 ![](https://github.com/mugan86/ng-leaflet/blob/develop/screens/4.-%20discord.png?raw=true)
 
-## Contribuir en el proyecto
-
-Para poder contribuir en el proyecto os animamos a que leáis [esta guía de contribución](CONTRIBUTING.md) (que está en desarrollo) para seguir los pasos correctamente y poder aportar vuestro granito de arena.
-
 ## Hacer petición para integrar nuevas funcionalidades
-Una vez terminada la funcionalidad, debemos de realizar un pull request lo más detallado posible con los casos de uso (capturas serían bienvenidas), se revisará por varias personas y si todo está ok, se aceptará. En el caso de que no sea satisfactorio, se dará un feedback detallado con lo que falta / no es correcto.
-
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
-
-## Example
-
-![Image](screens/1-map-basic-base-over-layer.png)
+Una vez terminada la funcionalidad, debemos de realizar un pull request lo más detallado posible con los casos de uso (capturas serían bienvenidas), se revisará por varias personas y si todo está ok, se aceptará. En el caso de que no sea satisfactorio, se dará un feedback lo más detallado posible con lo que falta / no es correcto y quizás, alguna sugerencia, todo desde el respeto y de manera constructiva.
 
 En construcción la información complementaria y traducción al inglés
 
