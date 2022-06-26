@@ -11,7 +11,7 @@ Proyecto creado con [Angular CLI](https://github.com/angular/angular-cli) versio
 
 #### Guía de como trabajar con la librería
 
-[En este enlace](https://mugan86.github.io/ng-leaflet/es/readme) encontramos lo necesario para trabajar con la librería. Actualmente no está al 100% documentado, pero iremos poco a poco actualizando con nuevo contenido.
+[En este enlace](https://mugan86.github.io/ng-leaflet/es/summary) encontramos lo necesario para trabajar con la librería. Actualmente no está al 100% documentado, pero iremos poco a poco actualizando con nuevo contenido.
 
 ##### Recomendaciones:
 1. Tener instalado [**NodeJS versión LTS >= 14**](https://nodejs.org/en/).
