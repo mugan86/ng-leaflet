@@ -96,11 +96,12 @@ export class MapComponent implements AfterViewInit {
   }
 
   private checkAndAsignDefaultConfigs() {
-
+    
     if (!this.config!.center && this.defaultConfig.get().config.center) {
       this.config!.center = this.defaultConfig.get().config.center;
     }
-    if (!this.config!.fullscreen && this.defaultConfig.get().config.fullscreen) {
+
+    if (this.config!.fullscreen === undefined && this.defaultConfig.get().config.fullscreen) {
       this.config!.fullscreen = this.defaultConfig.get().config.fullscreen;
     }
 
@@ -144,7 +145,6 @@ export class MapComponent implements AfterViewInit {
         console.warn('Need min 3 markers to draw correctly route');
       }
     } else {
-      console.log(this.config)
       const markerColor = this.config!!.markerColor || 'blue';
       this.markers && (this.markers.length) && Markers.add(this.map.get(), this.markers, false, markerColor);
       this.randomMarkers && Markers.add(this.map.get(), [], this.randomMarkers, markerColor);

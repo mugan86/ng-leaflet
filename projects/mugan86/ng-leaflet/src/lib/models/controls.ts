@@ -44,5 +44,4 @@ export interface IWatermarkOptions {
     position?: ControlPosition;
     size?: string;
     borderColor?: string;
-    show?: boolean;
 }

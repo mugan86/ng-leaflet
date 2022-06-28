@@ -80,7 +80,6 @@ class Controls {
     }
 
     static activeWatermark(map: Map, config: IWatermarkOptions) {
-        delete config.show;
         watermark(config).addTo(map)
     }
 
