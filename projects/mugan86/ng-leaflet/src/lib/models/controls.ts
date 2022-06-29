@@ -19,7 +19,7 @@ export interface ILayers {
 }
 
 export interface IBaseLayer {
-    label: string;
+    label?: string;
     map: string;
     atribution: string;
     default?: boolean

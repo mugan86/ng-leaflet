@@ -1,4 +1,4 @@
-import { IConfigMap, IMarker } from '@mugan86/ng-leaflet';
+import { IConfigMap, IMarker, tileLayers } from '@mugan86/ng-leaflet';
 import { Component } from '@angular/core';
 @Component({
   selector: 'app-map',
@@ -21,6 +21,20 @@ export class MapComponent{
     },
   ];
   config?: IConfigMap = {
+    defaultLayer: {
+      map: 'https://tile.thunderforest.com/neighbourhood/{z}/{x}/{y}.png?apikey=47455e4b0807408c87ead5d6f7a8d1c8',
+      atribution: tileLayers.baseLayers.default.atribution
+    },
+    fullscreen: true,
+    fitBounds: true,
+    drawRoute: {
+      active: false,
+      showControl: false
+    },
+    markerColor: 'green'
+  };
+
+  configTwo?: IConfigMap = {
     fitBounds: true,
     drawRoute: {
       active: false,

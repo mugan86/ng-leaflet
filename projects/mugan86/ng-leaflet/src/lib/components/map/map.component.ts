@@ -109,7 +109,11 @@ export class MapComponent implements AfterViewInit {
       this.config!.scale = this.defaultConfig.get().config.scale;
     }
 
-    if (!this.config!.layers && this.defaultConfig.get().config.layers) {
+    if (!this.config!.defaultLayer && this.defaultConfig.get().config.defaultLayer) {
+      this.config!.defaultLayer = this.defaultConfig.get().config.defaultLayer;
+    }
+
+    if (!this.config!.layers && !this.config?.defaultLayer && this.defaultConfig.get().config.layers) {
       this.config!.layers = this.defaultConfig.get().config.layers;
     }
 
@@ -157,7 +161,7 @@ export class MapComponent implements AfterViewInit {
     this.config!!.scale && Controls.addScale(this.map.get(), this.config?.scale);
     this.config!!.layers && Controls.addBaseOverLayers(this.map.get(), this.config!!.layers);
     this.config!!.zoom && Controls.changeZoomConfig(this.map.get(), this.config?.zoom);
-    this.config!!.fullscreen && Controls.activeFullScreen(this.map.get());
+    this.config!!.fullscreen && Controls.activeFullScreen(this.map.get(), this.mapId);
     this.config!!.watermark && Controls.activeWatermark(this.map.get(), this.config!!.watermark);
     this.config!!.ourLocation?.active && Controls.getOurLocation(this.map.get(), this.config?.ourLocation.zoom || 12)
     this.config!!.drawRoute?.showControl && Controls.addTitle(
