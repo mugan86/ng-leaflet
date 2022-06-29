@@ -27,11 +27,16 @@ export class BaseMap {
             zoomControl: this.zoom
         }).setView(this.center, this.zoomValue);
 
-        if (!config || !config.layers) {
+        if ((!config || !config.layers) && !config.defaultLayer) {
             tileLayerSelect(tileLayers.baseLayers.default.map, {
                 attribution: tileLayers.baseLayers.default.atribution
             }).addTo(this.map)
+            return;
         }
+        tileLayerSelect(config.defaultLayer?.map, {
+            attribution: config.defaultLayer?.atribution
+        }).addTo(this.map)
+
     }
     get = () => this.map;
 
