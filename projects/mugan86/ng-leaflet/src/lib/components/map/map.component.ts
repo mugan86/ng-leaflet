@@ -7,6 +7,8 @@ import { Map as MapObject } from 'leaflet';
 import { ISizeMap } from '../../models/config-map';
 import { DefaultConfig } from '../../services';
 import { DrawMap } from '../../services/draw-map';
+import { tileLayerSelect } from '../../config/tile-layers/helpers';
+import { tileLayers } from '../../config/tile-layers/ui';
 @Component({
   selector: 'ng-leaflet-map',
   templateUrl: './map.component.html',
@@ -96,7 +98,6 @@ export class MapComponent implements AfterViewInit {
   }
 
   private checkAndAsignDefaultConfigs() {
-    
     if (!this.config!.center && this.defaultConfig.get().config.center) {
       this.config!.center = this.defaultConfig.get().config.center;
     }
@@ -133,9 +134,10 @@ export class MapComponent implements AfterViewInit {
       this.config!.drawRoute = this.defaultConfig.get().config.drawRoute;
     }
 
-    if (!this.config!.markerColor && this.defaultConfig.get().config.markerColor) {
+    if (!this.config!.markerColor!! && this.defaultConfig.get().config.markerColor) {
       this.config!.markerColor = this.defaultConfig.get().config.markerColor;
     }
+
   }
 
   ngAfterViewInit(): void {
