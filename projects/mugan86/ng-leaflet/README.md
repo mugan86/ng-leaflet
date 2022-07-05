@@ -1,8 +1,12 @@
-# Angular Leaflet Map 🇪🇸
+# Angular Leaflet Map 
+
+[![npm version](https://badge.fury.io/js/@mugan86%2Fng-leaflet.svg)](https://badge.fury.io/js/@mugan86%2Fng-leaflet) ![npm](https://img.shields.io/npm/dw/@mugan86/ng-leaflet)
+
+## Español 🇪🇸
 
 Proyecto creado con [Angular CLI](https://github.com/angular/angular-cli) version 13.0.2. para desarrollo de aplicaciones Angular con información que muestra mapas para diferentes propósitos.
 
-## ⚙ Instalación / Configuración
+### ⚙ Instalación / Configuración
 
 Para poder empezar a trabajar con la librería, vamos a usar la siguiente referencia:
 
@@ -10,7 +14,7 @@ Para poder empezar a trabajar con la librería, vamos a usar la siguiente refere
 
 Teniendo como referencia el anterior enlace, para instalar y configurar el paquete con el objetivo de poder implementar los Mapas de Leaflet en Angular de manera sencilla debemos de seguir los siguientes pasos:
 
-### Instalar el paquete NPM
+#### Instalar el paquete NPM
 
 Ejecutaremos el siguiente comando:
 
@@ -20,7 +24,7 @@ npm i @mugan86/ng-leaflet
 
 Con estos instalaremos las dependencias en nuestro proyecto.
 
-### Añadir módulo del paquete
+#### Añadir módulo del paquete
 
 En el apartado que vayamos a usar la funcionalidad, debemos de añadir el módulo **"NgLeafletModule" llamando a la función forRoot()** y podemos tener como referencia hacerlo como ejemplo con **app.module.ts.**
 
@@ -41,7 +45,7 @@ import { NgLeafletModule } from '@mugan86/ng-leaflet';
 export class AppModule {}
 ```
 
-### Añadir referencia de estilos
+#### Añadir referencia de estilos
 
 Tenemos que tener en cuenta que cuando hemos instalado el paquete, se añadirá la carpeta **`"@mugan86/ng-leaflet"`** dentro de **`"node_modules"`** que contiene el fichero de estilos necesarios para mostrar los mapas correctamente.
 
@@ -59,7 +63,7 @@ Podemos añadirlo en el fichero **`"styles.css"`** de la siguiente manera:
 
 Con estos ajustes, podemos empezar a trabajar con las funcionalidades de los mapas [a partir de esta referencia](https://mugan86.github.io/ng-leaflet/es/aspectos-basicos/mapa-basico).
 
-### Estructura para configuraciones
+#### Estructura para configuraciones
 
 En este apartado, se os muestra la información general que se usará como base para implementar las configuraciones en las diferentes variantes.
 
@@ -94,15 +98,15 @@ export interface IConfigMap {
 }
 ```
 
-### Más detalles
+#### Más detalles
 
 Podemos encontrar más información en [documentación oficial](https://mugan86.github.io/ng-leaflet/en/summary).
 
-# Angular Leaflet Map 🏴󠁧󠁢󠁥󠁮󠁧󠁿
+## English 🏴󠁧󠁢󠁥󠁮󠁧󠁿
 
 [Angular CLI] (https://github.com/angular/angular-cli) Project created with version 13.0.2. for Angular application development with information showing maps for different purposes.
 
-## ⚙ Install / Configuration
+### ⚙ Install / Configuration
 
 In order to start working with the library, we are going to use the following reference:
 
@@ -110,7 +114,7 @@ In order to start working with the library, we are going to use the following re
 
 Taking the previous link as a reference, to install and configure the package in order to be able to implement Leaflet Maps in Angular in a simple way, we must follow the following steps:
 
-### Install NPM Package
+#### Install NPM Package
 
 We will execute the following command:
 
@@ -120,7 +124,7 @@ npm i @mugan86/ng-leaflet
 
 With these we will install the dependencies in our project.
 
-### Add package module
+#### Add package module
 
 In the section that we are going to use the functionality, we must add the module **"NgLeafletModule" calling the function forRoot()** and we can have as a reference to do it as an example with **app.module.ts.**
 
@@ -141,7 +145,7 @@ import { NgLeafletModule } from '@mugan86/ng-leaflet';
 export class AppModule {}
 ```
 
-### Add styles references
+#### Add styles references
 
 We have to take into account that when we have installed the package, the folder **`"@mugan86/ng-leaflet"`** will be added inside **`"node_modules"`** which contains the styles file needed to display the maps correctly.
 
@@ -159,7 +163,7 @@ We can add it to the file **`"styles.css"`** as follows:
 
 With these settings, we can start working with the map features [from this reference](https://mugan86.github.io/ng-leaflet/en/aspectos-basicos/mapa-basico).
 
-### Structure for configurations
+#### Structure for configurations
 
 In this section, we show you the general information that will be used as a basis to implement the configurations in the different variants.
 
@@ -193,6 +197,6 @@ export interface IConfigMap {
     };
 }
 ```
-### More details
+#### More details
 
 We found more info in official [documentation](https://mugan86.github.io/ng-leaflet/en/summary).

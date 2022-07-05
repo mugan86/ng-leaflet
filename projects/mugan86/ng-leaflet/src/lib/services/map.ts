@@ -17,8 +17,9 @@ export class BaseMap {
         this.mapId = (mapId) || 'map'
         this.zoom = config && (config!!.zoom) ? false : true;
         this.zoomValue = config && config.zoom?.default!! || 12;
-        this.defaultLayer = config && config.defaultLayer?.map!! &&  !config?.layers!!
-            ? config.defaultLayer :
+        
+        this.defaultLayer = (config?.defaultLayer?.map!! && !config?.layers!!)
+            ? config?.defaultLayer :
             {
                 map: tileLayers.baseLayers.default.map,
                 atribution: tileLayers.baseLayers.default.atribution
@@ -35,9 +36,9 @@ export class BaseMap {
         this.map = new Map(this.mapId, {
             zoomControl: this.zoom
         }).setView(this.center, this.zoomValue);
-       
-        tileLayerSelect(this.defaultLayer?.map, {
-            attribution: this.defaultLayer?.atribution
+
+        tileLayerSelect(this.defaultLayer?.map || tileLayers.baseLayers.default.map, {
+            attribution: this.defaultLayer?.atribution || tileLayers.baseLayers.default.atribution
         }).addTo(this.map)
 
     }
