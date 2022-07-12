@@ -3,9 +3,9 @@ import { CommonModule } from '@angular/common';
 
 import { MapRoutingModule } from './map-routing.module';
 import { MapComponent } from './map.component';
-import { IConfigMap, NgLeafletModule, tileLayers } from '@mugan86/ng-leaflet';
+import { IConfigMap, NgLeafletModule } from '@mugan86/ng-leaflet';
 
-/*const config: IConfigMap = {
+const config: IConfigMap = {
   fullscreen: true,
   center: [40.4378698,-3.8196188],
   zoom: {
@@ -13,10 +13,6 @@ import { IConfigMap, NgLeafletModule, tileLayers } from '@mugan86/ng-leaflet';
   },
   watermark: {
     position: 'topleft'
-  },
-  defaultLayer: {
-    map: 'https://tile.thunderforest.com/transport-dark/{z}/{x}/{y}.png?apikey=47455e4b0807408c87ead5d6f7a8d1c8',
-    atribution: tileLayers.baseLayers.default.atribution
   },
   /*layers: {
     baseLayers: [{
@@ -30,12 +26,12 @@ import { IConfigMap, NgLeafletModule, tileLayers } from '@mugan86/ng-leaflet';
       map: tileLayers.baseLayers.cycloOsm.map,
       atribution: tileLayers.baseLayers.cycloOsm.atribution
     }]
-  },
+  },*/
   drawRoute: {
     active: true,
     showControl: true
   }
-}*/
+}
 @NgModule({
   declarations: [
     MapComponent
@@ -43,7 +39,7 @@ import { IConfigMap, NgLeafletModule, tileLayers } from '@mugan86/ng-leaflet';
   imports: [
     CommonModule,
     MapRoutingModule,
-    NgLeafletModule.forRoot()
+    NgLeafletModule.forRoot(config)
   ]
 })
 export class MapModule { }
