@@ -100,7 +100,7 @@ export interface IConfigMap {
 
 #### Más detalles
 
-Podemos encontrar más información en [documentación oficial](https://mugan86.github.io/ng-leaflet/en/summary).
+Podemos encontrar más información en [documentación oficial](https://mugan86.github.io/ng-leaflet/es/summary).
 
 ## English 🏴󠁧󠁢󠁥󠁮󠁧󠁿
 

@@ -142,7 +142,7 @@ export class MapComponent implements AfterViewInit {
     this.setConfiguration();
     this.map = new Map(this.config || undefined, this.mapId || undefined);
     this.config!! && this.setControls();
-    if (this.config && this.config?.drawRoute && this.config?.drawRoute?.active) {
+    if (this.config && this.config!!.drawRoute && this.config!!.drawRoute!!.active) {
       if (this.markers.length >= 3) {
         new DrawMap(this.map.get()).drawPoints(this.markers);
       } else {

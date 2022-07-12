@@ -5,7 +5,7 @@ import { MapRoutingModule } from './map-routing.module';
 import { MapComponent } from './map.component';
 import { IConfigMap, NgLeafletModule, tileLayers } from '@mugan86/ng-leaflet';
 
-const config: IConfigMap = {
+/*const config: IConfigMap = {
   fullscreen: true,
   center: [40.4378698,-3.8196188],
   zoom: {
@@ -30,12 +30,12 @@ const config: IConfigMap = {
       map: tileLayers.baseLayers.cycloOsm.map,
       atribution: tileLayers.baseLayers.cycloOsm.atribution
     }]
-  },*/
+  },
   drawRoute: {
     active: true,
     showControl: true
   }
-}
+}*/
 @NgModule({
   declarations: [
     MapComponent
