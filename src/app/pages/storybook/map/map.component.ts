@@ -37,7 +37,10 @@ export class MapComponent{
       active: false,
       showControl: false
     },
-    markerColor: 'green'
+    markerColor: 'green',
+    ourLocation: {
+      active: false
+    }
   };
 
   configTwo?: IConfigMap = {

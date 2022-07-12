@@ -14,6 +14,9 @@ const config: IConfigMap = {
   watermark: {
     position: 'topleft'
   },
+  ourLocation: {
+    active: true
+  },
   /*layers: {
     baseLayers: [{
       label: 'Carto - Positron',
