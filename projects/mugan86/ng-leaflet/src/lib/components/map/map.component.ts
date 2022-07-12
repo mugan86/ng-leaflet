@@ -127,13 +127,17 @@ export class MapComponent implements AfterViewInit {
     if (!this.config!.fitBounds && this.defaultConfig.get().config.fitBounds) {
       this.config!.fitBounds = this.defaultConfig.get().config.fitBounds;
     }
-    
+
     if (!this.config!.drawRoute && this.defaultConfig.get().config.drawRoute) {
       this.config!.drawRoute = this.defaultConfig.get().config.drawRoute;
     }
 
     if (this.config!.markerColor!! === undefined && this.defaultConfig.get().config.markerColor) {
       this.config!.markerColor = this.defaultConfig.get().config.markerColor;
+    }
+
+    if (this.config!.ourLocation!! === undefined && this.defaultConfig.get().config.ourLocation) {
+      this.config!.ourLocation = this.defaultConfig.get().config.ourLocation;
     }
 
   }
@@ -165,9 +169,9 @@ export class MapComponent implements AfterViewInit {
     this.config!!.watermark && Controls.activeWatermark(this.map.get(), this.config!!.watermark);
     this.config!!.ourLocation?.active && Controls.getOurLocation(this.map.get(), this.config?.ourLocation.zoom || 12)
     this.config!!.drawRoute?.showControl && Controls.addTitle(
-      this.map.get(), 
-      this.config!!.drawRoute.title || '', 
-      this.config!!.drawRoute.subtitle || '', 
+      this.map.get(),
+      this.config!!.drawRoute.title || '',
+      this.config!!.drawRoute.subtitle || '',
       this.config!!.drawRoute.position
     );
   }
