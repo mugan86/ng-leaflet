@@ -29,7 +29,8 @@ class Markers {
     static add(map: Map, markers: Array<IMarker> = [], random: boolean = false, iconColor: string = MarkerColor.Blue) {
         const options = this.optionsConfig(iconColor);
         if (markers.length === 1 && !random) {
-            marker([markers[0].position.lat, markers[0].position.lng], options).addTo(map);
+            const markerElement = marker([markers[0].position.lat, markers[0].position.lng], options).addTo(map);
+            (markers[0].popup) && markerElement.bindPopup(markers[0].popup.content);
             return;
         }
         if (random) {
