@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { MapRoutingModule } from './map-routing.module';
 import { MapComponent } from './map.component';
-import { IConfigMap, NgLeafletModule, tileLayers } from '@mugan86/ng-leaflet';
+import { IConfigMap, NgLeafletModule } from '@mugan86/ng-leaflet';
 
 const config: IConfigMap = {
   fullscreen: true,
@@ -13,10 +13,6 @@ const config: IConfigMap = {
   },
   watermark: {
     position: 'topleft'
-  },
-  defaultLayer: {
-    map: 'https://tile.thunderforest.com/transport-dark/{z}/{x}/{y}.png?apikey=47455e4b0807408c87ead5d6f7a8d1c8',
-    atribution: tileLayers.baseLayers.default.atribution
   },
   /*layers: {
     baseLayers: [{
@@ -43,10 +39,7 @@ const config: IConfigMap = {
   imports: [
     CommonModule,
     MapRoutingModule,
-    NgLeafletModule.forRoot(config, {
-      width: '100%',
-      height: '600px'
-    })
+    NgLeafletModule.forRoot(config)
   ]
 })
 export class MapModule { }

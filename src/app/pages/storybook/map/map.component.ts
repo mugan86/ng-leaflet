@@ -19,6 +19,12 @@ export class MapComponent{
         lng: -2.367583962060063,
       },
     },
+    {
+      position: {
+        lat: 43.187665,
+        lng: -2.367583962060063,
+      },
+    },
   ];
   config?: IConfigMap = {
     defaultLayer: {
@@ -36,10 +42,6 @@ export class MapComponent{
 
   configTwo?: IConfigMap = {
     fitBounds: true,
-    drawRoute: {
-      active: false,
-      showControl: false
-    },
     markerColor: 'orange'
   };
   /*@Input() markers: Array<IMarker> = [{
