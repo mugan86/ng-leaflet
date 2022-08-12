@@ -1,6 +1,7 @@
 import { Map } from 'leaflet';
 import { tileLayerSelect } from '../config/tile-layers/helpers';
 import { tileLayers } from '../config/tile-layers/ui';
+import { IBaseLayer } from '../models';
 import { IConfigMap } from '../models/config-map';
 import { IMarker } from '../models/marker';
 
@@ -10,28 +11,36 @@ export class BaseMap {
     private center!: [number, number];
     private zoom = true;
     private zoomValue?: number;
+    private defaultLayer?: IBaseLayer;
     constructor(config?: IConfigMap, mapId?: string) {
-        this.center = config && config!!.center || [43.1824528,-2.3878554];
+        this.center = config && config!!.center || [43.1824528, -2.3878554];
         this.mapId = (mapId) || 'map'
-        this.zoom = config && (config!!.zoom) ? false: true;
-        this.zoomValue = config && config.zoom?.default || 12;
+        this.zoom = config && (config!!.zoom) ? false : true;
+        this.zoomValue = config && config.zoom?.default!! || 12;
         
-        this.init(config!!);
+        this.defaultLayer = (config?.defaultLayer?.map!! && !config?.layers!!)
+            ? config?.defaultLayer :
+            {
+                map: tileLayers.baseLayers.default.map,
+                atribution: tileLayers.baseLayers.default.atribution
+            }
+
+
+        this.init();
     }
 
     /**
      * Init map with set configurations
      */
-    private init(config: IConfigMap): void {
+    private init(): void {
         this.map = new Map(this.mapId, {
             zoomControl: this.zoom
         }).setView(this.center, this.zoomValue);
 
-        if (!config || !config.layers) {
-            tileLayerSelect(tileLayers.baseLayers.default.map, {
-                attribution: tileLayers.baseLayers.default.atribution
-            }).addTo(this.map)
-        }
+        tileLayerSelect(this.defaultLayer?.map || tileLayers.baseLayers.default.map, {
+            attribution: this.defaultLayer?.atribution || tileLayers.baseLayers.default.atribution
+        }).addTo(this.map)
+
     }
     get = () => this.map;
 
@@ -43,5 +52,5 @@ export class BaseMap {
         this.get().fitBounds([
             ...markers.map((point) => [point.position.lat, point.position.lng] as [number, number]),
         ]);
-    }    
+    }
 }

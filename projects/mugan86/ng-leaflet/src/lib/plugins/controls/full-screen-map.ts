@@ -3,12 +3,13 @@ import { Control, ControlPosition, DomUtil, Util } from "leaflet";
 const FullScreenMap = Control.extend({
 
     options: {
+        mapId: 'map',
         position: "topleft",
         exitText: 'Salir pantalla completa',
         fullText: "Ver en pantalla completa"
     },
 
-    initialize: function (options?: { position?: ControlPosition, exitText?: string }) {
+    initialize: function (options?: { position?: ControlPosition, exitText?: string, fullText?: string, mapId?: string }) {
         Util.setOptions(this, options);
     },
     onAdd: function () {
@@ -35,7 +36,7 @@ const FullScreenMap = Control.extend({
         container.onclick = () => {
             // https://developer.mozilla.org/en-US/docs/Web/API/Element/requestFullScreen
             if (!document.fullscreenElement) { // Si no estamos a pantalla completa
-                document.getElementById('map')?.requestFullscreen();
+                document.getElementById(this.options.mapId)?.requestFullscreen();
                 container.title = this.options.exitText;
             } else {
                 document.exitFullscreen();
@@ -47,5 +48,5 @@ const FullScreenMap = Control.extend({
 });
 
 export const fullScreenMap = (options?: {
-    position?: ControlPosition, entryText?: string, exitText?: string
+    position?: ControlPosition, entryText?: string, exitText?: string, mapId?: string
 }) => new FullScreenMap(options);

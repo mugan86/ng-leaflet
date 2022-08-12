@@ -76,7 +76,7 @@ export class MapComponent implements AfterViewInit {
       console.warn("Use Library default configs \n" + (JSON.stringify({
         fullscreen: false,
         center: [43.1824528, -2.3878554],
-        mapId: 'map',
+        mapId: this.mapId || 'map',
         zoom: true,
         zoomValue: 12,
         drawRoute: false
@@ -96,7 +96,6 @@ export class MapComponent implements AfterViewInit {
   }
 
   private checkAndAsignDefaultConfigs() {
-    
     if (!this.config!.center && this.defaultConfig.get().config.center) {
       this.config!.center = this.defaultConfig.get().config.center;
     }
@@ -109,7 +108,11 @@ export class MapComponent implements AfterViewInit {
       this.config!.scale = this.defaultConfig.get().config.scale;
     }
 
-    if (!this.config!.layers && this.defaultConfig.get().config.layers) {
+    if (!this.config!.defaultLayer && this.defaultConfig.get().config.defaultLayer) {
+      this.config!.defaultLayer = this.defaultConfig.get().config.defaultLayer;
+    }
+
+    if (!this.config!.layers && !this.config?.defaultLayer && this.defaultConfig.get().config.layers) {
       this.config!.layers = this.defaultConfig.get().config.layers;
     }
 
@@ -124,14 +127,19 @@ export class MapComponent implements AfterViewInit {
     if (!this.config!.fitBounds && this.defaultConfig.get().config.fitBounds) {
       this.config!.fitBounds = this.defaultConfig.get().config.fitBounds;
     }
-    
+
     if (!this.config!.drawRoute && this.defaultConfig.get().config.drawRoute) {
       this.config!.drawRoute = this.defaultConfig.get().config.drawRoute;
     }
 
-    if (!this.config!.markerColor && this.defaultConfig.get().config.markerColor) {
+    if (this.config!.markerColor!! === undefined && this.defaultConfig.get().config.markerColor) {
       this.config!.markerColor = this.defaultConfig.get().config.markerColor;
     }
+
+    if (this.config!.ourLocation!! === undefined && this.defaultConfig.get().config.ourLocation) {
+      this.config!.ourLocation = this.defaultConfig.get().config.ourLocation;
+    }
+
   }
 
   ngAfterViewInit(): void {
@@ -145,10 +153,10 @@ export class MapComponent implements AfterViewInit {
         console.warn('Need min 3 markers to draw correctly route');
       }
     } else {
-      const markerColor = this.config!!.markerColor || 'blue';
+      const markerColor = this.config?.markerColor || 'blue';
       this.markers && (this.markers.length) && Markers.add(this.map.get(), this.markers, false, markerColor);
       this.randomMarkers && Markers.add(this.map.get(), [], this.randomMarkers, markerColor);
-      this.markers && this.markers.length && this.config!.fitBounds && this.map.fitBounds(this.markers);
+      this.markers && this.markers.length && this.config?.fitBounds && this.map.fitBounds(this.markers);
     }
     this.setUpMap.emit(this.map.get());
   }
@@ -157,13 +165,13 @@ export class MapComponent implements AfterViewInit {
     this.config!!.scale && Controls.addScale(this.map.get(), this.config?.scale);
     this.config!!.layers && Controls.addBaseOverLayers(this.map.get(), this.config!!.layers);
     this.config!!.zoom && Controls.changeZoomConfig(this.map.get(), this.config?.zoom);
-    this.config!!.fullscreen && Controls.activeFullScreen(this.map.get());
+    this.config!!.fullscreen && Controls.activeFullScreen(this.map.get(), this.mapId);
     this.config!!.watermark && Controls.activeWatermark(this.map.get(), this.config!!.watermark);
     this.config!!.ourLocation?.active && Controls.getOurLocation(this.map.get(), this.config?.ourLocation.zoom || 12)
     this.config!!.drawRoute?.showControl && Controls.addTitle(
-      this.map.get(), 
-      this.config!!.drawRoute.title || '', 
-      this.config!!.drawRoute.subtitle || '', 
+      this.map.get(),
+      this.config!!.drawRoute.title || '',
+      this.config!!.drawRoute.subtitle || '',
       this.config!!.drawRoute.position
     );
   }

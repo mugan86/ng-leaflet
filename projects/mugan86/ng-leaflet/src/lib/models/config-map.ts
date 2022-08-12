@@ -1,6 +1,6 @@
 import { ControlPosition } from "leaflet";
 import { MarkerColorOptions } from "../config/markers/default";
-import { ILayers, IScaleOptions, IWatermarkOptions, IZoomOptions } from "./controls";
+import { IBaseLayer, ILayers, IScaleOptions, IWatermarkOptions, IZoomOptions } from "./controls";
 
 export interface IConfigMap {
     markerColor?: MarkerColorOptions;
@@ -9,6 +9,7 @@ export interface IConfigMap {
     layers?: ILayers;
     zoom?: IZoomOptions;
     fullscreen?: boolean;
+    defaultLayer?: IBaseLayer;
     watermark?: IWatermarkOptions;
     fitBounds?: boolean;
     ourLocation?: {
