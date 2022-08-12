@@ -6,8 +6,22 @@ import { Component } from '@angular/core';
   styleUrls: ['./map.component.css']
 })
 export class MapComponent{
+  oneMarker: Array<IMarker> = [
+    {
+      popup: {
+        content: 'One marker!!!'
+      },
+      position: {
+        lat: 43.17757110078426,
+        lng: -2.3661233885984085,
+      },
+    },
+  ]
   markers: Array<IMarker> = [
     {
+      popup: {
+        content: 'dddd'
+      },
       position: {
         lat: 43.17757110078426,
         lng: -2.3661233885984085,
