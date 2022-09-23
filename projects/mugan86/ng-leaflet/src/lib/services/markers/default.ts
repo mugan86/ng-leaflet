@@ -1,8 +1,8 @@
 import { Icon, Map, marker } from "leaflet";
-import { MarkerColor } from "../config/markers/default";
-import { IMarker } from "../models/marker";
+import { MarkerColor } from "../../config/markers/default";
+import { IMarker } from "../../models/layers/ui";
 
-class Markers {
+class DefaultMarker {
 
     /**
      * Implement all config to use in marker. In this moment ony exist icon custom
@@ -34,7 +34,7 @@ class Markers {
             return;
         }
         if (random) {
-            markers = Markers.randomValues(map);
+            markers = DefaultMarker.randomValues(map);
         }
         markers.map((markerItem) => {
             const markerElement = marker([markerItem.position.lat, markerItem.position.lng], {
@@ -72,4 +72,4 @@ class Markers {
     static addWithCluster() { }
 }
 
-export { Markers };
+export { DefaultMarker };

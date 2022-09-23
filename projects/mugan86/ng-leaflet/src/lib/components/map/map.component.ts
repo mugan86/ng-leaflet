@@ -1,7 +1,7 @@
 import { AfterViewInit, Component, EventEmitter, Input, Output } from '@angular/core';
 import { IMarker, IConfigMap } from './../../models';
 import { Controls } from '../../services/controls';
-import { Markers } from './../../services/markers';
+import { DefaultMarker } from '../../services/markers';
 import { LeafletMap as Map } from './../../services/ng-leaflet-map.service';
 import { Map as MapObject } from 'leaflet';
 import { ISizeMap } from '../../models/config-map';
@@ -153,9 +153,10 @@ export class MapComponent implements AfterViewInit {
         console.warn('Need min 3 markers to draw correctly route');
       }
     } else {
+      // TODO Circle Marker option
       const markerColor = this.config?.markerColor || 'blue';
-      this.markers && (this.markers.length) && Markers.add(this.map.get(), this.markers, false, markerColor);
-      this.randomMarkers && Markers.add(this.map.get(), [], this.randomMarkers, markerColor);
+      this.markers && (this.markers.length) && DefaultMarker.add(this.map.get(), this.markers, false, markerColor);
+      this.randomMarkers && DefaultMarker.add(this.map.get(), [], this.randomMarkers, markerColor);
       this.markers && this.markers.length && this.config?.fitBounds && this.map.fitBounds(this.markers);
     }
     this.setUpMap.emit(this.map.get());

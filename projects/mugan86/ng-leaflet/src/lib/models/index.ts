@@ -1,4 +1,4 @@
-import { IMarker } from "./marker";
+import { IMarker } from "./layers";
 import { IConfigMap, ISizeMap } from "./config-map";
 import { IRoutePointConfig } from "./route";
 import { IScaleOptions, IBaseLayer, ILayers, IOverLayer, IZoomOptions, IWatermarkOptions } from "./controls"

@@ -1,8 +1,7 @@
 import { Point } from "leaflet";
 
-export interface IMarker {
-    position: { lat: number; lng: number};
-    draggable?: boolean;
+interface ILayer {
+    position: { lat: number; lng: number };
     popup?: {
         content: string;
         options?: {
@@ -13,3 +12,7 @@ export interface IMarker {
         }
     }
 }
+
+export * from './ui';
+export * from './vector';
+export { ILayer };
