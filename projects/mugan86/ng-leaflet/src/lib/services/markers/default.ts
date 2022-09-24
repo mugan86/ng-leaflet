@@ -52,11 +52,12 @@ class DefaultMarker {
         const lngSpan = northEast.lng - southWest.lng;
         const latSpan = northEast.lat - southWest.lat;
 
-        let allPoints = [];
+        let allPoints: Array<IMarker> = [];
 
         // generate random points and add to array 'allPoints'
         for (let i = 0; i < 30; i++) {
             allPoints.push({
+                type: 'marker',
                 position: {
                     lat: southWest.lat + latSpan * Math.random(),
                     lng: southWest.lng + lngSpan * Math.random(),

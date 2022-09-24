@@ -18,8 +18,13 @@ Teniendo como referencia el anterior enlace, para instalar y configurar el paque
 
 Ejecutaremos el siguiente comando:
 
+NPM
 ```
 npm i @mugan86/ng-leaflet
+```
+Yarn
+```
+yarn add @mugan86/ng-leaflet
 ```
 
 Con estos instalaremos las dependencias en nuestro proyecto.
@@ -88,13 +93,7 @@ export interface IConfigMap {
         active: boolean;
         zoom?: number;
     };
-    drawRoute?: {                       // Opciones para dibujar ruta
-        active?: boolean;
-        title?: string;
-        subtitle?: string;
-        position?: ControlPosition; 
-        showControl?: boolean;
-    };
+    drawRoute?: IDrawRouteOptions;      // Opciones para dibujar ruta
 }
 ```
 
@@ -118,8 +117,13 @@ Taking the previous link as a reference, to install and configure the package in
 
 We will execute the following command:
 
+NPM
 ```
 npm i @mugan86/ng-leaflet
+```
+Yarn
+```
+yarn add @mugan86/ng-leaflet
 ```
 
 With these we will install the dependencies in our project.
@@ -188,13 +192,7 @@ export interface IConfigMap {
         active: boolean;
         zoom?: number;
     };
-    drawRoute?: {                       // Options for drawing path
-        active?: boolean;
-        title?: string;
-        subtitle?: string;
-        position?: ControlPosition; 
-        showControl?: boolean;
-    };
+    drawRoute?: IDrawRouteOptions;      // Options for drawing path
 }
 ```
 #### More details
