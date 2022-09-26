@@ -24,12 +24,12 @@ class Circle {
         });
     }
 
-    static options(circle: ICircle) {
+    private static options(circle: ICircle) {
         return {
             radius: circle.radius || 100,
             opacity: circle.opacity || 0.7,
-            weight: (circle.weight) ? circle.weight : 3,
-            stroke: true,
+            weight: circle.weight || 3,
+            stroke: (circle.stroke || circle.stroke === undefined)? true : false,
             color: circle.color || '#3388ff'
         }
     }
