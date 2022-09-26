@@ -1,7 +1,7 @@
 {
   "name": "@mugan86/ng-leaflet",
   "description": "Angular Version to working with Leaflet Maps library",
-  "version": "0.4.0",
+  "version": "0.5.1",
   "peerDependencies": {
     "@angular/common": ">=12",
     "@angular/core": ">=12"
@@ -12,5 +12,10 @@
     "leaflet": "1.7.1"
   },
   "license": "MIT",
+  "author": {
+    "name": "Anartz Mugika Ledo",
+    "email": "mugan86@gmail.com",
+    "url": "https://anartz-mugika.com/"
+  },
   "keywords": ["leaflet", "angular", "maps"]
 }

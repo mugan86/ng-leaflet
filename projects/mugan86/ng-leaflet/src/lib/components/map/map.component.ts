@@ -1,12 +1,13 @@
 import { AfterViewInit, Component, EventEmitter, Input, Output } from '@angular/core';
 import { IMarker, IConfigMap } from './../../models';
 import { Controls } from '../../services/controls';
-import { Markers } from './../../services/markers';
+import { Circle, DefaultMarker } from '../../services/markers';
 import { LeafletMap as Map } from './../../services/ng-leaflet-map.service';
 import { Map as MapObject } from 'leaflet';
 import { ISizeMap } from '../../models/config-map';
 import { DefaultConfig } from '../../services';
 import { DrawMap } from '../../services/draw-map';
+import { ICircle } from '../../models/layers';
 @Component({
   selector: 'ng-leaflet-map',
   templateUrl: './map.component.html',
@@ -23,7 +24,7 @@ export class MapComponent implements AfterViewInit {
   /**
    * Markers
    */
-  @Input() markers!: Array<IMarker>;
+  @Input() markers!: Array<IMarker | ICircle>;
   /**
    * Button contents
    *
@@ -146,6 +147,12 @@ export class MapComponent implements AfterViewInit {
     this.setConfiguration();
     this.map = new Map(this.config || undefined, this.mapId || undefined);
     this.config!! && this.setControls();
+    this.drawRouteOptions();
+    // Send all map apply configs to expand with use leaflet native library to implement many functions
+    this.setUpMap.emit(this.map.get());
+  }
+
+  private drawRouteOptions() {
     if (this.config && this.config!!.drawRoute && this.config!!.drawRoute!!.active) {
       if (this.markers.length >= 3) {
         new DrawMap(this.map.get()).drawPoints(this.markers);
@@ -153,12 +160,15 @@ export class MapComponent implements AfterViewInit {
         console.warn('Need min 3 markers to draw correctly route');
       }
     } else {
-      const markerColor = this.config?.markerColor || 'blue';
-      this.markers && (this.markers.length) && Markers.add(this.map.get(), this.markers, false, markerColor);
-      this.randomMarkers && Markers.add(this.map.get(), [], this.randomMarkers, markerColor);
-      this.markers && this.markers.length && this.config?.fitBounds && this.map.fitBounds(this.markers);
+      this.randomMarkers && DefaultMarker.add(this.map.get(), [], this.randomMarkers, this.config?.markerColor || 'blue');
+
+      if (this.markers && (this.markers.length)) {
+        (!this.markers[0].type || this.markers[0].type === 'marker') && DefaultMarker.add(this.map.get(), this.markers, false, this.config?.markerColor || 'blue');
+        this.markers[0].type === 'circle' && Circle.add(this.map.get(), this.markers)
+        // Bounds
+        this.config?.fitBounds && this.map.fitBounds(this.markers);
+      }
     }
-    this.setUpMap.emit(this.map.get());
   }
 
   setControls() {

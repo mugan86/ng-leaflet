@@ -12,17 +12,21 @@ export interface IConfigMap {
     defaultLayer?: IBaseLayer;
     watermark?: IWatermarkOptions;
     fitBounds?: boolean;
-    ourLocation?: {
-        active: boolean;
-        zoom?: number;
-    };
-    drawRoute?: {
-        active?: boolean;
-        title?: string;
-        subtitle?: string;
-        position?: ControlPosition; 
-        showControl?: boolean;
-    };
+    ourLocation?: IOurLocationOptions;
+    drawRoute?: IDrawRouteOptions;
+}
+
+interface IOurLocationOptions {
+    active: boolean;
+    zoom?: number;
+}
+
+interface IDrawRouteOptions {
+    active?: boolean;
+    title?: string;
+    subtitle?: string;
+    position?: ControlPosition;
+    showControl?: boolean;
 }
 
 export interface ISizeMap {
