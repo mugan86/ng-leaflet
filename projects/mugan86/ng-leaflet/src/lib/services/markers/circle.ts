@@ -1,7 +1,6 @@
 
-import { ICircle, IMarker } from "../../models/layers";
+import { ICircle } from "../../models/layers";
 import { Map, circle } from "leaflet";
-import { MarkerColor } from "../../config/markers/default";
 class Circle {
 
     /**
@@ -17,7 +16,7 @@ class Circle {
             return;
         }
 
-        markers.map((item) => {
+        markers.forEach((item: ICircle) => {
             const options = Circle.options(item);
             const markerElement = circle([item.position.lat, item.position.lng], options).addTo(map);
             (item.popup) && markerElement.bindPopup(item.popup.content);

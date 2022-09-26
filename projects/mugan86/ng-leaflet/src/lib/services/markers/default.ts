@@ -36,7 +36,7 @@ class DefaultMarker {
         if (random) {
             markers = DefaultMarker.randomValues(map);
         }
-        markers.map((markerItem) => {
+        markers.forEach((markerItem) => {
             const markerElement = marker([markerItem.position.lat, markerItem.position.lng], {
                 ...options, draggable: markerItem.draggable
             }).addTo(map);
