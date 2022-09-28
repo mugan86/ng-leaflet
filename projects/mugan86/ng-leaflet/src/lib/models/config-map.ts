@@ -1,6 +1,6 @@
 import { ControlPosition } from "leaflet";
 import { MarkerColorOptions } from "../config/markers/default";
-import { IBaseLayer, ILayers, IScaleOptions, IWatermarkOptions, IZoomOptions } from "./controls";
+import { IBackToHomeOptions, IBaseLayer, ILayers, IScaleOptions, IWatermarkOptions, IZoomOptions } from "./controls";
 
 export interface IConfigMap {
     markerColor?: MarkerColorOptions;
@@ -14,6 +14,7 @@ export interface IConfigMap {
     fitBounds?: boolean;
     ourLocation?: IOurLocationOptions;
     drawRoute?: IDrawRouteOptions;
+    backToHome?: IBackToHomeOptions;
 }
 
 interface IOurLocationOptions {

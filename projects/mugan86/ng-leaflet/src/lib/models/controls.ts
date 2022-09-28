@@ -13,6 +13,12 @@ export interface IScaleOptions {
     updateWhenIdle?: boolean | undefined;
 }
 
+export interface IBackToHomeOptions {
+    position?: ControlPosition;
+    home?: { lat: number, lng: number };
+    text?: string;
+}
+
 export interface ILayers {
     baseLayers: Array<IBaseLayer>;
     overLayers?: Array<IOverLayer>
