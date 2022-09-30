@@ -15,6 +15,7 @@ export interface IConfigMap {
     ourLocation?: IOurLocationOptions;
     drawRoute?: IDrawRouteOptions;
     backToHome?: IBackToHomeOptions;
+    events?: boolean;
 }
 
 interface IOurLocationOptions {
