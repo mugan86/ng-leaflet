@@ -17,6 +17,7 @@ export interface IBackToHomeOptions {
     position?: ControlPosition;
     home?: { lat: number, lng: number };
     text?: string;
+    zoom?: number;
 }
 
 export interface ILayers {
