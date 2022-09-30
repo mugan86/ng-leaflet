@@ -1,10 +1,8 @@
 import { control, ControlPosition, Map } from 'leaflet';
 import { tileLayerSelect } from '../config/tile-layers/helpers';
-import { IBaseLayer, IOverLayer, ILayers, IScaleOptions, IZoomOptions, IWatermarkOptions } from '../models/controls'
-import { textContent } from '../plugins/controls';
-import { fullScreenMap } from '../plugins/controls/full-screen-map';
-import { geolocation } from '../plugins/controls/geolocation';
-import { watermark } from '../plugins/controls/watermark';
+import { IBaseLayer, IOverLayer, ILayers, IScaleOptions, IZoomOptions, IWatermarkOptions, IBackToHomeOptions } from '../models/controls'
+import { backToHome, fullScreenMap, geolocation, textContent, watermark } from '../plugins';
+
 class Controls {
 
     static changeZoomConfig(map: Map, config?: IZoomOptions) {
@@ -85,20 +83,24 @@ class Controls {
 
     static getOurLocation(map: Map, zoom: number, position?: ControlPosition) {
         geolocation({
-            position: (position) || 'topleft', 
+            position: (position) || 'topleft',
             zoom
         }).addTo(map);
     }
 
     static addTitle(map: Map, title: string, subtitle: string = '', position?: ControlPosition) {
-        textContent( {
+        textContent({
             position: (position) || 'bottomleft',
             title,
             subtitle
         }).addTo(map);
     }
 
-    
+    static showBackToHome(map: Map, config?: IBackToHomeOptions) {
+        backToHome(config).addTo(map);
+    }
+
+
 }
 
 export { Controls }

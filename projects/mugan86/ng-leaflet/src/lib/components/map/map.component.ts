@@ -184,6 +184,8 @@ export class MapComponent implements AfterViewInit {
       this.config!!.drawRoute.subtitle || '',
       this.config!!.drawRoute.position
     );
+    this.config!!.backToHome && Controls.showBackToHome(this.map.get(), this.config?.backToHome);
+
   }
 
 }
