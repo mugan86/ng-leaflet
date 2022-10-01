@@ -3,7 +3,7 @@ import { IMarker, IConfigMap } from './../../models';
 import { Controls } from '../../services/controls';
 import { Circle, DefaultMarker } from '../../services/markers';
 import { LeafletMap as Map } from './../../services/ng-leaflet-map.service';
-import { Map as MapObject } from 'leaflet';
+import { LeafletEvent, LeafletMouseEvent, Map as MapObject } from 'leaflet';
 import { ISizeMap } from '../../models/config-map';
 import { DefaultConfig } from '../../services';
 import { DrawMap } from '../../services/draw-map';
@@ -46,6 +46,25 @@ export class MapComponent implements AfterViewInit {
     */
   @Output() setUpMap: EventEmitter<MapObject> = new EventEmitter<MapObject>();
   private map!: Map;
+
+  // Mouse Map Events
+	@Output('leafletClick') onClick = new EventEmitter<LeafletMouseEvent>();
+	@Output('leafletDoubleClick') onDoubleClick = new EventEmitter<LeafletMouseEvent>();
+	@Output('leafletMouseDown') onMouseDown = new EventEmitter<LeafletMouseEvent>();
+	@Output('leafletMouseUp') onMouseUp = new EventEmitter<LeafletMouseEvent>();
+	@Output('leafletMouseMove') onMouseMove = new EventEmitter<LeafletMouseEvent>();
+	@Output('leafletMouseOver') onMouseOver = new EventEmitter<LeafletMouseEvent>();
+	@Output('leafletMouseOut') onMouseOut = new EventEmitter<LeafletMouseEvent>();
+
+	// Map Move Events
+	@Output('leafletMapMove') onMapMove = new EventEmitter<LeafletEvent>();
+	@Output('leafletMapMoveStart') onMapMoveStart = new EventEmitter<LeafletEvent>();
+	@Output('leafletMapMoveEnd') onMapMoveEnd = new EventEmitter<LeafletEvent>();
+
+	// Map Zoom Events
+	@Output('leafletMapZoom') onMapZoom = new EventEmitter<LeafletEvent>();
+	@Output('leafletMapZoomStart') onMapZoomStart = new EventEmitter<LeafletEvent>();
+	@Output('leafletMapZoomEnd') onMapZoomEnd = new EventEmitter<LeafletEvent>();
 
   constructor(private defaultConfig: DefaultConfig) { }
 
@@ -93,7 +112,6 @@ export class MapComponent implements AfterViewInit {
       // Rewrite
       this.checkAndAsignDefaultConfigs()
     }
-
   }
 
   private checkAndAsignDefaultConfigs() {
@@ -150,6 +168,8 @@ export class MapComponent implements AfterViewInit {
     this.drawRouteOptions();
     // Send all map apply configs to expand with use leaflet native library to implement many functions
     this.setUpMap.emit(this.map.get());
+    // Register all map events to use
+    this.config && this.config.events && this.addMapEventListeners();
   }
 
   private drawRouteOptions() {
@@ -185,7 +205,28 @@ export class MapComponent implements AfterViewInit {
       this.config!!.drawRoute.position
     );
     this.config!!.backToHome && Controls.showBackToHome(this.map.get(), this.config?.backToHome);
+  }
+  private event(action: string, emitOption: any) {
+    this.map.get().on(action , emitOption);
+  }
 
+  private addMapEventListeners() {
+    // Mouse events
+    this.event('click', (e: any) => this.onClick.emit(e));
+    this.event('dblclick' , (e: any) => this.onDoubleClick.emit(e));
+    this.event('mousedown' , (e: any) => this.onMouseDown.emit(e));
+    this.event('mouseup', (e: any) => this.onMouseUp.emit(e));
+    this.event('mousemove' , (e: any) => this.onMouseMove.emit(e));
+    this.event('mouseover', (e: any) => this.onMouseOver.emit(e));
+    this.event('mouseout', (e: any) => this.onMouseOut.emit(e));
+    // Map move events
+    this.event('move', (e: any) => this.onMapMove.emit(e));
+    this.event('movestart', (e: any) => this.onMapMoveStart.emit(e));
+    this.event('moveend', (e: any) => this.onMapMoveEnd.emit(e));
+	  // Map Zoom Events
+    this.event('zoom', (e: any) => this.onMapZoom.emit(e));
+    this.event('zoomstart', (e: any) => this.onMapZoomStart.emit(e));
+    this.event('zoomend', (e: any) => this.onMapZoomEnd.emit(e));
   }
 
 }

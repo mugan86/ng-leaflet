@@ -1,7 +1,7 @@
 {
   "name": "@mugan86/ng-leaflet",
   "description": "Angular Version to working with Leaflet Maps library",
-  "version": "0.5.1",
+  "version": "0.6.0",
   "peerDependencies": {
     "@angular/common": ">=12",
     "@angular/core": ">=12"
