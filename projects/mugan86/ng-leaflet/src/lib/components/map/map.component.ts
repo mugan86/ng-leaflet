@@ -112,7 +112,6 @@ export class MapComponent implements AfterViewInit {
       // Rewrite
       this.checkAndAsignDefaultConfigs()
     }
-
   }
 
   private checkAndAsignDefaultConfigs() {
@@ -207,12 +206,27 @@ export class MapComponent implements AfterViewInit {
     );
     this.config!!.backToHome && Controls.showBackToHome(this.map.get(), this.config?.backToHome);
   }
+  private event(action: string, emitOption: any) {
+    this.map.get().on(action , emitOption);
+  }
 
-  addMapEventListeners() {
-    this.map.get().on('click' , (e: any) => this.onClick.emit(e));
-    this.map.get().on('dblclick' , (e: any) => this.onDoubleClick.emit(e));
-    this.map.get().on('mousedown' , (e: any) => this.onMouseDown.emit(e));
-    this.map.get().on('mouseup', (e: any) => this.onMouseUp.emit(e));
+  private addMapEventListeners() {
+    // Mouse events
+    this.event('click', (e: any) => this.onClick.emit(e));
+    this.event('dblclick' , (e: any) => this.onDoubleClick.emit(e));
+    this.event('mousedown' , (e: any) => this.onMouseDown.emit(e));
+    this.event('mouseup', (e: any) => this.onMouseUp.emit(e));
+    this.event('mousemove' , (e: any) => this.onMouseMove.emit(e));
+    this.event('mouseover', (e: any) => this.onMouseOver.emit(e));
+    this.event('mouseout', (e: any) => this.onMouseOut.emit(e));
+    // Map move events
+    this.event('move', (e: any) => this.onMapMove.emit(e));
+    this.event('movestart', (e: any) => this.onMapMoveStart.emit(e));
+    this.event('moveend', (e: any) => this.onMapMoveEnd.emit(e));
+	  // Map Zoom Events
+    this.event('zoom', (e: any) => this.onMapZoom.emit(e));
+    this.event('zoomstart', (e: any) => this.onMapZoomStart.emit(e));
+    this.event('zoomend', (e: any) => this.onMapZoomEnd.emit(e));
   }
 
 }
